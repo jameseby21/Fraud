@@ -1,0 +1,17 @@
+record_id,date,party,amount_or_quantity,review_group,note,identity_status
+RT-00,2026-03-03,Alder Field Services,8425,G-ALDER,routine activity,fictional
+RT-01,2026-03-03,Alder Field Services,17640,G-ALDER,routine activity,fictional
+RT-02,2026-03-03,Alder Field Services,23935,G-ALDER,routine activity,fictional
+RT-03,2026-03-04,Birch Office Supply,1278,G-BIRCH,routine activity,fictional
+RT-04,2026-03-05,Cedar Transit,6842,G-CEDAR,routine activity,fictional
+RT-05,2026-03-04,Birch Office Supply,9217,G-BIRCH,routine activity,fictional
+RT-06,2026-03-06,Dogwood Media,4813,G-DOGWOOD,routine activity,fictional
+RT-07,2026-03-05,Cedar Transit,3306,G-CEDAR,routine activity,fictional
+RT-08,2026-03-07,Elm Catering,7794,G-ELM,routine activity,fictional
+RT-09,2026-03-07,Fir Safety Group,11642,G-FIR,routine activity,fictional
+RT-10,2026-03-06,Dogwood Media,2289,G-DOGWOOD,routine activity,fictional
+RT-11,2026-03-07,Elm Catering,5371,G-ELM,routine activity,fictional
+RT-12,2026-03-07,Fir Safety Group,4488,G-FIR,routine activity,fictional
+RT-13,2026-03-08,Hawthorn Repair,9654,G-HAWTHORN,routine activity,fictional
+RT-14,2026-03-09,Ivy Rental,2711,G-IVY,routine activity,fictional
+RT-15,2026-03-10,Ivy Rental,6247,G-IVY,routine activity,fictional

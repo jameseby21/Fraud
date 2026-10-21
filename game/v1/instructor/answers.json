@@ -1,0 +1,46 @@
+{
+  "authorization": {
+    "completeness_bonus": 20,
+    "exposure": "3 sampled records with missing references",
+    "false_positive_penalty": 15,
+    "maximum_speed_bonus": 20,
+    "rationale": "Three of four Branch 303 rows lack authorization references while comparison branches retain them. Audit the source system and process; missing references alone do not prove unauthorized opening.",
+    "severity": "moderate",
+    "target_ids": [
+      "C-AUTH-03"
+    ]
+  },
+  "market-capacity": {
+    "completeness_bonus": 20,
+    "exposure": "100,800 fictional units",
+    "false_positive_penalty": 15,
+    "maximum_speed_bonus": 20,
+    "rationale": "AXL claims exceed the complete matching tape by only 0.8%. The group is inconsistent, but the case file cannot identify which confirmation is false or who caused the conflict.",
+    "severity": "high",
+    "target_ids": [
+      "C-MKT-01"
+    ]
+  },
+  "number-pattern": {
+    "completeness_bonus": 20,
+    "exposure": "8,011.10 fictional USD",
+    "false_positive_penalty": 15,
+    "maximum_speed_bonus": 20,
+    "rationale": "The West cohort is designed with evenly spaced dollar components and sequential cents endings. That makes it a document-review target, but four records cannot establish fabrication or justify a formal distribution test.",
+    "severity": "low",
+    "target_ids": [
+      "C-NUM-04"
+    ]
+  },
+  "round-total": {
+    "completeness_bonus": 20,
+    "exposure": "50,000 fictional units",
+    "false_positive_penalty": 15,
+    "maximum_speed_bonus": 20,
+    "rationale": "Three Alder records on the same date sum exactly to 50,000. Request receipts, approval, purpose, and payment evidence; the pattern alone does not establish misconduct.",
+    "severity": "moderate",
+    "target_ids": [
+      "C-ROUND-01"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+record_id,date,party,amount_or_quantity,review_group,note,identity_status
+MC-00,2026-05-14,Pine Harbor Account,25200,AXL-2026-05-14,confirmation arithmetic passes,fictional
+MC-01,2026-05-14,Pine Harbor Account,25150,AXL-2026-05-14,confirmation arithmetic passes,fictional
+MC-02,2026-05-14,Pine Harbor Account,25450,AXL-2026-05-14,confirmation arithmetic passes,fictional
+MC-03,2026-05-14,Pine Harbor Account,25000,AXL-2026-05-14,confirmation arithmetic passes,fictional
+MC-04,2026-05-14,Lakefront Account,18200,BEX-2026-05-14,confirmation arithmetic passes,fictional
+MC-05,2026-05-14,Lakefront Account,9100,BEX-2026-05-14,confirmation arithmetic passes,fictional
+MC-06,2026-05-14,Lakefront Account,13400,BEX-2026-05-14,confirmation arithmetic passes,fictional
+MC-07,2026-05-14,Lakefront Account,7800,BEX-2026-05-14,confirmation arithmetic passes,fictional
+MC-08,2026-05-15,Redwood Account,6600,CRN-2026-05-15,confirmation arithmetic passes,fictional
+MC-09,2026-05-15,Redwood Account,5900,CRN-2026-05-15,confirmation arithmetic passes,fictional
+MC-10,2026-05-15,Redwood Account,12100,CRN-2026-05-15,confirmation arithmetic passes,fictional
+MC-11,2026-05-15,Redwood Account,8800,CRN-2026-05-15,confirmation arithmetic passes,fictional
+MC-12,2026-05-15,Juniper Account,7400,DOV-2026-05-15,confirmation arithmetic passes,fictional
+MC-13,2026-05-15,Juniper Account,10900,DOV-2026-05-15,confirmation arithmetic passes,fictional
+MC-14,2026-05-15,Juniper Account,8200,DOV-2026-05-15,confirmation arithmetic passes,fictional
+MC-15,2026-05-15,Juniper Account,9700,DOV-2026-05-15,confirmation arithmetic passes,fictional

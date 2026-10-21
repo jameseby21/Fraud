@@ -1,0 +1,181 @@
+{
+  "brief": "All confirmation arithmetic passes. Compare grouped quantities with the supplied complete fictional market tape.",
+  "candidates": [
+    {
+      "id": "C-MKT-01",
+      "label": "AXL May 14: claims 100,800; complete tape 100,000",
+      "points": 75
+    },
+    {
+      "id": "C-MKT-02",
+      "label": "BEX May 14: claims 48,500; tape 75,000",
+      "points": 30
+    },
+    {
+      "id": "C-MKT-03",
+      "label": "CRN May 15: claims 33,400; tape 54,000",
+      "points": 30
+    },
+    {
+      "id": "C-MKT-04",
+      "label": "DOV May 15: claims 36,200; tape 62,000",
+      "points": 30
+    }
+  ],
+  "course_path": "Forensic practicum lesson 4: statement capacity",
+  "difficulty": "advanced",
+  "id": "market-capacity",
+  "ledger": [
+    {
+      "amount_or_quantity": 25200,
+      "date": "2026-05-14",
+      "identity_status": "fictional",
+      "note": "confirmation arithmetic passes",
+      "party": "Pine Harbor Account",
+      "record_id": "MC-00",
+      "review_group": "AXL-2026-05-14"
+    },
+    {
+      "amount_or_quantity": 25150,
+      "date": "2026-05-14",
+      "identity_status": "fictional",
+      "note": "confirmation arithmetic passes",
+      "party": "Pine Harbor Account",
+      "record_id": "MC-01",
+      "review_group": "AXL-2026-05-14"
+    },
+    {
+      "amount_or_quantity": 25450,
+      "date": "2026-05-14",
+      "identity_status": "fictional",
+      "note": "confirmation arithmetic passes",
+      "party": "Pine Harbor Account",
+      "record_id": "MC-02",
+      "review_group": "AXL-2026-05-14"
+    },
+    {
+      "amount_or_quantity": 25000,
+      "date": "2026-05-14",
+      "identity_status": "fictional",
+      "note": "confirmation arithmetic passes",
+      "party": "Pine Harbor Account",
+      "record_id": "MC-03",
+      "review_group": "AXL-2026-05-14"
+    },
+    {
+      "amount_or_quantity": 18200,
+      "date": "2026-05-14",
+      "identity_status": "fictional",
+      "note": "confirmation arithmetic passes",
+      "party": "Lakefront Account",
+      "record_id": "MC-04",
+      "review_group": "BEX-2026-05-14"
+    },
+    {
+      "amount_or_quantity": 9100,
+      "date": "2026-05-14",
+      "identity_status": "fictional",
+      "note": "confirmation arithmetic passes",
+      "party": "Lakefront Account",
+      "record_id": "MC-05",
+      "review_group": "BEX-2026-05-14"
+    },
+    {
+      "amount_or_quantity": 13400,
+      "date": "2026-05-14",
+      "identity_status": "fictional",
+      "note": "confirmation arithmetic passes",
+      "party": "Lakefront Account",
+      "record_id": "MC-06",
+      "review_group": "BEX-2026-05-14"
+    },
+    {
+      "amount_or_quantity": 7800,
+      "date": "2026-05-14",
+      "identity_status": "fictional",
+      "note": "confirmation arithmetic passes",
+      "party": "Lakefront Account",
+      "record_id": "MC-07",
+      "review_group": "BEX-2026-05-14"
+    },
+    {
+      "amount_or_quantity": 6600,
+      "date": "2026-05-15",
+      "identity_status": "fictional",
+      "note": "confirmation arithmetic passes",
+      "party": "Redwood Account",
+      "record_id": "MC-08",
+      "review_group": "CRN-2026-05-15"
+    },
+    {
+      "amount_or_quantity": 5900,
+      "date": "2026-05-15",
+      "identity_status": "fictional",
+      "note": "confirmation arithmetic passes",
+      "party": "Redwood Account",
+      "record_id": "MC-09",
+      "review_group": "CRN-2026-05-15"
+    },
+    {
+      "amount_or_quantity": 12100,
+      "date": "2026-05-15",
+      "identity_status": "fictional",
+      "note": "confirmation arithmetic passes",
+      "party": "Redwood Account",
+      "record_id": "MC-10",
+      "review_group": "CRN-2026-05-15"
+    },
+    {
+      "amount_or_quantity": 8800,
+      "date": "2026-05-15",
+      "identity_status": "fictional",
+      "note": "confirmation arithmetic passes",
+      "party": "Redwood Account",
+      "record_id": "MC-11",
+      "review_group": "CRN-2026-05-15"
+    },
+    {
+      "amount_or_quantity": 7400,
+      "date": "2026-05-15",
+      "identity_status": "fictional",
+      "note": "confirmation arithmetic passes",
+      "party": "Juniper Account",
+      "record_id": "MC-12",
+      "review_group": "DOV-2026-05-15"
+    },
+    {
+      "amount_or_quantity": 10900,
+      "date": "2026-05-15",
+      "identity_status": "fictional",
+      "note": "confirmation arithmetic passes",
+      "party": "Juniper Account",
+      "record_id": "MC-13",
+      "review_group": "DOV-2026-05-15"
+    },
+    {
+      "amount_or_quantity": 8200,
+      "date": "2026-05-15",
+      "identity_status": "fictional",
+      "note": "confirmation arithmetic passes",
+      "party": "Juniper Account",
+      "record_id": "MC-14",
+      "review_group": "DOV-2026-05-15"
+    },
+    {
+      "amount_or_quantity": 9700,
+      "date": "2026-05-15",
+      "identity_status": "fictional",
+      "note": "confirmation arithmetic passes",
+      "party": "Juniper Account",
+      "record_id": "MC-15",
+      "review_group": "DOV-2026-05-15"
+    }
+  ],
+  "reference": [
+    "Match security, date, units, and venue scope.",
+    "A group above complete capacity cannot all be true.",
+    "Aggregate contradiction cannot identify a false line."
+  ],
+  "time_limit_minutes": 12,
+  "title": "The polished confirmations"
+}

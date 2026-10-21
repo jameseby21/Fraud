@@ -12,6 +12,7 @@ from freshness import library_freshness
 import learning
 import record_library
 import forensic_fixture
+import game_fixture
 
 ROOT = Path(__file__).resolve().parent
 
@@ -19,17 +20,24 @@ ROOT = Path(__file__).resolve().parent
 class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         path = urlsplit(self.path).path
-        if path != '/api/learning/quiz':
+        if path not in ('/api/learning/quiz', '/api/game/score'):
             self.send_error(404)
             return
         try:
             length = int(self.headers.get('Content-Length', '0'))
-            if length < 2 or length > 4096 or self.headers.get_content_type() != 'application/json':
+            if length < 2 or length > (8192 if path == '/api/game/score' else 4096) or self.headers.get_content_type() != 'application/json':
                 raise ValueError('Invalid request')
             payload = json.loads(self.rfile.read(length))
-            if not isinstance(payload, dict) or not isinstance(payload.get('quiz_id'), str):
+            if not isinstance(payload, dict):
                 raise ValueError('Invalid request')
-            result = learning.evaluate_quiz(payload['quiz_id'], payload.get('answer'))
+            if path == '/api/learning/quiz':
+                if not isinstance(payload.get('quiz_id'), str):
+                    raise ValueError('Invalid request')
+                result = learning.evaluate_quiz(payload['quiz_id'], payload.get('answer'))
+            else:
+                if not isinstance(payload.get('case_id'), str):
+                    raise ValueError('Invalid request')
+                result = game_fixture.score_case(payload['case_id'], payload.get('selections'), payload.get('elapsed_seconds'))
             body = json.dumps(result).encode()
         except KeyError:
             self.send_error(404, 'Unknown quiz')
@@ -74,6 +82,19 @@ class Handler(BaseHTTPRequestHandler):
                 body, kind = json.dumps(learning.load_catalog()).encode(), 'application/json'
             elif path == '/api/learning/glossary':
                 body, kind = json.dumps(learning.load_glossary()).encode(), 'application/json'
+            elif path == '/api/game/catalog':
+                body, kind = json.dumps(game_fixture.build_game()['catalog']).encode(), 'application/json'
+            elif path == '/api/game/case':
+                body, kind = json.dumps(game_fixture.public_case(query.get('id', [''])[0])).encode(), 'application/json'
+            elif path == '/api/game/download':
+                selected = query.get('name', [''])[0]
+                files = {'rules': 'game/v1/rules.md', 'score-sheet': 'game/v1/score-sheet.csv'}
+                files.update({case_id+'-ledger': f'game/v1/ledgers/{case_id}.csv' for case_id in game_fixture.build_game()['players']})
+                files.update({case_id+'-case': f'game/v1/print/{case_id}.md' for case_id in game_fixture.build_game()['players']})
+                if selected not in files:
+                    raise KeyError(selected)
+                target = ROOT / files[selected]
+                body, kind, filename = target.read_bytes(), 'application/octet-stream', target.name
             elif path == '/api/learning/lesson':
                 result = learning.lesson_document(query.get('course', [''])[0], query.get('lesson', [''])[0])
                 result['html'] = learning.render_markdown(result['markdown'])
@@ -160,6 +181,10 @@ class Handler(BaseHTTPRequestHandler):
                 body, kind, filename = target.read_bytes(), "application/octet-stream", target.name
             elif path in ('/learn', '/learn.js', '/learn.css'):
                 name = {'/learn': 'learn.html', '/learn.js': 'learn.js', '/learn.css': 'learn.css'}[path]
+                kind = {'html': 'text/html', 'js': 'text/javascript', 'css': 'text/css'}[name.split('.')[-1]] + '; charset=utf-8'
+                body = (ROOT / 'web' / name).read_bytes()
+            elif path in ('/game', '/game.js', '/game.css'):
+                name = {'/game': 'game.html', '/game.js': 'game.js', '/game.css': 'game.css'}[path]
                 kind = {'html': 'text/html', 'js': 'text/javascript', 'css': 'text/css'}[name.split('.')[-1]] + '; charset=utf-8'
                 body = (ROOT / 'web' / name).read_bytes()
             elif path in ("/", "/library", "/library.js", "/library.css"):

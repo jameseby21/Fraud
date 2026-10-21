@@ -4,7 +4,7 @@ An open-source investigation workbench: transparent methods, traceable evidence,
 
 This README is the canonical project entry point. The [linked documentation tree and required update map](docs/DOCTREE.md) define which guides, lessons and records must change with each feature. Run `python documentation.py` to check local links and reachability. Test-first work proceeds from focused functions to integration and the complete suite before committing and pushing; checkpoint notes record actual results and limitations.
 
-Current verification: 121 tests pass with zero skips on Windows/Linux CI; all eleven Python notebooks execute; both base-R tracks pass on Linux; local browser flows pass. [Recorded results](docs/checkpoints/CP-011.md). Power BI Desktop and local Windows R remain manual acceptance checks. The documentation graph currently covers 72 Markdown pages; mechanical link checks do not prove semantic correctness.
+Current local checkpoint verification: 144 tests pass with zero skips; all thirteen Python notebooks execute; game, course, library, and mobile browser flows pass; the documentation graph covers 95 Markdown pages. [Recorded results](docs/checkpoints/CP-015.md). The pushed CI workflow repeats Windows/Linux checks; Power BI Desktop, physical print fit, and interactive local Windows R remain manual acceptance checks. Mechanical link checks do not prove semantic correctness.
 
 ## Public purpose and evidence standard
 
@@ -20,7 +20,7 @@ Python 3.12+, no external dependencies for the public dashboard:
 python app.py
 ```
 
-Open **http://127.0.0.1:8765/learn** for courses, **http://127.0.0.1:8765/library** for the case library, or **http://127.0.0.1:8765/** for the transaction demo. Use the URL without a trailing comma. If a newly added route returns 404, stop the old server with Ctrl+C and restart `python app.py` from this checkout; Python changes do not hot-reload. Included data works offline; external citations and refreshes require internet access.
+Open **http://127.0.0.1:8765/learn** for courses, **http://127.0.0.1:8765/game** for the case-file game, **http://127.0.0.1:8765/library** for the case library, or **http://127.0.0.1:8765/** for the transaction demo. Use the URL without a trailing comma. If a newly added route returns 404, stop the old server with Ctrl+C and restart `python app.py` from this checkout; Python changes do not hot-reload. Included data works offline; external citations and refreshes require internet access.
 
 ```powershell
 python -m unittest discover -s tests -v
@@ -65,7 +65,7 @@ node --check web/library.js
 python scripts/check_browser.py
 ```
 
-This starts an isolated local server and checks replay, date gating, search, separation of historical and modern entries, public-data filtering, and mobile width. Screenshots and a disposable browser profile go to ignored `output/`. Set `FRAUD_BROWSER_PATH` for another installed Chromium browser. No browser or package download is required.
+This starts an isolated local server and checks replay, date gating, search, separation of resolved and modern entries, public-data filtering, course interactions, the case-file game, scoring, and mobile width. Screenshots and a disposable browser profile go to ignored `output/`. Set `FRAUD_BROWSER_PATH` for another installed Chromium browser. No browser or package download is required.
 
 ## What the example establishes
 
@@ -92,6 +92,12 @@ The course marks reviewed terms with a dotted underline; selecting one opens its
 The [exercise-instance library](docs/fraud_instances/README.md) documents hidden round totals, distribution shifts, repeats, bank differences, polished statements that exceed market capacity, public open-interest checks, and benign controls. The [26 real resolved-case guides](docs/cases/README.md) and [legal-outcome schema](docs/case_outcomes.md) preserve forum, disposition, imprisonment, and carefully scoped remedies. The broken FBI Madoff URL was replaced with the accessible DOJ case landing page; append-only source history remains intact. Real case documents are not replaced with invented ledgers. Power BI has editable sources/instructions; Desktop acceptance remains manual.
 
 Verify/rebuild the cases with `python forensic_fixture.py verify` and `python market_fixture.py verify` (use `build` deliberately after reviewed generator changes). Generate reviewed course/case guides with `python scripts/build_courses.py` and `python scripts/build_case_guides.py`; full verification checks their output. Source refreshes require reviewed dataset/lesson version changes. Lessons, debugging/FAQ material and checkpoint records are required alongside tests.
+
+## Case-file game
+
+Open http://127.0.0.1:8765/game for four compact fictional cases in cooperative or competitive mode. Each case includes an inbox, reference cues, 12–18 ledger rows, scoped candidate findings, a timer, deterministic scoring, print styling, and a course extension. The no-code version uses the generated Markdown case page, one-page CSV ledger, rules, and score sheet in `game/v1`; keep `instructor/answers.json` with the facilitator. See the [game guide](docs/game/README.md) for setup, scoring, accessibility, and inference limits.
+
+Run `python game_fixture.py verify` to confirm that all 17 committed game artifacts reproduce byte-for-byte. Scores reward supported findings, complete target coverage, and time, while subtracting unsupported calls. They measure performance on constructed exercises only and never represent guilt, damages, severity, or real-world model accuracy.
 
 ## Optional local encrypted storage
 

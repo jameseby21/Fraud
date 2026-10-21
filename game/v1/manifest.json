@@ -1,0 +1,86 @@
+{
+  "artifacts": [
+    {
+      "bytes": 1686,
+      "path": "game/v1/catalog.json",
+      "sha256": "0ee10ff7846c844fe2208f99574aeb7b96b32deea59eaf1c790a431a85d10c64"
+    },
+    {
+      "bytes": 1794,
+      "path": "game/v1/instructor/answers.json",
+      "sha256": "7d14a5671b201ebdf0bb798c0e7577ea92bb3f47f58345a85154b081d1cc7804"
+    },
+    {
+      "bytes": 1551,
+      "path": "game/v1/ledgers/authorization.csv",
+      "sha256": "90496a8fda101123bc35098797e5b3596662bcde0377c8ff31d8bfb999c784e6"
+    },
+    {
+      "bytes": 1610,
+      "path": "game/v1/ledgers/market-capacity.csv",
+      "sha256": "fe4d5d6340f7c77e8bd0e86a56799043de6f981a753a01e942bcfdbbd7fc675e"
+    },
+    {
+      "bytes": 1327,
+      "path": "game/v1/ledgers/number-pattern.csv",
+      "sha256": "1d05949033681e52cf3b9acae3f80679cc2dfa03b84374a968b1a582c3fb5f6e"
+    },
+    {
+      "bytes": 1241,
+      "path": "game/v1/ledgers/round-total.csv",
+      "sha256": "c656d2e310b04a2cbab10fd967a856924169b9f0a269cb207731f758fde607cf"
+    },
+    {
+      "bytes": 5186,
+      "path": "game/v1/player/authorization.json",
+      "sha256": "25d7e236842c0b0bc35d69de0cb59cd9c77bd3f068904ff603bd3c94801f73c1"
+    },
+    {
+      "bytes": 5243,
+      "path": "game/v1/player/market-capacity.json",
+      "sha256": "a6f4718e7a462903424ea57223fb7ff9beba7c2224117dd5ee5d21438b433515"
+    },
+    {
+      "bytes": 4917,
+      "path": "game/v1/player/number-pattern.json",
+      "sha256": "d5a344345153325cf79df8ee87b8e6c88aa2659c74e836b23dc30be944c5e2f2"
+    },
+    {
+      "bytes": 4817,
+      "path": "game/v1/player/round-total.json",
+      "sha256": "2efe6b5ed6201f0a98c832d246ff41fd62a50c35b583ac7b430b1d93e0600f5f"
+    },
+    {
+      "bytes": 2468,
+      "path": "game/v1/print/authorization.md",
+      "sha256": "f3afbf04723f04ef8ff417d0cfd7b27e5ccce1990786d32becccb89422f73954"
+    },
+    {
+      "bytes": 2539,
+      "path": "game/v1/print/market-capacity.md",
+      "sha256": "9421478edfe8ee2f33d55d2082f26adb94f5c389d5028842724e8f3a03e2b884"
+    },
+    {
+      "bytes": 2214,
+      "path": "game/v1/print/number-pattern.md",
+      "sha256": "12f7ae3cece6964aef096545fc89a9cb9977ed97a08c89acfa991504294e6bf0"
+    },
+    {
+      "bytes": 2121,
+      "path": "game/v1/print/round-total.md",
+      "sha256": "01e4193f7e1d5e33a841be9579c93d2a17ede52f4847b2e8cde24f530fea7066"
+    },
+    {
+      "bytes": 1001,
+      "path": "game/v1/rules.md",
+      "sha256": "d5f62d4c1b297c9354a988d84eed24e7b49ec09216407e5907a23887bade40f2"
+    },
+    {
+      "bytes": 95,
+      "path": "game/v1/score-sheet.csv",
+      "sha256": "f8eeca4bf59bd43755d548629f5eeafd70bc7b9b5c27bfaa49de80e4b9bbd9c2"
+    }
+  ],
+  "fictional": true,
+  "version": "1.0.0"
+}

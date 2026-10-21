@@ -14,6 +14,8 @@ Terms with a dotted underline open an in-page definition with added context and 
 
 There are thirteen lessons: six introductory payment-review, two operational-analysis and five forensic-practicum lessons. The default practicum uses the [relational v2 case](../data/forensic/v2/README.md), with fictional names, exact-value lineage, invoices, bank reconciliation, round totals and distribution review, then the [market-context case](../data/market/v1/README.md), with internally polished statements, a complete synthetic tape, and a retained CFTC aggregate reference. The operations course asks allocation/workload questions without a misconduct hypothesis. These are initial materials, not an accredited curriculum or a claim of learning effectiveness.
 
+For a shorter entry point, the [case-file game](../docs/game/README.md) packages four of these reasoning patterns into one-page fictional ledgers. Its basic mode needs no code; each case links back to a full lesson or resolved-case guide for the analyst extension.
+
 Cross-tool reconciliation: introductory v1 has 6,000 rows and **1,355,092,995 cents (USD 13,550,929.95)**. Forensic v2 has 12,000 payments and **30,341,455,858 cents (USD 303,414,558.58)**. Totals include apparent repeats. Check the selected dataset; never force a target by changing records.
 
 Market-v1 has 8,000 confirmation lines and 4,000 position lines. The only over-capacity synthetic tape group totals 2,521,337 units versus 2,500,000. The only public-reference conflict totals 1,388,003 fictional long contracts versus 1,376,168 CFTC combined open interest for code `020601`. Both are group contradictions below 1%; neither selects a false row.

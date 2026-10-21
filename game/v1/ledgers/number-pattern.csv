@@ -1,0 +1,17 @@
+record_id,date,party,amount_or_quantity,review_group,note,identity_status
+NP-00,2026-04-02,North Survey,18742,TEAM-NORTH,mixed travel purchase,fictional
+NP-01,2026-04-05,North Survey,6420,TEAM-NORTH,mixed travel purchase,fictional
+NP-02,2026-04-08,North Survey,2399,TEAM-NORTH,mixed travel purchase,fictional
+NP-03,2026-04-11,North Survey,11485,TEAM-NORTH,mixed travel purchase,fictional
+NP-04,2026-04-02,South Survey,7311,TEAM-SOUTH,mixed travel purchase,fictional
+NP-05,2026-04-05,South Survey,18422,TEAM-SOUTH,mixed travel purchase,fictional
+NP-06,2026-04-08,South Survey,26133,TEAM-SOUTH,mixed travel purchase,fictional
+NP-07,2026-04-11,South Survey,3944,TEAM-SOUTH,mixed travel purchase,fictional
+NP-08,2026-04-02,East Survey,12117,TEAM-EAST,mixed travel purchase,fictional
+NP-09,2026-04-05,East Survey,5538,TEAM-EAST,mixed travel purchase,fictional
+NP-10,2026-04-08,East Survey,14866,TEAM-EAST,mixed travel purchase,fictional
+NP-11,2026-04-11,East Survey,2271,TEAM-EAST,mixed travel purchase,fictional
+NP-12,2026-04-02,West Survey,9111,TEAM-WEST,field expense ending .11,fictional
+NP-13,2026-04-05,West Survey,14222,TEAM-WEST,field expense ending .22,fictional
+NP-14,2026-04-08,West Survey,20333,TEAM-WEST,field expense ending .33,fictional
+NP-15,2026-04-11,West Survey,26444,TEAM-WEST,field expense ending .44,fictional

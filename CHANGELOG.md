@@ -9,6 +9,7 @@
 - Replaced the inaccessible FBI Madoff catalog link with the DOJ case page while preserving append-only source history and the failed machine-retrieval record.
 - Added six resolved case records spanning administrative consent, deferred prosecution, corporate plea, criminal acquittal, and civil judgment, bringing the resolved catalog to 26.
 - Added a structured legal-outcome and remedy schema plus a UI filter that keeps acquittal, mixed verdict, reversal, plea, conviction, civil, administrative, and deferred outcomes distinct.
+- Added a four-case cooperative or competitive game with compact fictional ledgers, print packs, separate facilitator answers, deterministic scoring, local-only results, and course extensions.
 - Added 20 historical cases with scoped criminal findings and primary sources.
 - Added five modern research priorities with uncertainty, response coverage, and data gaps.
 - Added synthetic mechanism replays, source-date gating, and model traces.

@@ -1,0 +1,181 @@
+{
+  "brief": "A quality team sampled newly opened products. Find the branch cohort that needs an authorization audit.",
+  "candidates": [
+    {
+      "id": "C-AUTH-01",
+      "label": "Branch 101 authorization audit",
+      "points": 25
+    },
+    {
+      "id": "C-AUTH-02",
+      "label": "Branch 202 authorization audit",
+      "points": 25
+    },
+    {
+      "id": "C-AUTH-03",
+      "label": "Branch 303 authorization audit",
+      "points": 65
+    },
+    {
+      "id": "C-AUTH-04",
+      "label": "Branch 404 authorization audit",
+      "points": 25
+    }
+  ],
+  "course_path": "Resolved-case guide: Wells Fargo unauthorized accounts",
+  "difficulty": "standard",
+  "id": "authorization",
+  "ledger": [
+    {
+      "amount_or_quantity": 125,
+      "date": "2026-06-01",
+      "identity_status": "fictional",
+      "note": "signed authorization retained",
+      "party": "Branch 101 customer",
+      "record_id": "AU-00",
+      "review_group": "BRANCH-101"
+    },
+    {
+      "amount_or_quantity": 210,
+      "date": "2026-06-03",
+      "identity_status": "fictional",
+      "note": "signed authorization retained",
+      "party": "Branch 101 customer",
+      "record_id": "AU-01",
+      "review_group": "BRANCH-101"
+    },
+    {
+      "amount_or_quantity": 95,
+      "date": "2026-06-05",
+      "identity_status": "fictional",
+      "note": "signed authorization retained",
+      "party": "Branch 101 customer",
+      "record_id": "AU-02",
+      "review_group": "BRANCH-101"
+    },
+    {
+      "amount_or_quantity": 180,
+      "date": "2026-06-07",
+      "identity_status": "fictional",
+      "note": "signed authorization retained",
+      "party": "Branch 101 customer",
+      "record_id": "AU-03",
+      "review_group": "BRANCH-101"
+    },
+    {
+      "amount_or_quantity": 155,
+      "date": "2026-06-01",
+      "identity_status": "fictional",
+      "note": "signed authorization retained",
+      "party": "Branch 202 customer",
+      "record_id": "AU-04",
+      "review_group": "BRANCH-202"
+    },
+    {
+      "amount_or_quantity": 240,
+      "date": "2026-06-03",
+      "identity_status": "fictional",
+      "note": "signed authorization retained",
+      "party": "Branch 202 customer",
+      "record_id": "AU-05",
+      "review_group": "BRANCH-202"
+    },
+    {
+      "amount_or_quantity": 130,
+      "date": "2026-06-05",
+      "identity_status": "fictional",
+      "note": "signed authorization retained",
+      "party": "Branch 202 customer",
+      "record_id": "AU-06",
+      "review_group": "BRANCH-202"
+    },
+    {
+      "amount_or_quantity": 205,
+      "date": "2026-06-07",
+      "identity_status": "fictional",
+      "note": "signed authorization retained",
+      "party": "Branch 202 customer",
+      "record_id": "AU-07",
+      "review_group": "BRANCH-202"
+    },
+    {
+      "amount_or_quantity": 170,
+      "date": "2026-06-01",
+      "identity_status": "fictional",
+      "note": "signed authorization retained",
+      "party": "Branch 303 customer",
+      "record_id": "AU-08",
+      "review_group": "BRANCH-303"
+    },
+    {
+      "amount_or_quantity": 115,
+      "date": "2026-06-03",
+      "identity_status": "fictional",
+      "note": "authorization reference missing",
+      "party": "Branch 303 customer",
+      "record_id": "AU-09",
+      "review_group": "BRANCH-303"
+    },
+    {
+      "amount_or_quantity": 260,
+      "date": "2026-06-05",
+      "identity_status": "fictional",
+      "note": "authorization reference missing",
+      "party": "Branch 303 customer",
+      "record_id": "AU-10",
+      "review_group": "BRANCH-303"
+    },
+    {
+      "amount_or_quantity": 145,
+      "date": "2026-06-07",
+      "identity_status": "fictional",
+      "note": "authorization reference missing",
+      "party": "Branch 303 customer",
+      "record_id": "AU-11",
+      "review_group": "BRANCH-303"
+    },
+    {
+      "amount_or_quantity": 190,
+      "date": "2026-06-01",
+      "identity_status": "fictional",
+      "note": "signed authorization retained",
+      "party": "Branch 404 customer",
+      "record_id": "AU-12",
+      "review_group": "BRANCH-404"
+    },
+    {
+      "amount_or_quantity": 220,
+      "date": "2026-06-03",
+      "identity_status": "fictional",
+      "note": "signed authorization retained",
+      "party": "Branch 404 customer",
+      "record_id": "AU-13",
+      "review_group": "BRANCH-404"
+    },
+    {
+      "amount_or_quantity": 105,
+      "date": "2026-06-05",
+      "identity_status": "fictional",
+      "note": "signed authorization retained",
+      "party": "Branch 404 customer",
+      "record_id": "AU-14",
+      "review_group": "BRANCH-404"
+    },
+    {
+      "amount_or_quantity": 165,
+      "date": "2026-06-07",
+      "identity_status": "fictional",
+      "note": "signed authorization retained",
+      "party": "Branch 404 customer",
+      "record_id": "AU-15",
+      "review_group": "BRANCH-404"
+    }
+  ],
+  "reference": [
+    "Missing evidence in this file is not proof that consent never existed.",
+    "Compare authorization rate within a stable channel and period.",
+    "Request original consent and channel logs before escalation."
+  ],
+  "time_limit_minutes": 10,
+  "title": "Products without a signature"
+}

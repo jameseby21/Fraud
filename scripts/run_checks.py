@@ -27,10 +27,12 @@ def main():
         [sys.executable, 'learning_fixture.py', 'verify'],
         [sys.executable, 'forensic_fixture.py', 'verify'],
         [sys.executable, 'market_fixture.py', 'verify'],
+        [sys.executable, 'game_fixture.py', 'verify'],
         [sys.executable, 'scripts/build_courses.py', '--verify'],
         [sys.executable, 'scripts/build_case_guides.py', '--verify'],
         ['node', '--check', 'web/library.js'],
         ['node', '--check', 'web/learn.js'],
+        ['node', '--check', 'web/game.js'],
         ['node', '--check', 'scripts/browser_smoke.mjs'],
     ]
     for command in commands:

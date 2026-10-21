@@ -1,0 +1,181 @@
+{
+  "brief": "A controller asks whether any same-day reimbursement grouping deserves source-document review.",
+  "candidates": [
+    {
+      "id": "C-ROUND-01",
+      "label": "Alder / March 3 totals exactly 50,000",
+      "points": 60
+    },
+    {
+      "id": "C-ROUND-02",
+      "label": "Cedar / March 5 has two ordinary values",
+      "points": 25
+    },
+    {
+      "id": "C-ROUND-03",
+      "label": "Ivy activity spans two dates",
+      "points": 25
+    },
+    {
+      "id": "C-ROUND-04",
+      "label": "Hawthorn has one high-looking amount",
+      "points": 25
+    }
+  ],
+  "course_path": "Forensic practicum lesson 2: round sums",
+  "difficulty": "easy",
+  "id": "round-total",
+  "ledger": [
+    {
+      "amount_or_quantity": 8425,
+      "date": "2026-03-03",
+      "identity_status": "fictional",
+      "note": "routine activity",
+      "party": "Alder Field Services",
+      "record_id": "RT-00",
+      "review_group": "G-ALDER"
+    },
+    {
+      "amount_or_quantity": 17640,
+      "date": "2026-03-03",
+      "identity_status": "fictional",
+      "note": "routine activity",
+      "party": "Alder Field Services",
+      "record_id": "RT-01",
+      "review_group": "G-ALDER"
+    },
+    {
+      "amount_or_quantity": 23935,
+      "date": "2026-03-03",
+      "identity_status": "fictional",
+      "note": "routine activity",
+      "party": "Alder Field Services",
+      "record_id": "RT-02",
+      "review_group": "G-ALDER"
+    },
+    {
+      "amount_or_quantity": 1278,
+      "date": "2026-03-04",
+      "identity_status": "fictional",
+      "note": "routine activity",
+      "party": "Birch Office Supply",
+      "record_id": "RT-03",
+      "review_group": "G-BIRCH"
+    },
+    {
+      "amount_or_quantity": 6842,
+      "date": "2026-03-05",
+      "identity_status": "fictional",
+      "note": "routine activity",
+      "party": "Cedar Transit",
+      "record_id": "RT-04",
+      "review_group": "G-CEDAR"
+    },
+    {
+      "amount_or_quantity": 9217,
+      "date": "2026-03-04",
+      "identity_status": "fictional",
+      "note": "routine activity",
+      "party": "Birch Office Supply",
+      "record_id": "RT-05",
+      "review_group": "G-BIRCH"
+    },
+    {
+      "amount_or_quantity": 4813,
+      "date": "2026-03-06",
+      "identity_status": "fictional",
+      "note": "routine activity",
+      "party": "Dogwood Media",
+      "record_id": "RT-06",
+      "review_group": "G-DOGWOOD"
+    },
+    {
+      "amount_or_quantity": 3306,
+      "date": "2026-03-05",
+      "identity_status": "fictional",
+      "note": "routine activity",
+      "party": "Cedar Transit",
+      "record_id": "RT-07",
+      "review_group": "G-CEDAR"
+    },
+    {
+      "amount_or_quantity": 7794,
+      "date": "2026-03-07",
+      "identity_status": "fictional",
+      "note": "routine activity",
+      "party": "Elm Catering",
+      "record_id": "RT-08",
+      "review_group": "G-ELM"
+    },
+    {
+      "amount_or_quantity": 11642,
+      "date": "2026-03-07",
+      "identity_status": "fictional",
+      "note": "routine activity",
+      "party": "Fir Safety Group",
+      "record_id": "RT-09",
+      "review_group": "G-FIR"
+    },
+    {
+      "amount_or_quantity": 2289,
+      "date": "2026-03-06",
+      "identity_status": "fictional",
+      "note": "routine activity",
+      "party": "Dogwood Media",
+      "record_id": "RT-10",
+      "review_group": "G-DOGWOOD"
+    },
+    {
+      "amount_or_quantity": 5371,
+      "date": "2026-03-07",
+      "identity_status": "fictional",
+      "note": "routine activity",
+      "party": "Elm Catering",
+      "record_id": "RT-11",
+      "review_group": "G-ELM"
+    },
+    {
+      "amount_or_quantity": 4488,
+      "date": "2026-03-07",
+      "identity_status": "fictional",
+      "note": "routine activity",
+      "party": "Fir Safety Group",
+      "record_id": "RT-12",
+      "review_group": "G-FIR"
+    },
+    {
+      "amount_or_quantity": 9654,
+      "date": "2026-03-08",
+      "identity_status": "fictional",
+      "note": "routine activity",
+      "party": "Hawthorn Repair",
+      "record_id": "RT-13",
+      "review_group": "G-HAWTHORN"
+    },
+    {
+      "amount_or_quantity": 2711,
+      "date": "2026-03-09",
+      "identity_status": "fictional",
+      "note": "routine activity",
+      "party": "Ivy Rental",
+      "record_id": "RT-14",
+      "review_group": "G-IVY"
+    },
+    {
+      "amount_or_quantity": 6247,
+      "date": "2026-03-10",
+      "identity_status": "fictional",
+      "note": "routine activity",
+      "party": "Ivy Rental",
+      "record_id": "RT-15",
+      "review_group": "G-IVY"
+    }
+  ],
+  "reference": [
+    "Group by party and date before summing.",
+    "Round totals are review signals, not proof.",
+    "Choose a candidate group; do not accuse an individual row."
+  ],
+  "time_limit_minutes": 8,
+  "title": "The tidy reimbursement batch"
+}

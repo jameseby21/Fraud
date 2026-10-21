@@ -37,10 +37,31 @@ class AppTests(unittest.TestCase):
         return urllib.request.urlopen(request, timeout=3)
 
     def test_pages_and_assets_serve(self):
-        for path in ('/', '/library', '/library.js', '/library.css'):
+        for path in ('/', '/library', '/library.js', '/library.css', '/game', '/game.js', '/game.css'):
             with self.subTest(path=path), self.request(path) as r:
                 self.assertEqual(r.status, 200)
                 self.assertGreater(len(r.read()), 100)
+
+    def test_game_api_keeps_answers_separate_until_scoring(self):
+        with self.request('/api/game/catalog') as response:
+            catalog = json.load(response)
+        self.assertEqual(len(catalog['cases']), 4)
+        with self.request('/api/game/case?id=market-capacity') as response:
+            case = json.load(response)
+        self.assertNotIn('target_ids', json.dumps(case))
+        with self.post_json('/api/game/score', {'case_id': 'market-capacity', 'selections': [], 'elapsed_seconds': 60}) as response:
+            score = json.load(response)
+        self.assertIn('points', score)
+        self.assertIn('missed', score)
+
+    def test_game_downloads_are_allowlisted(self):
+        for name, marker in (('rules', b'Cooperative'), ('score-sheet', b'player_or_team'),
+                             ('round-total-ledger', b'record_id')):
+            with self.request('/api/game/download?name='+name) as response:
+                self.assertIn(marker, response.read())
+        with self.assertRaises(urllib.error.HTTPError) as error:
+            self.request('/api/game/download?name=../../vault')
+        self.assertEqual(error.exception.code, 404)
 
     def test_library_exposes_legal_outcome_filter(self):
         with self.request('/library') as response:
