@@ -24,7 +24,7 @@ Keep durable state here and in the checkpoint note. At handoff, use a compact su
 | CP-012 | Linked term index, section quizzes and targeted learner suggestions | [Results](docs/checkpoints/CP-012.md) | Pushed and remote verified at 743eb95 |
 | CP-013 | Market-capacity statement exercises and retained public corroboration | [Results](docs/checkpoints/CP-013.md) | Pushed and remote verified at 7de33ec |
 | CP-014 | Diverse resolved-case outcomes and scoped remedy metadata | [Results](docs/checkpoints/CP-014.md) | Pushed and remote verified at 54768cc |
-| CP-015 | Printable cooperative and competitive case-file game | [Results](docs/checkpoints/CP-015.md) | Local implementation and full verification complete; push pending |
+| CP-015 | Printable cooperative and competitive case-file game | [Results](docs/checkpoints/CP-015.md) | Pushed and remote verified at c124d61 |
 
 The repo had no commits when CP-001 began. Its first commit therefore includes the previously built foundation as well as the quality feature. The 24 existing tests predate this checkpoint; the new quality and API tests were written and observed failing before implementation.
 
