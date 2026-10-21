@@ -22,6 +22,7 @@ def main():
         [sys.executable, 'scripts/check_publication.py', '--all'],
         [sys.executable, 'scripts/check_staged_data.py'],
         [sys.executable, 'intake.py', 'verify'],
+        [sys.executable, 'learning_fixture.py', 'verify'],
         ['node', '--check', 'web/library.js'],
         ['node', '--check', 'scripts/browser_smoke.mjs'],
     ]

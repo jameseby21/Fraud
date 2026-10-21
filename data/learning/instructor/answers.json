@@ -1,0 +1,47 @@
+[
+  {
+    "disposition": "planted_review_pattern",
+    "explanation": "Same supplier, invoice, amount and dates; request supporting documents before interpreting a duplicate as misconduct.",
+    "pattern": "duplicate_invoice",
+    "transaction_ids": [
+      "TX-000001",
+      "TX-000002"
+    ]
+  },
+  {
+    "disposition": "planted_review_pattern",
+    "explanation": "Three payments below a fictional USD 10,000 review threshold total USD 29,700 on one supplier-day. Legitimate staged work is an alternative.",
+    "pattern": "threshold_split",
+    "transaction_ids": [
+      "TX-000003",
+      "TX-000004",
+      "TX-000005"
+    ]
+  },
+  {
+    "disposition": "planted_review_pattern",
+    "explanation": "USD 275,000 is deliberately outside the background range; a legitimate capital purchase remains possible.",
+    "pattern": "amount_outlier",
+    "transaction_ids": [
+      "TX-000006"
+    ]
+  },
+  {
+    "disposition": "planted_review_pattern",
+    "explanation": "181 days between invoice and payment; investigate disputes or recording errors before drawing conclusions.",
+    "pattern": "late_payment",
+    "transaction_ids": [
+      "TX-000007"
+    ]
+  },
+  {
+    "disposition": "benign_control",
+    "explanation": "Distinct monthly invoices for a recurring service have the same amount; amount repetition alone would flag this benign control.",
+    "pattern": "benign_recurring",
+    "transaction_ids": [
+      "TX-000008",
+      "TX-000009",
+      "TX-000010"
+    ]
+  }
+]
