@@ -79,4 +79,6 @@ Source panels distinguish publication/update age from successful retrieval age. 
 
 ## Optional local encrypted storage
 
+After installing the optional dependencies described in SECURITY.md, run `.venv\Scripts\python.exe scripts/run_checks.py` on Windows (`.venv/bin/python scripts/run_checks.py` on Linux). This full verification rejects skipped tests. GitHub Actions runs the same checks on Windows and Linux; browser usability checks run separately.
+
 The public app code can be used with a separate encrypted vault outside every Git worktree. The vault is never served by the browser app. See [SECURITY.md](SECURITY.md) for optional dependency installation, interactive creation/summary/rotation commands, tested protections, and explicit limits. A real vault is created only when you initialize it locally with your own passphrase.
