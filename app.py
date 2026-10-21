@@ -9,6 +9,7 @@ from fraud import report
 from casebook import load_catalog, mechanism_replay, public_replay
 from quality import public_award_quality
 from freshness import library_freshness
+import learning
 
 ROOT = Path(__file__).resolve().parent
 
@@ -24,6 +25,32 @@ class Handler(BaseHTTPRequestHandler):
                 kind = "application/json"
                 if path == "/api/export":
                     filename = "synthetic-case-report.json"
+            elif path == '/api/learning/catalog':
+                body, kind = json.dumps(learning.load_catalog()).encode(), 'application/json'
+            elif path == '/api/learning/lesson':
+                result = learning.lesson_document(query.get('course', [''])[0], query.get('lesson', [''])[0])
+                result['html'] = learning.render_markdown(result['markdown'])
+                result['track_guides'] = {name: learning.render_markdown((ROOT / relative).read_text(encoding='utf-8')) for name, relative in
+                                         {'r': 'courses/tracks/r.md', 'powerbi': 'courses/tracks/powerbi.md'}.items()}
+                body, kind = json.dumps(result).encode(), 'application/json'
+            elif path == '/api/learning/chart':
+                body, kind = learning.render_chart(query.get('name', [''])[0]).encode(), 'image/svg+xml'
+            elif path == '/api/learning/summary':
+                body, kind = json.dumps(learning.analyze()).encode(), 'application/json'
+            elif path == '/api/learning/download':
+                selected = query.get('name', [''])[0]
+                files = {'dataset': 'data/learning/transactions.csv', 'answers': 'data/learning/instructor/answers.json',
+                         'r': 'courses/tracks/analysis.R', 'powerbi': 'courses/tracks/powerbi.md',
+                         'query': 'courses/tracks/transactions.pq', 'measures': 'courses/tracks/measures.dax',
+                         'feedback': 'courses/templates/feedback.md', 'memo': 'courses/templates/review.md'}
+                if selected in ('notebook', 'lesson'):
+                    lesson = learning.lesson_document(query.get('course', [''])[0], query.get('lesson', [''])[0])
+                    target = ROOT / (lesson['tracks']['python'] if selected == 'notebook' else f'courses/{lesson["course_id"]}/{lesson["id"]}.md')
+                elif selected in files:
+                    target = ROOT / files[selected]
+                else:
+                    raise KeyError(selected)
+                body, kind, filename = target.read_bytes(), 'application/octet-stream', target.name
             elif path == "/api/catalog":
                 body = json.dumps(load_catalog(), indent=2).encode()
                 kind = "application/json"
@@ -73,6 +100,10 @@ class Handler(BaseHTTPRequestHandler):
                 if not target.is_relative_to((ROOT / "data" / "raw").resolve()):
                     raise ValueError("Invalid source artifact")
                 body, kind, filename = target.read_bytes(), "application/octet-stream", target.name
+            elif path in ('/learn', '/learn.js', '/learn.css'):
+                name = {'/learn': 'learn.html', '/learn.js': 'learn.js', '/learn.css': 'learn.css'}[path]
+                kind = {'html': 'text/html', 'js': 'text/javascript', 'css': 'text/css'}[name.split('.')[-1]] + '; charset=utf-8'
+                body = (ROOT / 'web' / name).read_bytes()
             elif path in ("/", "/library", "/library.js", "/library.css"):
                 names = {"/": ("index.html", "text/html; charset=utf-8"), "/library": ("library.html", "text/html; charset=utf-8"),
                          "/library.js": ("library.js", "text/javascript; charset=utf-8"), "/library.css": ("library.css", "text/css; charset=utf-8")}

@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "title": "Data analysis studio",
+  "datasets": [
+    {
+      "id": "payments-v1",
+      "path": "data/learning/transactions.csv",
+      "version": "1.0.0",
+      "synthetic": true
+    }
+  ],
+  "courses": [
+    {
+      "id": "payment-lab",
+      "title": "Payment review lab",
+      "topic": "fraud",
+      "dataset": "payments-v1",
+      "lessons": [
+        {
+          "id": "orientation",
+          "title": "1. Define the question and inspect provenance",
+          "chart": "bar",
+          "minutes": 30
+        },
+        {
+          "id": "quality",
+          "title": "2. Validate types, grain, and repeated invoices",
+          "chart": "histogram",
+          "minutes": 30
+        },
+        {
+          "id": "comparison",
+          "title": "3. Compare amounts and category spread",
+          "chart": "box",
+          "minutes": 30
+        },
+        {
+          "id": "timing",
+          "title": "4. Explore time and relationships",
+          "chart": "scatter",
+          "minutes": 30
+        },
+        {
+          "id": "thresholds",
+          "title": "5. Investigate groups, thresholds, and benign controls",
+          "chart": "heatmap",
+          "minutes": 30
+        },
+        {
+          "id": "review",
+          "title": "6. Write a reproducible review memo",
+          "chart": "pareto",
+          "minutes": 30
+        }
+      ]
+    },
+    {
+      "id": "operations",
+      "title": "Operational analysis foundations",
+      "topic": "operations",
+      "dataset": "payments-v1",
+      "lessons": [
+        {
+          "id": "summaries",
+          "title": "1. Compare allocation without a misconduct hypothesis",
+          "chart": "pareto",
+          "minutes": 30
+        },
+        {
+          "id": "capacity",
+          "title": "2. Explore workload and timing",
+          "chart": "line",
+          "minutes": 30
+        }
+      ]
+    }
+  ]
+}

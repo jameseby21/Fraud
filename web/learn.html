@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Data analysis studio | Learn</title><link rel="stylesheet" href="/learn.css"><script defer src="/learn.js"></script></head>
+<body>
+<header><a href="/learn" class="brand">Data analysis studio</a><nav aria-label="Main"><a href="/learn" aria-current="page">Courses</a><a href="/library">Evidence library</a><a href="/">Transaction demo</a></nav></header>
+<main id="main"><h1>Learn by working the case.</h1><p class="intro">Ask a question. Inspect the records. Make a chart. Test an explanation.</p>
+<p class="notice">Practice data is entirely synthetic, bootstrapped from public award magnitudes. Planted patterns are teaching targets. Rule hits are review candidates, not findings of wrongdoing.</p>
+<p id="status" role="status" aria-live="polite">Loading course catalog...</p>
+<section aria-label="Course setup" class="controls"><div><label for="course">Course</label><select id="course"></select></div><div><label for="track">Your tool</label><select id="track"><option value="python">Python notebook</option><option value="r">R</option><option value="powerbi">Power BI Desktop</option></select></div><a href="/api/learning/download?name=dataset">Download practice CSV</a></section>
+<div class="workspace"><aside><h2>Lesson path</h2><ol id="lessons"></ol><p id="progress"></p><button id="reset" type="button">Reset this browser's progress</button><p class="muted">Self-reported progress stays in this browser. No account or private notes are stored here.</p></aside>
+<article id="lesson" aria-labelledby="lesson-heading"><h2 id="lesson-heading" tabindex="-1">Select a lesson</h2><div id="lesson-body"></div>
+<details id="checks"><summary>Check your work (contains spoilers)</summary><div id="check-body"></div></details>
+<section aria-labelledby="tool-heading"><h3 id="tool-heading">Work in your selected tool</h3><div id="tool-guide"></div><p id="downloads"></p></section>
+<details id="preview"><summary>Reference visualization (worked example)</summary><label for="chart">Chart family</label><select id="chart"><option value="bar">Category bars</option><option value="line">Invoice-month line</option><option value="histogram">Amount distribution</option><option value="scatter">Amount vs delay</option><option value="box">Category box summary</option><option value="heatmap">Department heatmap</option><option value="pareto">Regional Pareto</option></select><p id="chart-description"></p><img id="chart-image" alt=""><p>Charts use the complete fixture except the scatter preview, which uses the first 500 rows. Use the full CSV for your analysis.</p><details><summary>Accessible numeric summaries (JSON)</summary><pre id="numeric-summary"></pre></details></details>
+<label class="completion"><input id="complete" type="checkbox"> I completed the task and recorded my reasoning</label><div class="lesson-nav"><button id="previous">Previous lesson</button><button id="next">Next lesson</button></div>
+</article></div>
+<section class="resources"><h2>Record, reproduce, improve</h2><p>Start with the task before revealing checks. Record your tool version, input hash, filters, observations, benign alternatives, and questions. Your feedback shapes the next lesson revision.</p><p><a href="/api/learning/download?name=memo">Review memo template</a> · <a href="/api/learning/download?name=feedback">Learner feedback template</a></p><details><summary>Instructor answer key (explicit spoilers)</summary><p>The key is public, separate from learner CSV columns. It covers deliberately planted targets and a benign control; incidental rule matches also occur. This is not a blind evaluation.</p><a href="/api/learning/download?name=answers">Download instructor key</a></details></section>
+</main><footer>Open methods · Local-first learning · No third-party scripts or analytics</footer>
+</body></html>

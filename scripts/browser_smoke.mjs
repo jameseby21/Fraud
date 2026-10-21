@@ -1,4 +1,5 @@
 import {checkQuality, checkSourceFreshness} from './browser/quality.mjs';
+import {checkLearning} from './browser/learning.mjs';
 // Optional local usability check. Node 22+ and installed Microsoft Edge.
 import {spawn} from 'node:child_process';
 import {mkdir, mkdtemp, readFile, writeFile} from 'node:fs/promises';
@@ -50,6 +51,7 @@ await writeFile('output/library-desktop.png',Buffer.from((await call('Page.captu
 await call('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
 assert(await evaluate(`document.documentElement.scrollWidth<=window.innerWidth+1`),'Mobile horizontal overflow');
 await writeFile('output/library-mobile.png',Buffer.from((await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));
+await checkLearning({call,evaluate,until,assert,base});
 assert(exceptions.length===0,'Unhandled browser exceptions');
 console.log('Browser checks passed: counts, replay, source date gate, case search, modern separation, award search, mobile layout.');
 }catch(error){if(socket?.readyState===WebSocket.OPEN){try{console.error('Browser state:',await evaluate(`JSON.stringify({url:location.href,text:document.body?.innerText.slice(0,2500)})`));console.error('Browser exceptions:',JSON.stringify(exceptions));}catch{}}throw error;

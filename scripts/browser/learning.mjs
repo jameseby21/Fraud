@@ -1,0 +1,28 @@
+export async function checkLearning({call,evaluate,until,assert,base}) {
+  await call('Page.navigate',{url:base+'/learn'});
+  await until(`document.querySelector('#lessons')?.children.length===6 && document.querySelector('#status').textContent.startsWith('Lesson ready')`);
+  assert(await evaluate(`document.querySelector('#checks').open===false && document.querySelector('#check-body').textContent.includes('6,000')`),'Worked checks begin collapsed');
+  await evaluate(`document.querySelector('#reset').click(); document.querySelector('#complete').click()`);
+  assert(await evaluate(`document.querySelector('#progress').textContent.startsWith('1 of 6')`),'Progress marks completion');
+  await call('Page.reload');
+  await until(`document.querySelector('#complete')?.checked && document.querySelector('#status').textContent.startsWith('Lesson ready')`);
+  await evaluate(`document.querySelector('#next').click()`);
+  await until(`document.querySelector('#lesson-heading').textContent.includes('2. Validate')`);
+  assert(await evaluate(`!document.querySelector('#complete').checked && !document.querySelector('#previous').disabled`),'Next lesson keeps distinct completion');
+  await evaluate(`document.querySelector('#track').value='r';document.querySelector('#track').dispatchEvent(new Event('change'))`);
+  assert(await evaluate(`document.querySelector('#tool-guide').textContent.includes('Rscript') && document.querySelector('#downloads a').href.includes('name=r')`),'R guide and download');
+  await evaluate(`document.querySelector('#track').value='powerbi';document.querySelector('#track').dispatchEvent(new Event('change'))`);
+  assert(await evaluate(`document.querySelector('#tool-guide table') && document.querySelectorAll('#downloads a').length===4`),'Power BI table and editable sources');
+  await evaluate(`document.querySelector('#course').value='operations';document.querySelector('#course').dispatchEvent(new Event('change'))`);
+  await until(`document.querySelector('#lessons').children.length===2 && document.querySelector('#status').textContent.startsWith('Lesson ready')`);
+  assert(await evaluate(`document.querySelector('#progress').textContent.startsWith('0 of 2')`),'Course progress isolated');
+  await evaluate(`document.querySelector('#preview').open=true;document.querySelector('#chart').value='scatter';document.querySelector('#chart').dispatchEvent(new Event('change'))`);
+  await until(`document.querySelector('#chart-image').complete && document.querySelector('#chart-image').naturalWidth>0`);
+  assert(await evaluate(`document.querySelector('#chart-image').alt.includes('500')`),'Scatter sampling disclosed');
+  await call('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
+  assert(await evaluate(`document.documentElement.scrollWidth<=window.innerWidth+1`),'Course mobile horizontal overflow');
+  await evaluate(`document.querySelector('#reset').click()`);
+  assert(await evaluate(`document.querySelector('#progress').textContent.startsWith('0 of 2')`),'Reset progress');
+  await call('Emulation.setDeviceMetricsOverride',{width:1280,height:1000,deviceScaleFactor:1,mobile:false});
+  console.log('Course checks passed: disclosures, progress persistence/reset, navigation, R/Power BI tracks, chart, mobile layout.');
+}

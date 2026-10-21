@@ -1,0 +1,21 @@
+// Create each measure separately in the Transactions table.
+Row Count = COUNTROWS(Transactions)
+
+Total USD = DIVIDE(SUM(Transactions[amount_cents]), 100)
+
+Min USD = MIN(Transactions[AmountUSD])
+
+Q1 USD = PERCENTILE.INC(Transactions[AmountUSD], 0.25)
+
+Median USD = MEDIAN(Transactions[AmountUSD])
+
+Q3 USD = PERCENTILE.INC(Transactions[AmountUSD], 0.75)
+
+Max USD = MAX(Transactions[AmountUSD])
+
+Cumulative Region Share =
+VAR CurrentRegion = SELECTEDVALUE(Transactions[region])
+VAR CurrentAmount = [Total USD]
+VAR Regions = ADDCOLUMNS(ALLSELECTED(Transactions[region]), "@Amount", CALCULATE([Total USD]))
+VAR Included = FILTER(Regions, [@Amount] > CurrentAmount || ([@Amount] = CurrentAmount && Transactions[region] <= CurrentRegion))
+RETURN IF(ISBLANK(CurrentRegion), 1, DIVIDE(SUMX(Included, [@Amount]), SUMX(Regions, [@Amount])))

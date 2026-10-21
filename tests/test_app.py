@@ -86,3 +86,22 @@ class AppTests(unittest.TestCase):
             with self.subTest(path=path), self.assertRaises(urllib.error.HTTPError) as error:
                 self.request(path)
             self.assertEqual(error.exception.code, 404)
+
+    def test_course_pages_and_allowlisted_material(self):
+        with self.request('/learn') as r:
+            self.assertIn(b'Data analysis studio', r.read())
+        with self.request('/api/learning/catalog') as r:
+            self.assertEqual(len(json.load(r)['courses']), 2)
+        with self.request('/api/learning/lesson?course=payment-lab&lesson=orientation') as r:
+            self.assertIn('Question', json.load(r)['markdown'])
+        for path in ('/api/learning/chart?name=bar', '/api/learning/download?name=dataset',
+                     '/api/learning/download?name=notebook&course=payment-lab&lesson=quality',
+                     '/api/learning/download?name=r', '/api/learning/download?name=powerbi'):
+            with self.request(path) as r:
+                self.assertEqual(r.status, 200)
+        for path in ('/api/learning/download?name=../../vault.py',
+                     '/api/learning/lesson?course=payment-lab&lesson=../../vault',
+                     '/api/learning/chart?name=unknown'):
+            with self.assertRaises(urllib.error.HTTPError) as error:
+                self.request(path)
+            self.assertEqual(error.exception.code, 404)

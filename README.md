@@ -77,6 +77,10 @@ Next, build a source-specific historical benchmark with defensible availability 
 
 Source panels distinguish publication/update age from successful retrieval age. Unknown dates remain unknown; failed refreshes do not reset age. A recent download does not establish that a finding is correct or current.
 
+## Learn data analysis
+
+Run `python app.py` and open http://127.0.0.1:8765/learn for the course catalog. Two introductory courses contain eight Markdown lessons and Python notebooks, with R and Power BI tracks using the same reproducible 6,000-row synthetic dataset. Start with [courses/README.md](courses/README.md) for setup, visualization coverage, debugging, feedback, and extension guidance. Lessons and checkpoint records are now required parts of development, alongside tests.
+
 ## Optional local encrypted storage
 
 After installing the optional dependencies described in SECURITY.md, run `.venv\Scripts\python.exe scripts/run_checks.py` on Windows (`.venv/bin/python scripts/run_checks.py` on Linux). This full verification rejects skipped tests. GitHub Actions runs the same checks on Windows and Linux; browser usability checks run separately.

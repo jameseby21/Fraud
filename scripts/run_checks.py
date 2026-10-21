@@ -23,7 +23,9 @@ def main():
         [sys.executable, 'scripts/check_staged_data.py'],
         [sys.executable, 'intake.py', 'verify'],
         [sys.executable, 'learning_fixture.py', 'verify'],
+        [sys.executable, 'scripts/build_courses.py', '--verify'],
         ['node', '--check', 'web/library.js'],
+        ['node', '--check', 'web/learn.js'],
         ['node', '--check', 'scripts/browser_smoke.mjs'],
     ]
     for command in commands:

@@ -38,3 +38,11 @@ jobs:
         run: python -m pip install --require-hashes -r requirements-vault.txt
       - name: Verify committed data and run all tests without skips
         run: python scripts/run_checks.py
+      - name: Install R for the public course track
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install --no-install-recommends -y r-base-core
+      - name: Execute base-R lessons and charts
+        if: runner.os == 'Linux'
+        run: Rscript courses/tracks/analysis.R
