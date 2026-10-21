@@ -80,3 +80,9 @@ class AppTests(unittest.TestCase):
             with self.subTest(path=path), self.assertRaises(urllib.error.HTTPError) as error:
                 self.request(path)
             self.assertEqual(error.exception.code, status)
+
+    def test_web_server_has_no_private_vault_access(self):
+        for path in ('/api/vault', '/vault', '/api/download?name=vault', '/data/private/records.fvault'):
+            with self.subTest(path=path), self.assertRaises(urllib.error.HTTPError) as error:
+                self.request(path)
+            self.assertEqual(error.exception.code, 404)

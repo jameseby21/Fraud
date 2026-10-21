@@ -10,7 +10,7 @@ Apply the same evidence standards regardless of wealth, influence, industry, or 
 
 ## Run
 
-Python 3.12+, no external dependencies:
+Python 3.12+, no external dependencies for the public dashboard:
 
 ```powershell
 python app.py
@@ -76,3 +76,7 @@ The longer-term objective is to identify credible, independently corroborated le
 Next, build a source-specific historical benchmark with defensible availability dates, benign comparisons, and independent labels. See [ROADMAP.md](ROADMAP.md), [MODEL_CARD.md](MODEL_CARD.md), and [CONTRIBUTING.md](CONTRIBUTING.md). Checkpoints are committed and pushed to https://github.com/jameseby21/Fraud; delivery state is recorded in CHECKPOINTS.md.
 
 Source panels distinguish publication/update age from successful retrieval age. Unknown dates remain unknown; failed refreshes do not reset age. A recent download does not establish that a finding is correct or current.
+
+## Optional local encrypted storage
+
+The public app code can be used with a separate encrypted vault outside every Git worktree. The vault is never served by the browser app. See [SECURITY.md](SECURITY.md) for optional dependency installation, interactive creation/summary/rotation commands, tested protections, and explicit limits. A real vault is created only when you initialize it locally with your own passphrase.

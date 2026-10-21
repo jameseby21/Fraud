@@ -4,3 +4,9 @@ __pycache__/
 .env
 data/private/
 output/
+*.fvault
+*.fvault.lock
+*.key
+*.pem
+*.p12
+*.pfx
