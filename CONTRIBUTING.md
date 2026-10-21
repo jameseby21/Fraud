@@ -1,5 +1,7 @@
 # Contributing
 
+Treat the root README as canonical. Consult [docs/DOCTREE.md](docs/DOCTREE.md) for the required document update map. Test each function first, then its integration with already-passing functions, add regression cases for discoveries, and run the full verification union before staging/committing/pushing. Update the README, linked guides, course outcomes and checkpoint record in the same change. Regenerate the doctree when documents are added; graph checks are a floor, not proof against semantic drift.
+
 Every development checkpoint must also leave usable course material: document the question, prerequisites, inputs and provenance, exact commands, expected results, reasoning, limitations, debugging steps, and common issues. Record failing acceptance tests, implementation results, regressions, and delivery state in `docs/checkpoints/`. Every lesson needs an exercise, a checkable outcome, hints separated from solutions, and a feedback prompt. Keep learner data separate from instructor answers. Document tool-specific validation honestly; do not call an unexecuted Power BI or R example tested. Course examples must use public or synthetic data and cannot include private research notes.
 
 Apply equal evidence standards regardless of influence, wealth, industry, affiliation, or institutional role. Select specific conduct and relevant public records; do not infer wrongdoing from identity or association.

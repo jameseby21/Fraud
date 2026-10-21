@@ -105,3 +105,9 @@ class AppTests(unittest.TestCase):
             with self.assertRaises(urllib.error.HTTPError) as error:
                 self.request(path)
             self.assertEqual(error.exception.code, 404)
+
+    def test_pasted_course_url_with_trailing_comma_redirects(self):
+        for path in ('/learn,', '/learn%2C', '/learn/'):
+            with self.request(path) as response:
+                self.assertEqual(response.geturl(), self.base + '/learn')
+                self.assertIn(b'Data analysis studio', response.read())

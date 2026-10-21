@@ -18,6 +18,7 @@ Keep durable state here and in the checkpoint note. At handoff, use a compact su
 | CP-006 | Full Windows/Linux verification without skipped tests | [Results](docs/checkpoints/CP-006.md) | Pushed and remote verified at 33d7d28; both CI jobs passed |
 | CP-007 | Reproducible learning fixture and instructor lineage | [Results](docs/checkpoints/CP-007.md) | Pushed and remote verified at 66baa96; both CI jobs passed |
 | CP-008 | Modular courses, notebook lessons, tool tracks and learning UI | [Results](docs/checkpoints/CP-008.md) | Pushed and remote verified at 5bd5367; Windows/Linux CI and Linux R passed |
+| CP-009 | Pasted course URL and canonical linked documentation | [Results](docs/checkpoints/CP-009.md) | Validation in progress |
 
 The repo had no commits when CP-001 began. Its first commit therefore includes the previously built foundation as well as the quality feature. The 24 existing tests predate this checkpoint; the new quality and API tests were written and observed failing before implementation.
 

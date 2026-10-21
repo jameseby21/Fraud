@@ -2,6 +2,8 @@
 
 An open-source investigation workbench: transparent methods, traceable evidence, honest uncertainty. It supports public-interest research and a portfolio for fraud analytics or financial intelligence work.
 
+This README is the canonical project entry point. The [linked documentation tree and required update map](docs/DOCTREE.md) define which guides, lessons and records must change with each feature. Run `python documentation.py` to check local links and reachability. Test-first work proceeds from focused functions to integration and the complete suite before committing and pushing; checkpoint notes record actual results and limitations.
+
 ## Public purpose and evidence standard
 
 The intended project is open source and presents evidence without claiming final authority. Every material finding should link to its source and distinguish recorded facts, analytical inferences, hypotheses, and unresolved questions. Show counterevidence, coverage gaps, and corrections alongside findings. An anomaly is a reason to investigate, not a finding of guilt. Synthetic examples must remain visibly labeled.
@@ -16,7 +18,7 @@ Python 3.12+, no external dependencies for the public dashboard:
 python app.py
 ```
 
-Open **http://127.0.0.1:8765/library** for the case library, or **http://127.0.0.1:8765/** for the transaction demo. Stop with Ctrl+C. Included data works offline; external citations and refreshes require internet access.
+Open **http://127.0.0.1:8765/learn** for courses, **http://127.0.0.1:8765/library** for the case library, or **http://127.0.0.1:8765/** for the transaction demo. Use the URL without a trailing comma. If a newly added route returns 404, stop the old server with Ctrl+C and restart `python app.py` from this checkout; Python changes do not hot-reload. Included data works offline; external citations and refreshes require internet access.
 
 ```powershell
 python -m unittest discover -s tests -v

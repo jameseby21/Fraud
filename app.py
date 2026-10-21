@@ -18,6 +18,12 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         parsed = urlsplit(self.path)
         path, query = parsed.path, parse_qs(parsed.query)
+        if path in ('/learn,', '/learn%2C', '/learn%2c', '/learn/'):
+            self.send_response(308)
+            self.send_header('Location', '/learn')
+            self.send_header('Content-Length', '0')
+            self.end_headers()
+            return
         filename = None
         try:
             if path in ("/api/report", "/api/export"):
