@@ -33,6 +33,22 @@ python -m venv .venv
 
 Use `--path` only for an external `.fvault` file in a dedicated directory. The core checkpoint provides creation, a count/revision summary, and passphrase rotation. A higher-level record workflow can use the tested storage API; the browser server does not expose an unlock operation. Tests without the optional dependency explicitly skip vault tests, so they are not sufficient to verify storage changes.
 
+### Encrypted notes
+
+After initializing the vault, use the same optional environment:
+
+```powershell
+.\.venv\Scripts\python.exe vault_notes.py add
+.\.venv\Scripts\python.exe vault_notes.py list
+.\.venv\Scripts\python.exe vault_notes.py read NOTE_ID
+.\.venv\Scripts\python.exe vault_notes.py revise NOTE_ID
+.\.venv\Scripts\python.exe vault_notes.py read NOTE_ID --history
+```
+
+Case identifiers, type, title, body, and correction reason are entered through hidden prompts; do not put sensitive text in shell arguments. Types are observation, hypothesis, counterevidence, and review_note. Corrections append a new version and require a reason. Stale versions are rejected. The current body prompt accepts a single line.
+
+`list` intentionally prints note metadata, and `read` intentionally prints plaintext in the local terminal. Default read displays only the current version; `--history` explicitly reveals earlier bodies/reasons. Protect the terminal and its scrollback. No output is automatically saved, uploaded, or connected to public case findings. Revision history is workflow-preserved, not an external tamper-proof ledger against a key holder.
+
 Never use test passphrases for a real vault. There is no password recovery. Keep encrypted backups separately, check that they can be unlocked, and retain the appropriate passphrase. Rotation changes the current file's key; older backups still use their old keys. Atomic replacement reduces partial-write risk but is not a complete disaster-recovery strategy.
 
 ## Threat model and limits

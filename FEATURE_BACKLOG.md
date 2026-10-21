@@ -97,5 +97,5 @@ UX decisions should be tied to a task and checked against W3C guidance on [statu
 | --- | --- | --- |
 | 061 | Encrypted external vault (implemented) | Wrong keys and altered ciphertext fail; a Git-worktree path is rejected |
 | 062 | Publication guard (implemented) | A force-added or renamed vault is blocked without printing private values |
-| 063 | Encrypted note revisions | Corrections preserve earlier revisions inside encryption and remain absent from public routes |
+| 063 | Encrypted note revisions (implemented) | Corrections preserve earlier revisions inside encryption and remain absent from public routes |
 | 064 | Full optional-dependency CI | Vault tests run rather than being skipped, alongside public-data verification |
