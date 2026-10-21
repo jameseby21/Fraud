@@ -12,6 +12,8 @@ Only public government records, original curated factual metadata, and clearly m
 | `data/spending/awards.csv` | 50 actual public federal contract awards | Unlabeled, nonrepresentative sample; no fraud inference |
 | `data/spending/provenance.json` | API request, retrieval time, response hash, interpretation | Future responses may change as agencies revise data |
 | `data/build_manifest.json` | Catalog and derived-artifact hashes | Detects changes; does not establish source truth |
+| `data/market/v1/public_reference.csv` | 15 exact CFTC TFF combined open-interest aggregates | Public market constraint; not customer-level trade confirmation |
+| `data/market/v1/*.csv` | 8,000 fabricated confirmations, 4,000 fabricated positions, controls and synthetic tape | Deterministic course evidence; only `public_reference.csv` contains real aggregate facts |
 
 The first full intake archived 15 of 25 case sources; 10 were unavailable. See the log for exact results. Curated statements were researched through publicly accessible official pages, including pages the direct downloader could not retrieve. These are recorded as human-curated paraphrases, never as downloaded originals. Re-running intake may change raw coverage.
 
@@ -20,6 +22,8 @@ The first full intake archived 15 of 25 case sources; 10 were unavailable. See t
 The cases are Madoff, Stanford, Petters, Rothstein, FTX/Bankman-Fried, Theranos/Holmes, Enron/Skilling, WorldCom/Ebbers, Tyco/Kozlowski and Swartz, Adelphia/Rigas, Peregrine/Wasendorf, Refco/Bennett, Bayou/Israel, ZeekRewards/Burks, TelexFree/Merrill, OneCoin/Greenwood, BitConnect/Arcaro, Volkswagen emissions, MSMB/Shkreli, and Galleon/Rajaratnam.
 
 Each entry scopes the criminal finding to the identified subject and cited government source. Settlements without admissions are not used as proof for this historical group. Findings do not extend automatically to every associate, every allegation, or current custody status. Material distinctions include Skilling's revised sentence and reversal of one Rigas bank-fraud count. This is not a complete current appellate docket. URLs and dates appear in the catalog and app; unknown publication dates remain unknown.
+
+The Madoff catalog link now uses the current DOJ case landing page because the former FBI archive URL returned 403 to the user. The append-only source library preserves its previously retained FBI response and records the blocked DOJ machine-download attempt; the browser-facing official-source link uses DOJ. The DOJ page records the March 2009 guilty plea and June 29, 2009 150-year sentence and links the sentencing transcript.
 
 ## Five modern priorities
 
@@ -55,6 +59,7 @@ python intake.py build
 python intake.py spending --limit 50
 python intake.py sources --case madoff
 python intake.py sources
+python record_library.py fetch --source cftc-tff-2022-09-13 --refresh
 ```
 
 `verify` and `build` work offline. Network commands require internet access. `sources` exits 1 if any source is unavailable, retaining successes and logging failures without bypassing restrictions. It enforces an HTTPS host allowlist, redirect validation, response limits, content checks, content-addressed storage, and bounded retries for transient errors. Forbidden requests are not retried automatically.
@@ -68,3 +73,9 @@ See [the library guide](docs/library/README.md) for the reviewed registry, per-s
 ## Exact-value fictional reassignment
 
 The [forensic-v2 case](data/forensic/v2/README.md) reassigns exact obligation values from the supplemental amount pool to persistent invented identities. Instructor lineage records each source ID, row, raw hash and transformation. Pattern amounts are explicitly fabricated. This is not anonymized original payment data, and the source organizations have no asserted relationship to the fictional case. [Historical guides](docs/cases/README.md) keep actual outcomes and missing-ledger limits separate.
+
+## CFTC market reference and fictional statements
+
+The [market-v1 guide](data/market/v1/README.md) documents a fixed query to the official [CFTC Commitments of Traders Public Reporting Environment](https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm). The retained response contains 15 Traders in Financial Futures combined-report rows for September 13, 2022, ordered by contract code. The record library stores exact JSON bytes, request URL, retrieval time, reuse review, SHA-256, and append-only revision. Derived CSV rows retain the source ID and hash.
+
+CFTC defines open interest as outstanding contracts not yet offset, delivered, or exercised. It is not transaction volume. The course compares fictional final long-position totals with the same contract code/date aggregate and respects the Friday publication availability date. The public aggregate can prove that an over-capacity group cannot all be true; it cannot confirm or refute a particular private customer execution. The other market tables and every identity are fabricated.

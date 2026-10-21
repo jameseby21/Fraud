@@ -4,7 +4,7 @@
 
 Madoff received a 150-year sentence after pleading guilty to operating a Ponzi scheme.
 
-Outcome date: 2009-06-29. Source: [FBI: Bernard Madoff sentenced](https://archives.fbi.gov/archives/newyork/press-releases/2009/nyfo062909.htm); publication: 2009-06-29. This is the catalog's narrowly scoped finding, not a new independent adjudication.
+Outcome date: 2009-06-29. Source: [DOJ: United States v. Bernard L. Madoff and related cases](https://www.justice.gov/usao-sdny/programs/victim-witness-services/united-states-v-bernard-l-madoff-and-related-cases); publication: 2009-06-29. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
 ## Analyst question
 

@@ -15,8 +15,8 @@ from urllib.parse import urlencode
 from intake import validate_payload
 
 ROOT = Path(__file__).resolve().parent
-HOSTS = {'www.justice.gov', 'www.govinfo.gov', 'api.usaspending.gov', 'www.fbi.gov', 'archives.fbi.gov', 'www.ftc.gov'}
-TYPES = {'official_case_report', 'government_pleading', 'court_transcript', 'financial_records', 'hearing_transcript'}
+HOSTS = {'www.justice.gov', 'www.govinfo.gov', 'api.usaspending.gov', 'www.fbi.gov', 'archives.fbi.gov', 'www.ftc.gov', 'publicreporting.cftc.gov'}
+TYPES = {'official_case_report', 'government_pleading', 'court_transcript', 'financial_records', 'market_reference', 'hearing_transcript'}
 
 
 def encode(value):
@@ -171,7 +171,12 @@ def seed():
             url=case['source']['url'], publication_date=case['source'].get('published_on'), record_type='official_case_report',
             reuse_basis=f'{agency}-authored official report; government text only, third-party inserts retain original rights',
             reuse_url={'DOJ':'https://www.justice.gov/legalpolicies','FBI':'https://www.fbi.gov/privacy-policy','FTC':'https://www.ftc.gov/site-information/privacy-policy'}[agency]))
-    sources += [dict(id='madoff-peter-plea-transcript',case_id='madoff',title='Peter Madoff plea proceeding, June 29, 2012',
+    sources += [dict(id='cftc-tff-2022-09-13',case_id=None,title='CFTC TFF combined open interest, 15 contract markets, September 13, 2022',
+        url='https://publicreporting.cftc.gov/resource/yw9f-hn96.json?%24select=id%2Cmarket_and_exchange_names%2Creport_date_as_yyyy_mm_dd%2Ccftc_contract_market_code%2Copen_interest_all%2Ccontract_units&%24where=report_date_as_yyyy_mm_dd%3D%272022-09-13T00%3A00%3A00.000%27&%24order=cftc_contract_market_code&%24limit=15',
+        publication_date='2022-09-16',record_type='market_reference',
+        reuse_basis='CFTC public reporting API; exact government-produced aggregate facts retained for reproducible instruction',
+        reuse_url='https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm'),
+      dict(id='madoff-peter-plea-transcript',case_id='madoff',title='Peter Madoff plea proceeding, June 29, 2012',
         url='https://www.justice.gov/usao/nys/madoff/20120629transcriptpetermadoffpleaproceeding%20.pdf',publication_date='2012-06-29',record_type='court_transcript',
         reuse_basis='Public court-proceeding transcript hosted by DOJ; DOJ default permits copying unless otherwise indicated; no contrary copyright notice found in reviewed text. Not relicensed as project CC0.',reuse_url='https://www.justice.gov/legalpolicies'),
       dict(id='madoff-peter-information',case_id='madoff',title='Peter Madoff criminal information',url='https://www.justice.gov/media/785456/dl?inline=',publication_date='2012-06-29',record_type='government_pleading',

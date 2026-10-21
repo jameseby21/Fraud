@@ -93,6 +93,14 @@ class Handler(BaseHTTPRequestHandler):
                 files.update({'forensic-'+name:f'data/forensic/v2/{name}.csv' for name in ('payments','entities','invoices','bank_entries')})
                 files.update({'forensic-answers':'data/forensic/v2/instructor/answers.json','forensic-r':'courses/tracks/forensic.R',
                               'forensic-powerbi':'courses/tracks/forensic-powerbi.md','forensic-query':'courses/tracks/forensic.pq'})
+                files.update({
+                    'market-accounts': 'data/market/v1/accounts.csv',
+                    'market-confirmations': 'data/market/v1/confirmations.csv',
+                    'market-positions': 'data/market/v1/positions.csv',
+                    'market-context': 'data/market/v1/market_context.csv',
+                    'market-reference': 'data/market/v1/public_reference.csv',
+                })
+                files.update({'market-answers':'data/market/v1/instructor/answers.json','market-manifest':'data/market/v1/manifest.json'})
                 if selected in ('notebook', 'lesson'):
                     lesson = learning.lesson_document(query.get('course', [''])[0], query.get('lesson', [''])[0])
                     target = ROOT / (lesson['tracks']['python'] if selected == 'notebook' else f'courses/{lesson["course_id"]}/{lesson["id"]}.md')

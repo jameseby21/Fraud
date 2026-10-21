@@ -1,6 +1,6 @@
 export async function checkLearning({call,evaluate,until,assert,base}) {
   await call('Page.navigate',{url:base+'/learn'});
-  await until(`document.querySelector('#lessons')?.children.length===3 && document.querySelector('#status').textContent.startsWith('Lesson ready')`);
+  await until(`document.querySelector('#lessons')?.children.length===5 && document.querySelector('#status').textContent.startsWith('Lesson ready')`);
   assert(await evaluate(`document.querySelector('#dataset-download').href.includes('forensic-payments') && JSON.parse(document.querySelector('#numeric-summary').textContent).row_count===12000`),'Forensic course selects v2 data, not legacy fixture');
   assert(await evaluate(`document.querySelectorAll('.section-quiz').length===5 && document.querySelectorAll('.term-trigger').length>0`),'Every standard section has a quiz and glossary terms are marked');
   await evaluate(`document.querySelector('.term-trigger').click()`);
@@ -9,7 +9,13 @@ export async function checkLearning({call,evaluate,until,assert,base}) {
   await evaluate(`document.querySelector('#close-glossary').click()`);
   await evaluate(`const f=document.querySelector('.section-quiz');f.querySelector('input[type=radio]').click();f.requestSubmit()`);
   await until(`document.querySelector('.section-quiz .quiz-feedback').classList.contains('correct')`);
-  assert(await evaluate(`document.querySelector('#answer-download').href.includes('forensic-answers')`),'Version-specific instructor key');
+  await evaluate(`document.querySelectorAll('#lessons button')[3].click()`);
+  await until(`document.querySelector('#lesson-heading').textContent.includes('market capacity')`);
+  assert(await evaluate(`document.querySelector('#dataset-download').href.includes('market-confirmations') && document.querySelectorAll('.section-quiz').length===5`),'Statement-capacity lesson selects market confirmations and five checks');
+  await evaluate(`document.querySelectorAll('#lessons button')[4].click()`);
+  await until(`document.querySelector('#lesson-heading').textContent.includes('public CFTC')`);
+  assert(await evaluate(`document.querySelector('#dataset-download').href.includes('market-positions') && [...document.querySelectorAll('#downloads a')].some(a=>a.href.includes('market-reference'))`),'Public-corroboration lesson exposes positions and retained reference');
+  assert(await evaluate(`document.querySelector('#answer-download').href.includes('market-answers')`),'Market lessons use their version-specific instructor key');
   await evaluate(`document.querySelector('#track').value='r';document.querySelector('#track').dispatchEvent(new Event('change'))`);
   assert(await evaluate(`document.querySelector('#downloads a').href.includes('forensic-r') && document.querySelector('#tool-guide').textContent.includes('12,000')`),'Forensic R sources selected');
   await evaluate(`document.querySelector('#track').value='powerbi';document.querySelector('#track').dispatchEvent(new Event('change'))`);

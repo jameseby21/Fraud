@@ -38,6 +38,7 @@ function toolGuide() {
     else $('downloads').append(link('powerbi','Power BI guide'),link('query','Power Query M'),link('measures','DAX measures'));
   }
   if(currentLesson.dataset==='forensic-v2') for(const name of ['entities','invoices','bank_entries']) $('downloads').append(link('forensic-'+name,name+' CSV'));
+  if(['statement-capacity','public-corroboration'].includes(currentLesson.id)) for(const [id,label] of [['accounts','accounts'],['confirmations','confirmations'],['positions','positions'],['context','market context'],['reference','public reference']]) $('downloads').append(link('market-'+id,label+' CSV'));
   $('downloads').append(link('lesson','Markdown lesson',{course:currentCourse,lesson:currentLesson.id}));
   annotateTerms($('tool-guide'));
 }
@@ -101,8 +102,9 @@ async function openLesson(index,focus=false) {
     const summary=await get('/api/learning/summary?'+new URLSearchParams({dataset:doc.dataset}));
     if(id!==requestId)return;
     currentLesson=doc; $('lesson-heading').textContent=doc.title; $('numeric-summary').textContent=JSON.stringify(summary,null,2);
-    $('answer-download').href='/api/learning/download?name='+(doc.dataset==='forensic-v2'?'forensic-answers':'answers');
-    $('dataset-download').href='/api/learning/download?name='+(doc.dataset==='forensic-v2'?'forensic-payments':'dataset');
+    const marketLesson=['statement-capacity','public-corroboration'].includes(doc.id);
+    $('answer-download').href='/api/learning/download?name='+(marketLesson?'market-answers':doc.dataset==='forensic-v2'?'forensic-answers':'answers');
+    $('dataset-download').href='/api/learning/download?name='+(marketLesson?(doc.id==='statement-capacity'?'market-confirmations':'market-positions'):doc.dataset==='forensic-v2'?'forensic-payments':'dataset');
     // Split already-escaped output into lesson sections; worked results stay behind an explicit reveal.
     renderLesson(doc);
     $('checks').open=false; $('preview').open=false; $('complete').checked=completed[key()]===true; $('complete').disabled=false;

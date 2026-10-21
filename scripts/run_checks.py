@@ -26,6 +26,7 @@ def main():
         [sys.executable, 'record_library.py', 'verify'],
         [sys.executable, 'learning_fixture.py', 'verify'],
         [sys.executable, 'forensic_fixture.py', 'verify'],
+        [sys.executable, 'market_fixture.py', 'verify'],
         [sys.executable, 'scripts/build_courses.py', '--verify'],
         [sys.executable, 'scripts/build_case_guides.py', '--verify'],
         ['node', '--check', 'web/library.js'],

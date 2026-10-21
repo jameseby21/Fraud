@@ -77,7 +77,19 @@ COURSES.append(('forensic-practicum','Forensic analyst practicum','forensic',[
   'Compare each supplier over time. Use histograms and empirical CDFs, preserve amount-range context, and examine leading digits descriptively. The worked example compares VEN-0088 before/after 2025-10-01. Explain business-mix and selection alternatives. Inspect the instructor key only after recording your observations and proposed evidence requests.',
   'The planted cohort has 180 fabricated near-uniform amounts mixed with ordinary activity. The worked empirical CDF distance exceeds 0.15. This is descriptive, not a calibrated p-value or fraud probability. Bounded awards, resampling, fixed-price services and minimum/maximum selection do not establish Benford assumptions. The recurring-service control repeats legitimate-looking values.',
   'A first-digit deviation alone cannot establish manipulation. Compare raw amounts, range, category, dates, sample sizes and dependence. Use all records in your selected tool; the browser scatter preview is only 500 rows. Save your memo and feedback in ignored output/.',
-  'Which further document would distinguish a change in procurement mix from fabricated transactions? What would falsify your preferred explanation?', 'histogram')]))
+  'Which further document would distinguish a change in procurement mix from fabricated transactions? What would falsify your preferred explanation?', 'histogram'),
+ ('statement-capacity','4. Test polished statements against market capacity',
+  'Can a statement be internally perfect and still describe trades that could not all have occurred?',
+  'Load data/market/v1/confirmations.csv and market_context.csv. First verify every gross_cents value equals quantity times price_cents, every cash movement is its negative, and settlement follows trade date. Then group BUY quantities by security_id and trade_date and compare each total with the matching complete synthetic market volume. Keep the market scope and availability date beside every comparison.',
+  'All 8,000 confirmations pass the arithmetic and cash checks. One group contains 40 individually plausible lines totaling 2,521,337 units against complete synthetic market volume of 2,500,000, an excess below 1%. The contradiction is real inside the fixture, but the aggregate does not identify which line is false.',
+  'Join on both security_id and trade_date. Do not compare holdings with trading volume or combine market scopes. If many groups exceed volume, inspect duplicate joins and whether volume was repeated across account rows.',
+  'What independent custody, venue, clearing, or counterparty record could identify the false claim? Why does perfect statement arithmetic fail to answer that question?', 'line'),
+ ('public-corroboration','5. Check statement positions with public CFTC data',
+  'What can a public aggregate prove about private statement positions, and what remains unknowable?',
+  'Load positions.csv and public_reference.csv. Confirm the retained source hash in manifest.json, then group final long_contracts by provider, CFTC contract code, and report date. Compare the fictional totals with CFTC open_interest_all for the exact same code and date. In /records review the registered CFTC source and its scope before interpreting a mismatch.',
+  'The 4,000 fictional position rows cover 15 exact CFTC reference groups. Code 020601 totals 1,388,003 claimed long contracts versus public combined open interest of 1,376,168, an excess below 1%. At least one scoped claim cannot be true, but aggregate public data cannot identify which confirmation is false. The other 14 groups are capacity controls, not proof of execution.',
+  'CFTC open interest is a Tuesday aggregate released later; use available_on 2022-09-16 in an as-of analysis. Combined futures-and-options data, contract units, codes and dates must match. Public aggregates do not replace customer-level broker, clearing, or custody records.',
+  'Write one sentence that the public data establishes and one it cannot establish. Which next record would move the review from a group inconsistency toward a specific finding?', 'bar')]))
 
 SETUP = '''from pathlib import Path
 import sys
@@ -95,6 +107,8 @@ EXERCISES = {
  'evidence-brief': 'from forensic_fixture import public_case\ncase = public_case()\nassert len(case["entities"]) == 120\nassert len(case["invoices"]) == 11999\nledger = {r["transaction_id"]: r for r in case["payments"]}\nvariance = [r for r in case["bank_entries"] if -r["signed_amount_cents"] != ledger[r["transaction_id"]]["amount_cents"]]\nassert len(variance) == 1\n',
  'round-sums': 'from forensic_fixture import round_groups\ncandidates = round_groups(rows)\nassert len(candidates) >= 12\n# Explain the groups, benign alternatives and why a round total is not a finding.\n',
  'distribution-shift': 'from forensic_fixture import distribution_comparison\ncomparison = distribution_comparison(rows)\nassert comparison["ks_distance"] > 0.15\n# Describe cohort sizes, range and selection before interpreting this shift.\n',
+ 'statement-capacity': 'from market_fixture import build_case, load_public_reference, trade_volume_candidates\nmarket_case = build_case(load_public_reference())\ncapacity = [r for r in trade_volume_candidates(market_case["confirmations"], market_case["market_context"]) if r["exceeds_market_volume"]]\nassert len(capacity) == 1 and capacity[0]["claimed_quantity"] == 2521337\n# The group is inconsistent; public or synthetic aggregates do not select a false row.\n',
+ 'public-corroboration': 'from market_fixture import build_case, load_public_reference, open_interest_candidates\nreference = load_public_reference()\nmarket_case = build_case(reference)\ncapacity = [r for r in open_interest_candidates(market_case["positions"], reference["rows"]) if r["exceeds_open_interest"]]\nassert len(capacity) == 1 and capacity[0]["cftc_contract_market_code"] == "020601"\n# State what the CFTC aggregate proves and what customer-level evidence is still missing.\n',
  'orientation': 'assert len({r["transaction_id"] for r in rows}) == len(rows)\nassert {r["synthetic"] for r in rows} == {"True"}\n',
  'quality': '''from collections import defaultdict
 groups = defaultdict(list)
@@ -187,7 +201,7 @@ def main():
         else:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(content)
-    print('PASS: 3 courses, 11 Markdown lessons and 11 clean Python notebooks ' + ('verified.' if args.verify else 'built.'))
+    print('PASS: 3 courses, 13 Markdown lessons and 13 clean Python notebooks ' + ('verified.' if args.verify else 'built.'))
 
 
 if __name__ == '__main__':

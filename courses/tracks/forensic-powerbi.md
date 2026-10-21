@@ -23,4 +23,12 @@ Select VEN-0088 and split payment_date at 2025-10-01. Use identical fixed amount
 
 The general seven-family recipes remain in powerbi.md; choose Payments as the source and derive AmountUSD = amount_cents / 100 and DelayDays from the dates. Histograms/CDFs and detail tables are the most relevant views here. Save under ignored output/. Record Desktop version and actual results in feedback, including any query errors.
 
-Common issues: multiply-by-100 currency mistakes, ambiguous relationships, invoice-join fan-out, stale filters, incorrect path separator, and mixing all-time totals with as-of availability. Reset filters and reconcile row grain before changing formulas. Review source hashes through the public library; fictional entity names do not anonymize or identify original vendors.
+## statement-capacity
+
+Import `data/market/v1/confirmations.csv` and `market_context.csv` as whole-number tables. Add `ExpectedGross = confirmations[quantity] * confirmations[price_cents]` and `ExpectedCash = -confirmations[gross_cents]`; both variances should be zero. Build a summary by security_id and trade_date, sum quantity, relate it to the unique matching market-context key, and calculate claimed quantity minus market volume. Preserve a detail drill-through. Exactly one group exceeds the complete synthetic tape, by less than 1%; no formula identifies a false row.
+
+## public-corroboration
+
+Import `positions.csv` and `public_reference.csv`; keep the CFTC contract code as text so leading zeros survive. Group final long contracts by provider_id, report date and contract code. Compare with open_interest_all only after confirming the code, date, combined-report scope, units, source hash, and `available_on`. Exactly one of 15 groups exceeds public open interest by less than 1%. Label the result a group inconsistency. Public CFTC aggregates cannot confirm an individual customer execution.
+
+Common issues: multiply-by-100 currency mistakes, lost leading zeros in contract codes, ambiguous relationships, invoice-join fan-out, repeated market capacity after a many-side join, stale filters, incorrect path separator, and mixing all-time totals with as-of availability. Reset filters and reconcile row grain before changing formulas. Review source hashes through the public library; fictional entity names do not anonymize or identify original vendors.

@@ -71,3 +71,10 @@ class RecordLibraryTests(unittest.TestCase):
             (root/'data/library/amount_pool.json').write_text('{}')
             with self.assertRaises(ValueError):
                 verify_library(root)
+
+    def test_cftc_public_host_and_market_reference_type_are_allowlisted(self):
+        source = dict(self.source(), id='cftc-sample', case_id=None,
+                      url='https://publicreporting.cftc.gov/resource/yw9f-hn96.json?%24limit=1',
+                      record_type='market_reference', reuse_basis='CFTC public reporting data',
+                      reuse_url='https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm')
+        check_source(source)

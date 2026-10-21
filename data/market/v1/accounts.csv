@@ -1,0 +1,241 @@
+account_id,account_name,contact_name,synthetic
+ACC-0001,Northwind Family Trust,Amira Archer,True
+ACC-0002,Juniper Family Trust,Caleb Bishop,True
+ACC-0003,Harborlight Family Trust,Daria Chen,True
+ACC-0004,Redwood Family Trust,Emmett Diaz,True
+ACC-0005,Clearwater Family Trust,Farah Everett,True
+ACC-0006,Stonebridge Family Trust,Gavin Foster,True
+ACC-0007,Fairview Family Trust,Hana Gupta,True
+ACC-0008,Bluecrest Family Trust,Isaac Hughes,True
+ACC-0009,Oakline Family Trust,June Ito,True
+ACC-0010,Silvermaple Family Trust,Kiran Jordan,True
+ACC-0011,Northwind Retirement Plan,Lucia Kim,True
+ACC-0012,Juniper Retirement Plan,Miles Lopez,True
+ACC-0013,Harborlight Retirement Plan,Amira Bishop,True
+ACC-0014,Redwood Retirement Plan,Caleb Chen,True
+ACC-0015,Clearwater Retirement Plan,Daria Diaz,True
+ACC-0016,Stonebridge Retirement Plan,Emmett Everett,True
+ACC-0017,Fairview Retirement Plan,Farah Foster,True
+ACC-0018,Bluecrest Retirement Plan,Gavin Gupta,True
+ACC-0019,Oakline Retirement Plan,Hana Hughes,True
+ACC-0020,Silvermaple Retirement Plan,Isaac Ito,True
+ACC-0021,Northwind Foundation,June Jordan,True
+ACC-0022,Juniper Foundation,Kiran Kim,True
+ACC-0023,Harborlight Foundation,Lucia Lopez,True
+ACC-0024,Redwood Foundation,Miles Archer,True
+ACC-0025,Clearwater Foundation,Amira Chen,True
+ACC-0026,Stonebridge Foundation,Caleb Diaz,True
+ACC-0027,Fairview Foundation,Daria Everett,True
+ACC-0028,Bluecrest Foundation,Emmett Foster,True
+ACC-0029,Oakline Foundation,Farah Gupta,True
+ACC-0030,Silvermaple Foundation,Gavin Hughes,True
+ACC-0031,Northwind Endowment,Hana Ito,True
+ACC-0032,Juniper Endowment,Isaac Jordan,True
+ACC-0033,Harborlight Endowment,June Kim,True
+ACC-0034,Redwood Endowment,Kiran Lopez,True
+ACC-0035,Clearwater Endowment,Lucia Archer,True
+ACC-0036,Stonebridge Endowment,Miles Bishop,True
+ACC-0037,Fairview Endowment,Amira Diaz,True
+ACC-0038,Bluecrest Endowment,Caleb Everett,True
+ACC-0039,Oakline Endowment,Daria Foster,True
+ACC-0040,Silvermaple Endowment,Emmett Gupta,True
+ACC-0041,Northwind Holdings LLC,Farah Hughes,True
+ACC-0042,Juniper Holdings LLC,Gavin Ito,True
+ACC-0043,Harborlight Holdings LLC,Hana Jordan,True
+ACC-0044,Redwood Holdings LLC,Isaac Kim,True
+ACC-0045,Clearwater Holdings LLC,June Lopez,True
+ACC-0046,Stonebridge Holdings LLC,Kiran Archer,True
+ACC-0047,Fairview Holdings LLC,Lucia Bishop,True
+ACC-0048,Bluecrest Holdings LLC,Miles Chen,True
+ACC-0049,Oakline Holdings LLC,Amira Everett,True
+ACC-0050,Silvermaple Holdings LLC,Caleb Foster,True
+ACC-0051,Northwind Capital Partners,Daria Gupta,True
+ACC-0052,Juniper Capital Partners,Emmett Hughes,True
+ACC-0053,Harborlight Capital Partners,Farah Ito,True
+ACC-0054,Redwood Capital Partners,Gavin Jordan,True
+ACC-0055,Clearwater Capital Partners,Hana Kim,True
+ACC-0056,Stonebridge Capital Partners,Isaac Lopez,True
+ACC-0057,Fairview Capital Partners,June Archer,True
+ACC-0058,Bluecrest Capital Partners,Kiran Bishop,True
+ACC-0059,Oakline Capital Partners,Lucia Chen,True
+ACC-0060,Silvermaple Capital Partners,Miles Diaz,True
+ACC-0061,Northwind Family Trust,Amira Foster,True
+ACC-0062,Juniper Family Trust,Caleb Gupta,True
+ACC-0063,Harborlight Family Trust,Daria Hughes,True
+ACC-0064,Redwood Family Trust,Emmett Ito,True
+ACC-0065,Clearwater Family Trust,Farah Jordan,True
+ACC-0066,Stonebridge Family Trust,Gavin Kim,True
+ACC-0067,Fairview Family Trust,Hana Lopez,True
+ACC-0068,Bluecrest Family Trust,Isaac Archer,True
+ACC-0069,Oakline Family Trust,June Bishop,True
+ACC-0070,Silvermaple Family Trust,Kiran Chen,True
+ACC-0071,Northwind Retirement Plan,Lucia Diaz,True
+ACC-0072,Juniper Retirement Plan,Miles Everett,True
+ACC-0073,Harborlight Retirement Plan,Amira Gupta,True
+ACC-0074,Redwood Retirement Plan,Caleb Hughes,True
+ACC-0075,Clearwater Retirement Plan,Daria Ito,True
+ACC-0076,Stonebridge Retirement Plan,Emmett Jordan,True
+ACC-0077,Fairview Retirement Plan,Farah Kim,True
+ACC-0078,Bluecrest Retirement Plan,Gavin Lopez,True
+ACC-0079,Oakline Retirement Plan,Hana Archer,True
+ACC-0080,Silvermaple Retirement Plan,Isaac Bishop,True
+ACC-0081,Northwind Foundation,June Chen,True
+ACC-0082,Juniper Foundation,Kiran Diaz,True
+ACC-0083,Harborlight Foundation,Lucia Everett,True
+ACC-0084,Redwood Foundation,Miles Foster,True
+ACC-0085,Clearwater Foundation,Amira Hughes,True
+ACC-0086,Stonebridge Foundation,Caleb Ito,True
+ACC-0087,Fairview Foundation,Daria Jordan,True
+ACC-0088,Bluecrest Foundation,Emmett Kim,True
+ACC-0089,Oakline Foundation,Farah Lopez,True
+ACC-0090,Silvermaple Foundation,Gavin Archer,True
+ACC-0091,Northwind Endowment,Hana Bishop,True
+ACC-0092,Juniper Endowment,Isaac Chen,True
+ACC-0093,Harborlight Endowment,June Diaz,True
+ACC-0094,Redwood Endowment,Kiran Everett,True
+ACC-0095,Clearwater Endowment,Lucia Foster,True
+ACC-0096,Stonebridge Endowment,Miles Gupta,True
+ACC-0097,Fairview Endowment,Amira Ito,True
+ACC-0098,Bluecrest Endowment,Caleb Jordan,True
+ACC-0099,Oakline Endowment,Daria Kim,True
+ACC-0100,Silvermaple Endowment,Emmett Lopez,True
+ACC-0101,Northwind Holdings LLC,Farah Archer,True
+ACC-0102,Juniper Holdings LLC,Gavin Bishop,True
+ACC-0103,Harborlight Holdings LLC,Hana Chen,True
+ACC-0104,Redwood Holdings LLC,Isaac Diaz,True
+ACC-0105,Clearwater Holdings LLC,June Everett,True
+ACC-0106,Stonebridge Holdings LLC,Kiran Foster,True
+ACC-0107,Fairview Holdings LLC,Lucia Gupta,True
+ACC-0108,Bluecrest Holdings LLC,Miles Hughes,True
+ACC-0109,Oakline Holdings LLC,Amira Jordan,True
+ACC-0110,Silvermaple Holdings LLC,Caleb Kim,True
+ACC-0111,Northwind Capital Partners,Daria Lopez,True
+ACC-0112,Juniper Capital Partners,Emmett Archer,True
+ACC-0113,Harborlight Capital Partners,Farah Bishop,True
+ACC-0114,Redwood Capital Partners,Gavin Chen,True
+ACC-0115,Clearwater Capital Partners,Hana Diaz,True
+ACC-0116,Stonebridge Capital Partners,Isaac Everett,True
+ACC-0117,Fairview Capital Partners,June Foster,True
+ACC-0118,Bluecrest Capital Partners,Kiran Gupta,True
+ACC-0119,Oakline Capital Partners,Lucia Hughes,True
+ACC-0120,Silvermaple Capital Partners,Miles Ito,True
+ACC-0121,Northwind Family Trust,Amira Kim,True
+ACC-0122,Juniper Family Trust,Caleb Lopez,True
+ACC-0123,Harborlight Family Trust,Daria Archer,True
+ACC-0124,Redwood Family Trust,Emmett Bishop,True
+ACC-0125,Clearwater Family Trust,Farah Chen,True
+ACC-0126,Stonebridge Family Trust,Gavin Diaz,True
+ACC-0127,Fairview Family Trust,Hana Everett,True
+ACC-0128,Bluecrest Family Trust,Isaac Foster,True
+ACC-0129,Oakline Family Trust,June Gupta,True
+ACC-0130,Silvermaple Family Trust,Kiran Hughes,True
+ACC-0131,Northwind Retirement Plan,Lucia Ito,True
+ACC-0132,Juniper Retirement Plan,Miles Jordan,True
+ACC-0133,Harborlight Retirement Plan,Amira Lopez,True
+ACC-0134,Redwood Retirement Plan,Caleb Archer,True
+ACC-0135,Clearwater Retirement Plan,Daria Bishop,True
+ACC-0136,Stonebridge Retirement Plan,Emmett Chen,True
+ACC-0137,Fairview Retirement Plan,Farah Diaz,True
+ACC-0138,Bluecrest Retirement Plan,Gavin Everett,True
+ACC-0139,Oakline Retirement Plan,Hana Foster,True
+ACC-0140,Silvermaple Retirement Plan,Isaac Gupta,True
+ACC-0141,Northwind Foundation,June Hughes,True
+ACC-0142,Juniper Foundation,Kiran Ito,True
+ACC-0143,Harborlight Foundation,Lucia Jordan,True
+ACC-0144,Redwood Foundation,Miles Kim,True
+ACC-0145,Clearwater Foundation,Amira Archer,True
+ACC-0146,Stonebridge Foundation,Caleb Bishop,True
+ACC-0147,Fairview Foundation,Daria Chen,True
+ACC-0148,Bluecrest Foundation,Emmett Diaz,True
+ACC-0149,Oakline Foundation,Farah Everett,True
+ACC-0150,Silvermaple Foundation,Gavin Foster,True
+ACC-0151,Northwind Endowment,Hana Gupta,True
+ACC-0152,Juniper Endowment,Isaac Hughes,True
+ACC-0153,Harborlight Endowment,June Ito,True
+ACC-0154,Redwood Endowment,Kiran Jordan,True
+ACC-0155,Clearwater Endowment,Lucia Kim,True
+ACC-0156,Stonebridge Endowment,Miles Lopez,True
+ACC-0157,Fairview Endowment,Amira Bishop,True
+ACC-0158,Bluecrest Endowment,Caleb Chen,True
+ACC-0159,Oakline Endowment,Daria Diaz,True
+ACC-0160,Silvermaple Endowment,Emmett Everett,True
+ACC-0161,Northwind Holdings LLC,Farah Foster,True
+ACC-0162,Juniper Holdings LLC,Gavin Gupta,True
+ACC-0163,Harborlight Holdings LLC,Hana Hughes,True
+ACC-0164,Redwood Holdings LLC,Isaac Ito,True
+ACC-0165,Clearwater Holdings LLC,June Jordan,True
+ACC-0166,Stonebridge Holdings LLC,Kiran Kim,True
+ACC-0167,Fairview Holdings LLC,Lucia Lopez,True
+ACC-0168,Bluecrest Holdings LLC,Miles Archer,True
+ACC-0169,Oakline Holdings LLC,Amira Chen,True
+ACC-0170,Silvermaple Holdings LLC,Caleb Diaz,True
+ACC-0171,Northwind Capital Partners,Daria Everett,True
+ACC-0172,Juniper Capital Partners,Emmett Foster,True
+ACC-0173,Harborlight Capital Partners,Farah Gupta,True
+ACC-0174,Redwood Capital Partners,Gavin Hughes,True
+ACC-0175,Clearwater Capital Partners,Hana Ito,True
+ACC-0176,Stonebridge Capital Partners,Isaac Jordan,True
+ACC-0177,Fairview Capital Partners,June Kim,True
+ACC-0178,Bluecrest Capital Partners,Kiran Lopez,True
+ACC-0179,Oakline Capital Partners,Lucia Archer,True
+ACC-0180,Silvermaple Capital Partners,Miles Bishop,True
+ACC-0181,Northwind Family Trust,Amira Diaz,True
+ACC-0182,Juniper Family Trust,Caleb Everett,True
+ACC-0183,Harborlight Family Trust,Daria Foster,True
+ACC-0184,Redwood Family Trust,Emmett Gupta,True
+ACC-0185,Clearwater Family Trust,Farah Hughes,True
+ACC-0186,Stonebridge Family Trust,Gavin Ito,True
+ACC-0187,Fairview Family Trust,Hana Jordan,True
+ACC-0188,Bluecrest Family Trust,Isaac Kim,True
+ACC-0189,Oakline Family Trust,June Lopez,True
+ACC-0190,Silvermaple Family Trust,Kiran Archer,True
+ACC-0191,Northwind Retirement Plan,Lucia Bishop,True
+ACC-0192,Juniper Retirement Plan,Miles Chen,True
+ACC-0193,Harborlight Retirement Plan,Amira Everett,True
+ACC-0194,Redwood Retirement Plan,Caleb Foster,True
+ACC-0195,Clearwater Retirement Plan,Daria Gupta,True
+ACC-0196,Stonebridge Retirement Plan,Emmett Hughes,True
+ACC-0197,Fairview Retirement Plan,Farah Ito,True
+ACC-0198,Bluecrest Retirement Plan,Gavin Jordan,True
+ACC-0199,Oakline Retirement Plan,Hana Kim,True
+ACC-0200,Silvermaple Retirement Plan,Isaac Lopez,True
+ACC-0201,Northwind Foundation,June Archer,True
+ACC-0202,Juniper Foundation,Kiran Bishop,True
+ACC-0203,Harborlight Foundation,Lucia Chen,True
+ACC-0204,Redwood Foundation,Miles Diaz,True
+ACC-0205,Clearwater Foundation,Amira Foster,True
+ACC-0206,Stonebridge Foundation,Caleb Gupta,True
+ACC-0207,Fairview Foundation,Daria Hughes,True
+ACC-0208,Bluecrest Foundation,Emmett Ito,True
+ACC-0209,Oakline Foundation,Farah Jordan,True
+ACC-0210,Silvermaple Foundation,Gavin Kim,True
+ACC-0211,Northwind Endowment,Hana Lopez,True
+ACC-0212,Juniper Endowment,Isaac Archer,True
+ACC-0213,Harborlight Endowment,June Bishop,True
+ACC-0214,Redwood Endowment,Kiran Chen,True
+ACC-0215,Clearwater Endowment,Lucia Diaz,True
+ACC-0216,Stonebridge Endowment,Miles Everett,True
+ACC-0217,Fairview Endowment,Amira Gupta,True
+ACC-0218,Bluecrest Endowment,Caleb Hughes,True
+ACC-0219,Oakline Endowment,Daria Ito,True
+ACC-0220,Silvermaple Endowment,Emmett Jordan,True
+ACC-0221,Northwind Holdings LLC,Farah Kim,True
+ACC-0222,Juniper Holdings LLC,Gavin Lopez,True
+ACC-0223,Harborlight Holdings LLC,Hana Archer,True
+ACC-0224,Redwood Holdings LLC,Isaac Bishop,True
+ACC-0225,Clearwater Holdings LLC,June Chen,True
+ACC-0226,Stonebridge Holdings LLC,Kiran Diaz,True
+ACC-0227,Fairview Holdings LLC,Lucia Everett,True
+ACC-0228,Bluecrest Holdings LLC,Miles Foster,True
+ACC-0229,Oakline Holdings LLC,Amira Hughes,True
+ACC-0230,Silvermaple Holdings LLC,Caleb Ito,True
+ACC-0231,Northwind Capital Partners,Daria Jordan,True
+ACC-0232,Juniper Capital Partners,Emmett Kim,True
+ACC-0233,Harborlight Capital Partners,Farah Lopez,True
+ACC-0234,Redwood Capital Partners,Gavin Archer,True
+ACC-0235,Clearwater Capital Partners,Hana Bishop,True
+ACC-0236,Stonebridge Capital Partners,Isaac Chen,True
+ACC-0237,Fairview Capital Partners,June Diaz,True
+ACC-0238,Bluecrest Capital Partners,Kiran Everett,True
+ACC-0239,Oakline Capital Partners,Lucia Foster,True
+ACC-0240,Silvermaple Capital Partners,Miles Gupta,True

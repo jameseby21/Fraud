@@ -42,6 +42,16 @@ This index is generated from `data/learning/glossary.json`, the same reviewed so
 
 **Also shown as:** market volume, trading volume, volume.
 
+## Open interest
+
+**Definition:** The total number of derivative contracts that remain open because they have not been offset, delivered, or exercised.
+
+**More context:** For a futures or options market, aggregate long open interest equals aggregate short open interest. Public reports may group traders and publish after the measured date.
+
+**Implications:** Match the contract, report date, unit, and publication lag. A set of claimed positions above total reported open interest proves a group-level inconsistency, but does not identify which individual record is false.
+
+**Also shown as:** open interest.
+
 ## Liquidity
 
 **Definition:** The ability to transact in an asset with limited delay and price impact.

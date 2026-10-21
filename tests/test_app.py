@@ -158,3 +158,23 @@ class AppTests(unittest.TestCase):
             self.assertEqual(json.load(response)['row_count'],12000)
         with self.request('/api/learning/download?name=forensic-payments') as response:
             self.assertIn(b'supplier_id',response.read())
+
+    def test_market_context_lessons_and_downloads(self):
+        for lesson, marker in (('statement-capacity', 'market volume'), ('public-corroboration', 'cftc')):
+            with self.request('/api/learning/lesson?course=forensic-practicum&lesson='+lesson) as response:
+                doc = json.load(response)
+                self.assertEqual(len(doc['quizzes']), 5)
+                self.assertIn(marker, doc['markdown'].lower())
+        for name, marker in (('market-confirmations', b'confirmation_id'),
+                             ('market-positions', b'position_id'),
+                             ('market-context', b'market_volume'),
+                             ('market-reference', b'open_interest_all')):
+            with self.request('/api/learning/download?name='+name) as response:
+                self.assertIn(marker, response.read())
+
+    def test_madoff_catalog_uses_accessible_doj_landing_page(self):
+        with self.request('/api/catalog') as response:
+            case = next(item for item in json.load(response)['cases'] if item['id'] == 'madoff')
+        self.assertEqual(case['source']['publisher'], 'DOJ')
+        self.assertIn('/united-states-v-bernard-l-madoff-and-related-cases', case['source']['url'])
+        self.assertNotIn('archives.fbi.gov', case['source']['url'])

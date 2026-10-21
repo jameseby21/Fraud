@@ -103,6 +103,18 @@
           "title": "3. Challenge fabricated randomness and write the memo",
           "chart": "histogram",
           "minutes": 30
+        },
+        {
+          "id": "statement-capacity",
+          "title": "4. Test polished statements against market capacity",
+          "chart": "line",
+          "minutes": 30
+        },
+        {
+          "id": "public-corroboration",
+          "title": "5. Check statement positions with public CFTC data",
+          "chart": "bar",
+          "minutes": 30
         }
       ]
     }

@@ -1,0 +1,15 @@
+{
+  "counts": {
+    "accounts": 240,
+    "confirmations": 8000,
+    "market_context": 2000,
+    "positions": 4000,
+    "public_reference": 15
+  },
+  "interpretation": "Identities, statements, confirmations, prices and the complete exchange tape are fabricated. Only the retained CFTC aggregate reference facts are real. Capacity contradictions are group-level facts, not row-level guilt labels.",
+  "public_source_id": "cftc-tff-2022-09-13",
+  "public_source_sha256": "5ff88b35f044560e5d7c64397b355a7f26c2f92f360188a75a37b218e6b00c7d",
+  "seed": 904271,
+  "synthetic": true,
+  "version": "1.0.0"
+}

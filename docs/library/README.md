@@ -8,6 +8,7 @@
 python record_library.py import-existing
 python record_library.py fetch
 python record_library.py fetch --source madoff-peter-information --refresh
+python record_library.py fetch --source cftc-tff-2022-09-13 --refresh
 python record_library.py build
 python record_library.py verify
 ```
@@ -33,6 +34,8 @@ The library distinguishes official reports, government pleadings, court transcri
 Retained: 15 prior reports, two new legal PDFs and ten financial API pages. Ten registered report URLs remain unavailable; see the index and attempt log. This is not complete financial-ledger coverage for every case.
 
 The pool contains 1,000 federal contract obligation records (977 distinct amounts) from ten 100-row pages, a 2025 activity filter, and USD 10-250,000 amount bounds. They are total award obligations, not invoices or calendar-year cash spending. Ordering by Award ID is nonrepresentative; upstream changes can shift pagination. Preserve the snapshot rather than claiming a natural payment population. Fictional reassignment of exact values must retain lineage and does not reconstruct an original transaction.
+
+The CFTC source is a fixed 15-row GET query against the public TFF combined dataset for September 13, 2022. Its original JSON is retained by hash and normalized into `data/market/v1/public_reference.csv`. This aggregate open interest is a market-capacity reference, not evidence about a named customer or a particular execution. The query is small, deterministic, unauthenticated, and refreshes append revisions instead of replacing bytes.
 
 [DOJ's policy](https://www.justice.gov/legalpolicies) permits copying/distribution by default unless otherwise indicated. No contrary copyright notice was found in the reviewed transcript text. Preserve original notices; court/third-party materials are not relicensed as project CC0. Public accessibility alone does not authorize every future exhibit or reporter product. [GovInfo](https://www.govinfo.gov/about/policies) also warns that government publications may contain copyrighted inserts. New sources require individual review.
 

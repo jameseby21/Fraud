@@ -1,8 +1,8 @@
 # Forensic practicum in R
 
-From the repository root run `Rscript courses/tracks/forensic.R`, or execute the matching evidence-brief, round-sums and distribution-shift sections in RStudio. The script uses base R, joins four fictional tables, calculates group sums and before/after empirical CDFs, and exports ignored output/forensic-r.pdf.
+From the repository root run `Rscript courses/tracks/forensic.R`, or execute the matching lesson section in RStudio. The script uses base R, joins the fictional tables, calculates group sums and before/after empirical CDFs, checks statement arithmetic against a complete synthetic market tape, checks fictional position totals against retained CFTC open interest, and exports ignored output/forensic-r.pdf.
 
-Expected: 12,000 payments; 120 suppliers; 11,999 invoices; 12,000 bank entries; at least twelve round-total candidate groups; one USD 5 bank difference. The worked supplier CDF distance exceeds 0.15. Do not interpret that distance as a p-value or fraud probability. The PDF contains full-population distribution, cohort CDF and leading-digit charts; no Benford fit is asserted.
+Expected: 12,000 payments; 120 suppliers; 11,999 invoices; 12,000 bank entries; 8,000 market confirmations; 4,000 position lines; at least twelve round-total candidate groups; one USD 5 bank difference; one synthetic trade-volume conflict; and one public open-interest conflict. The worked supplier CDF distance exceeds 0.15. Do not interpret that distance as a p-value or fraud probability. The PDF contains full-population distribution, cohort CDF and leading-digit charts; no Benford fit is asserted.
 
 If CSV files are missing, use `getwd()` and open the repository root. If joins multiply rows, check invoice uniqueness versus payment grain. Subtract dates as Date objects; ISO strings are used only for the explicitly formatted cohort comparison. Whole cents and these sums remain exactly representable within this fixture's numeric range. Inspect any failed assertion before editing an expectation.
 
