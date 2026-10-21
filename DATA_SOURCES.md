@@ -60,3 +60,7 @@ python intake.py sources
 `verify` and `build` work offline. Network commands require internet access. `sources` exits 1 if any source is unavailable, retaining successes and logging failures without bypassing restrictions. It enforces an HTTPS host allowlist, redirect validation, response limits, content checks, content-addressed storage, and bounded retries for transient errors. Forbidden requests are not retried automatically.
 
 Refreshes append history and create new raw artifacts. Current CSV/provenance files reference the latest successful spending response. Offline verification reconstructs the CSV from retained bytes and verifies hashes. Publication dates and legal findings require manual review; fetching a document does not silently change a label.
+
+## Supplemental record library
+
+See [the library guide](docs/library/README.md) for the reviewed registry, per-source reuse basis, request-aware append-only revisions, legal PDF supplements, exact obligation-value pool, source gaps and offline verification. `python record_library.py fetch` performs incremental public intake; `python record_library.py verify` checks retained and derived bytes. These financial values are federal award obligations, not payments or case-specific misconduct.

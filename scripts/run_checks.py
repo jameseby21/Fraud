@@ -23,6 +23,7 @@ def main():
         [sys.executable, 'scripts/check_staged_data.py'],
         [sys.executable, 'intake.py', 'verify'],
         [sys.executable, 'documentation.py'],
+        [sys.executable, 'record_library.py', 'verify'],
         [sys.executable, 'learning_fixture.py', 'verify'],
         [sys.executable, 'scripts/build_courses.py', '--verify'],
         ['node', '--check', 'web/library.js'],

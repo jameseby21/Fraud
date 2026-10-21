@@ -29,6 +29,8 @@ The dashboard offers a searchable alert queue, supporting transaction records, a
 
 ## Case library and public data
 
+The [incremental record library guide](docs/library/README.md) documents `/records`, automated intake, retained original bytes, request-aware supplemental revisions and offline integrity checks. It adds two real Peter Madoff legal PDFs and 1,000 exact federal obligation values to 15 prior reports. Unavailable sources remain explicit; this is not original ledger coverage for every case. Real values can seed fictional exercises without implying wrongdoing by the source organizations.
+
 - **20 historical cases:** sourced criminal findings, narrowly scoped outcomes, a date-gated source view, and case-inspired mechanism exercises.
 - **Replay controls:** step, back, play/pause, revealed inputs, arithmetic, thresholds, alternatives, model version, and input hashes.
 - **Five modern priorities:** public allegations or research questions with proposed methods, sources, counterevidence, and data gaps. No guilt scores.

@@ -111,3 +111,14 @@ class AppTests(unittest.TestCase):
             with self.request(path) as response:
                 self.assertEqual(response.geturl(), self.base + '/learn')
                 self.assertIn(b'Data analysis studio', response.read())
+
+    def test_real_record_library_and_safe_downloads(self):
+        with self.request('/records') as response:
+            self.assertIn(b'Public record library',response.read())
+        with self.request('/api/records') as response:
+            records=json.load(response)['sources']
+            self.assertGreater(len(records),20)
+        with self.request('/api/record?source=madoff-peter-information') as response:
+            self.assertTrue(response.read().startswith(b'%PDF-'))
+        with self.assertRaises(urllib.error.HTTPError):
+            self.request('/api/record?source=../../vault.py')

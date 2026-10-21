@@ -1,0 +1,695 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "case_id": "madoff",
+      "id": "madoff-report",
+      "publication_date": "2009-06-29",
+      "record_type": "official_case_report",
+      "reuse_basis": "FBI-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.fbi.gov/privacy-policy",
+      "title": "Bernard Madoff / BLMIS",
+      "url": "https://archives.fbi.gov/archives/newyork/press-releases/2009/nyfo062909.htm"
+    },
+    {
+      "case_id": "stanford",
+      "id": "stanford-report",
+      "publication_date": "2012-06-14",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Allen Stanford / Stanford International Bank",
+      "url": "https://www.justice.gov/archive/usao/txs/1News/Releases/2012%20June/120614%20Stanford.html"
+    },
+    {
+      "case_id": "petters",
+      "id": "petters-report",
+      "publication_date": "2010-12-06",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Tom Petters / Petters Company",
+      "url": "https://www.justice.gov/archives/opa/blog/operation-broken-trust-action"
+    },
+    {
+      "case_id": "rothstein",
+      "id": "rothstein-report",
+      "publication_date": "2010-06-09",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Scott Rothstein / RRA",
+      "url": "https://www.justice.gov/archive/usao/fls/PressReleases/2010/100609-01.html"
+    },
+    {
+      "case_id": "ftx",
+      "id": "ftx-report",
+      "publication_date": "2024-03-28",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Sam Bankman-Fried / FTX",
+      "url": "https://www.justice.gov/usao-sdny/pr/samuel-bankman-fried-sentenced-25-years-prison"
+    },
+    {
+      "case_id": "theranos",
+      "id": "theranos-report",
+      "publication_date": "2022-11-18",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Elizabeth Holmes / Theranos investor fraud",
+      "url": "https://www.justice.gov/usao-ndca/pr/elizabeth-holmes-sentenced-more-11-years-defrauding-theranos-investors-hundreds"
+    },
+    {
+      "case_id": "enron",
+      "id": "enron-report",
+      "publication_date": "2013-06-21",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Jeffrey Skilling / Enron",
+      "url": "https://www.justice.gov/archives/opa/pr/former-enron-ceo-jeffrey-skilling-resentenced-168-months-fraud-conspiracy-charges"
+    },
+    {
+      "case_id": "worldcom",
+      "id": "worldcom-report",
+      "publication_date": "2005-03-15",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Bernard Ebbers / WorldCom",
+      "url": "https://www.justice.gov/archive/opa/pr/2005/March/05_ag_122.htm"
+    },
+    {
+      "case_id": "adelphia",
+      "id": "adelphia-report",
+      "publication_date": null,
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "John and Timothy Rigas / Adelphia",
+      "url": "https://www.justice.gov/osg/brief/rigas-v-united-states-opposition-0"
+    },
+    {
+      "case_id": "peregrine",
+      "id": "peregrine-report",
+      "publication_date": null,
+      "record_type": "official_case_report",
+      "reuse_basis": "FBI-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.fbi.gov/privacy-policy",
+      "title": "Russell Wasendorf Sr. / Peregrine Financial Group",
+      "url": "https://www.fbi.gov/news/stories/crooked-ceo-gets-50-years"
+    },
+    {
+      "case_id": "refco",
+      "id": "refco-report",
+      "publication_date": "2008-07-03",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Phillip Bennett / Refco",
+      "url": "https://www.justice.gov/archive/usao/nys/pressreleases/July08/bennettrefcosentencingpr.pdf"
+    },
+    {
+      "case_id": "bayou",
+      "id": "bayou-report",
+      "publication_date": "2008-04-14",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Samuel Israel III / Bayou funds",
+      "url": "https://www.justice.gov/archive/usao/nys/pressreleases/April08/israelsamuelsentencepr.pdf"
+    },
+    {
+      "case_id": "zeekrewards",
+      "id": "zeekrewards-report",
+      "publication_date": "2017-02-13",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Paul Burks / ZeekRewards",
+      "url": "https://www.justice.gov/usao-wdnc/pr/former-zeekrewards-ceo-sentenced-more-14-years-operating-900-million-internet-ponzi"
+    },
+    {
+      "case_id": "telexfree",
+      "id": "telexfree-report",
+      "publication_date": "2017-03-22",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "James Merrill / TelexFree",
+      "url": "https://www.justice.gov/usao-ma/pr/former-president-telexfree-sentenced-billion-dollar-pyramid-scheme"
+    },
+    {
+      "case_id": "onecoin",
+      "id": "onecoin-report",
+      "publication_date": "2023-09-12",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Karl Sebastian Greenwood / OneCoin",
+      "url": "https://www.justice.gov/usao-sdny/pr/co-founder-multibillion-dollar-cryptocurrency-scheme-onecoin-sentenced-20-years-prison"
+    },
+    {
+      "case_id": "bitconnect",
+      "id": "bitconnect-report",
+      "publication_date": null,
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Glenn Arcaro / BitConnect",
+      "url": "https://www.justice.gov/usao-sdfl/us-v-glenn-arcaro"
+    },
+    {
+      "case_id": "volkswagen",
+      "id": "volkswagen-report",
+      "publication_date": "2017-04-21",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Volkswagen AG / emissions testing",
+      "url": "https://www.justice.gov/archives/opa/pr/volkswagen-ag-sentenced-connection-conspiracy-cheat-us-emissions-tests"
+    },
+    {
+      "case_id": "shkreli",
+      "id": "shkreli-report",
+      "publication_date": "2018-03-09",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Martin Shkreli / MSMB securities fraud",
+      "url": "https://www.justice.gov/usao-edny/pr/martin-shkreli-sentenced-seven-years-imprisonment-multi-million-dollar-fraud-scheme"
+    },
+    {
+      "case_id": "galleon",
+      "id": "galleon-report",
+      "publication_date": "2011-10-13",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Raj Rajaratnam / Galleon",
+      "url": "https://www.justice.gov/archive/usao/nys/pressreleases/October11/rajaratnamrajsentencingpr.pdf"
+    },
+    {
+      "case_id": "amazon-ads",
+      "id": "amazon-ads-report",
+      "publication_date": "2026-08-31",
+      "record_type": "official_case_report",
+      "reuse_basis": "FTC-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.ftc.gov/site-information/privacy-policy",
+      "title": "Amazon Sponsored Ads pricing",
+      "url": "https://www.ftc.gov/legal-library/browse/cases-proceedings/amazon"
+    },
+    {
+      "case_id": "uber-one",
+      "id": "uber-one-report",
+      "publication_date": "2026-05-04",
+      "record_type": "official_case_report",
+      "reuse_basis": "FTC-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.ftc.gov/site-information/privacy-policy",
+      "title": "Uber One billing and cancellation",
+      "url": "https://www.ftc.gov/legal-library/browse/cases-proceedings/2423092-uber-ftc-v"
+    },
+    {
+      "case_id": "justanswer",
+      "id": "justanswer-report",
+      "publication_date": "2026-07-20",
+      "record_type": "official_case_report",
+      "reuse_basis": "FTC-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.ftc.gov/site-information/privacy-policy",
+      "title": "JustAnswer subscription disclosure",
+      "url": "https://www.ftc.gov/legal-library/browse/cases-proceedings/justanswer"
+    },
+    {
+      "case_id": "la-fitness",
+      "id": "la-fitness-report",
+      "publication_date": "2025-08-20",
+      "record_type": "official_case_report",
+      "reuse_basis": "FTC-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.ftc.gov/site-information/privacy-policy",
+      "title": "LA Fitness membership cancellation",
+      "url": "https://www.ftc.gov/news-events/news/press-releases/2025/08/ftc-sues-la-fitness-making-it-difficult-consumers-cancel-gym-memberships"
+    },
+    {
+      "case_id": "surveillance-pricing",
+      "id": "surveillance-pricing-report",
+      "publication_date": "2025-01-17",
+      "record_type": "official_case_report",
+      "reuse_basis": "FTC-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.ftc.gov/site-information/privacy-policy",
+      "title": "Personalized pricing transparency / industry research",
+      "url": "https://www.ftc.gov/policy/advocacy-research/tech-at-ftc/2025/01/surveillance-pricing-update-work-ahead"
+    },
+    {
+      "case_id": "madoff",
+      "id": "madoff-peter-plea-transcript",
+      "publication_date": "2012-06-29",
+      "record_type": "court_transcript",
+      "reuse_basis": "Public court-proceeding transcript hosted by DOJ; DOJ default permits copying unless otherwise indicated; no contrary copyright notice found in reviewed text. Not relicensed as project CC0.",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Peter Madoff plea proceeding, June 29, 2012",
+      "url": "https://www.justice.gov/usao/nys/madoff/20120629transcriptpetermadoffpleaproceeding%20.pdf"
+    },
+    {
+      "case_id": "madoff",
+      "id": "madoff-peter-information",
+      "publication_date": "2012-06-29",
+      "record_type": "government_pleading",
+      "reuse_basis": "DOJ-authored public charging instrument; allegation at filing, not adjudication by itself",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Peter Madoff criminal information",
+      "url": "https://www.justice.gov/media/785456/dl?inline="
+    },
+    {
+      "case_id": "madoff",
+      "id": "madoff-programming-records",
+      "publication_date": "2014-03-24",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored report under DOJ public-domain default; not an original transaction ledger",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Trial outcome and fabricated books/records mechanisms",
+      "url": "https://www.justice.gov/usao-sdny/pr/five-former-employees-bernard-l-madoff-investment-securities-found-guilty-manhattan"
+    },
+    {
+      "case_id": null,
+      "id": "learning-award-values",
+      "publication_date": null,
+      "record_type": "financial_records",
+      "request": {
+        "fields": [
+          "Award ID",
+          "Award Amount",
+          "generated_internal_id"
+        ],
+        "filters": {
+          "award_amounts": [
+            {
+              "lower_bound": 10,
+              "upper_bound": 250000
+            }
+          ],
+          "award_type_codes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "time_period": [
+            {
+              "end_date": "2025-12-31",
+              "start_date": "2025-01-01"
+            }
+          ]
+        },
+        "limit": 100,
+        "order": "asc",
+        "page": 1,
+        "sort": "Award ID",
+        "subawards": false
+      },
+      "reuse_basis": "Public federal award facts and API response; numeric facts are reused, not third-party report text",
+      "reuse_url": "https://www.usaspending.gov/about",
+      "title": "Small federal contract obligation values for exercise resampling (page 1)",
+      "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/"
+    },
+    {
+      "case_id": null,
+      "id": "learning-award-values-p02",
+      "publication_date": null,
+      "record_type": "financial_records",
+      "request": {
+        "fields": [
+          "Award ID",
+          "Award Amount",
+          "generated_internal_id"
+        ],
+        "filters": {
+          "award_amounts": [
+            {
+              "lower_bound": 10,
+              "upper_bound": 250000
+            }
+          ],
+          "award_type_codes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "time_period": [
+            {
+              "end_date": "2025-12-31",
+              "start_date": "2025-01-01"
+            }
+          ]
+        },
+        "limit": 100,
+        "order": "asc",
+        "page": 2,
+        "sort": "Award ID",
+        "subawards": false
+      },
+      "reuse_basis": "Public federal award facts and API response; numeric facts are reused, not third-party report text",
+      "reuse_url": "https://www.usaspending.gov/about",
+      "title": "Small federal contract obligation values for exercise resampling (page 2)",
+      "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/"
+    },
+    {
+      "case_id": null,
+      "id": "learning-award-values-p03",
+      "publication_date": null,
+      "record_type": "financial_records",
+      "request": {
+        "fields": [
+          "Award ID",
+          "Award Amount",
+          "generated_internal_id"
+        ],
+        "filters": {
+          "award_amounts": [
+            {
+              "lower_bound": 10,
+              "upper_bound": 250000
+            }
+          ],
+          "award_type_codes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "time_period": [
+            {
+              "end_date": "2025-12-31",
+              "start_date": "2025-01-01"
+            }
+          ]
+        },
+        "limit": 100,
+        "order": "asc",
+        "page": 3,
+        "sort": "Award ID",
+        "subawards": false
+      },
+      "reuse_basis": "Public federal award facts and API response; numeric facts are reused, not third-party report text",
+      "reuse_url": "https://www.usaspending.gov/about",
+      "title": "Small federal contract obligation values for exercise resampling (page 3)",
+      "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/"
+    },
+    {
+      "case_id": null,
+      "id": "learning-award-values-p04",
+      "publication_date": null,
+      "record_type": "financial_records",
+      "request": {
+        "fields": [
+          "Award ID",
+          "Award Amount",
+          "generated_internal_id"
+        ],
+        "filters": {
+          "award_amounts": [
+            {
+              "lower_bound": 10,
+              "upper_bound": 250000
+            }
+          ],
+          "award_type_codes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "time_period": [
+            {
+              "end_date": "2025-12-31",
+              "start_date": "2025-01-01"
+            }
+          ]
+        },
+        "limit": 100,
+        "order": "asc",
+        "page": 4,
+        "sort": "Award ID",
+        "subawards": false
+      },
+      "reuse_basis": "Public federal award facts and API response; numeric facts are reused, not third-party report text",
+      "reuse_url": "https://www.usaspending.gov/about",
+      "title": "Small federal contract obligation values for exercise resampling (page 4)",
+      "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/"
+    },
+    {
+      "case_id": null,
+      "id": "learning-award-values-p05",
+      "publication_date": null,
+      "record_type": "financial_records",
+      "request": {
+        "fields": [
+          "Award ID",
+          "Award Amount",
+          "generated_internal_id"
+        ],
+        "filters": {
+          "award_amounts": [
+            {
+              "lower_bound": 10,
+              "upper_bound": 250000
+            }
+          ],
+          "award_type_codes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "time_period": [
+            {
+              "end_date": "2025-12-31",
+              "start_date": "2025-01-01"
+            }
+          ]
+        },
+        "limit": 100,
+        "order": "asc",
+        "page": 5,
+        "sort": "Award ID",
+        "subawards": false
+      },
+      "reuse_basis": "Public federal award facts and API response; numeric facts are reused, not third-party report text",
+      "reuse_url": "https://www.usaspending.gov/about",
+      "title": "Small federal contract obligation values for exercise resampling (page 5)",
+      "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/"
+    },
+    {
+      "case_id": null,
+      "id": "learning-award-values-p06",
+      "publication_date": null,
+      "record_type": "financial_records",
+      "request": {
+        "fields": [
+          "Award ID",
+          "Award Amount",
+          "generated_internal_id"
+        ],
+        "filters": {
+          "award_amounts": [
+            {
+              "lower_bound": 10,
+              "upper_bound": 250000
+            }
+          ],
+          "award_type_codes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "time_period": [
+            {
+              "end_date": "2025-12-31",
+              "start_date": "2025-01-01"
+            }
+          ]
+        },
+        "limit": 100,
+        "order": "asc",
+        "page": 6,
+        "sort": "Award ID",
+        "subawards": false
+      },
+      "reuse_basis": "Public federal award facts and API response; numeric facts are reused, not third-party report text",
+      "reuse_url": "https://www.usaspending.gov/about",
+      "title": "Small federal contract obligation values for exercise resampling (page 6)",
+      "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/"
+    },
+    {
+      "case_id": null,
+      "id": "learning-award-values-p07",
+      "publication_date": null,
+      "record_type": "financial_records",
+      "request": {
+        "fields": [
+          "Award ID",
+          "Award Amount",
+          "generated_internal_id"
+        ],
+        "filters": {
+          "award_amounts": [
+            {
+              "lower_bound": 10,
+              "upper_bound": 250000
+            }
+          ],
+          "award_type_codes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "time_period": [
+            {
+              "end_date": "2025-12-31",
+              "start_date": "2025-01-01"
+            }
+          ]
+        },
+        "limit": 100,
+        "order": "asc",
+        "page": 7,
+        "sort": "Award ID",
+        "subawards": false
+      },
+      "reuse_basis": "Public federal award facts and API response; numeric facts are reused, not third-party report text",
+      "reuse_url": "https://www.usaspending.gov/about",
+      "title": "Small federal contract obligation values for exercise resampling (page 7)",
+      "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/"
+    },
+    {
+      "case_id": null,
+      "id": "learning-award-values-p08",
+      "publication_date": null,
+      "record_type": "financial_records",
+      "request": {
+        "fields": [
+          "Award ID",
+          "Award Amount",
+          "generated_internal_id"
+        ],
+        "filters": {
+          "award_amounts": [
+            {
+              "lower_bound": 10,
+              "upper_bound": 250000
+            }
+          ],
+          "award_type_codes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "time_period": [
+            {
+              "end_date": "2025-12-31",
+              "start_date": "2025-01-01"
+            }
+          ]
+        },
+        "limit": 100,
+        "order": "asc",
+        "page": 8,
+        "sort": "Award ID",
+        "subawards": false
+      },
+      "reuse_basis": "Public federal award facts and API response; numeric facts are reused, not third-party report text",
+      "reuse_url": "https://www.usaspending.gov/about",
+      "title": "Small federal contract obligation values for exercise resampling (page 8)",
+      "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/"
+    },
+    {
+      "case_id": null,
+      "id": "learning-award-values-p09",
+      "publication_date": null,
+      "record_type": "financial_records",
+      "request": {
+        "fields": [
+          "Award ID",
+          "Award Amount",
+          "generated_internal_id"
+        ],
+        "filters": {
+          "award_amounts": [
+            {
+              "lower_bound": 10,
+              "upper_bound": 250000
+            }
+          ],
+          "award_type_codes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "time_period": [
+            {
+              "end_date": "2025-12-31",
+              "start_date": "2025-01-01"
+            }
+          ]
+        },
+        "limit": 100,
+        "order": "asc",
+        "page": 9,
+        "sort": "Award ID",
+        "subawards": false
+      },
+      "reuse_basis": "Public federal award facts and API response; numeric facts are reused, not third-party report text",
+      "reuse_url": "https://www.usaspending.gov/about",
+      "title": "Small federal contract obligation values for exercise resampling (page 9)",
+      "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/"
+    },
+    {
+      "case_id": null,
+      "id": "learning-award-values-p10",
+      "publication_date": null,
+      "record_type": "financial_records",
+      "request": {
+        "fields": [
+          "Award ID",
+          "Award Amount",
+          "generated_internal_id"
+        ],
+        "filters": {
+          "award_amounts": [
+            {
+              "lower_bound": 10,
+              "upper_bound": 250000
+            }
+          ],
+          "award_type_codes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "time_period": [
+            {
+              "end_date": "2025-12-31",
+              "start_date": "2025-01-01"
+            }
+          ]
+        },
+        "limit": 100,
+        "order": "asc",
+        "page": 10,
+        "sort": "Award ID",
+        "subawards": false
+      },
+      "reuse_basis": "Public federal award facts and API response; numeric facts are reused, not third-party report text",
+      "reuse_url": "https://www.usaspending.gov/about",
+      "title": "Small federal contract obligation values for exercise resampling (page 10)",
+      "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/"
+    }
+  ]
+}

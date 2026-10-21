@@ -10,6 +10,7 @@ from casebook import load_catalog, mechanism_replay, public_replay
 from quality import public_award_quality
 from freshness import library_freshness
 import learning
+import record_library
 
 ROOT = Path(__file__).resolve().parent
 
@@ -31,6 +32,13 @@ class Handler(BaseHTTPRequestHandler):
                 kind = "application/json"
                 if path == "/api/export":
                     filename = "synthetic-case-report.json"
+            elif path == '/records':
+                body,kind=record_library.library_page(query.get('q',[''])[0]).encode(),'text/html; charset=utf-8'
+            elif path == '/api/records':
+                body,kind=json.dumps(record_library.library_index()).encode(),'application/json'
+            elif path == '/api/record':
+                target,body=record_library.record_download(query.get('source',[''])[0])
+                kind,filename='application/octet-stream',target.name
             elif path == '/api/learning/catalog':
                 body, kind = json.dumps(learning.load_catalog()).encode(), 'application/json'
             elif path == '/api/learning/lesson':
