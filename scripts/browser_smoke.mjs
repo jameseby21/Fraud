@@ -1,3 +1,4 @@
+import {checkQuality, checkSourceFreshness} from './browser/quality.mjs';
 // Optional local usability check. Node 22+ and installed Microsoft Edge.
 import {spawn} from 'node:child_process';
 import {mkdir, mkdtemp, readFile, writeFile} from 'node:fs/promises';
@@ -27,6 +28,7 @@ const navigation=await call('Page.navigate',{url:base+'/library'});
 if(navigation.errorText)throw Error('Navigation failed: '+navigation.errorText);
 await until(`document.querySelector('#case-list')?.children.length===20 && document.querySelector('#replay-result')?.textContent.includes('Insufficient data')`);
 assert(await evaluate(`document.querySelector('#history-count').textContent==='20' && Number(document.querySelector('#award-count').textContent)>0`),'Coverage counters');
+await checkSourceFreshness({evaluate,assert});
 await evaluate(`document.querySelector('#step').value='3';document.querySelector('#step').dispatchEvent(new Event('input'));`);
 await until(`document.querySelector('#replay-result').textContent.includes('Review warranted')`);
 await evaluate(`document.querySelector('#as-of').value='2009-06-28';document.querySelector('#as-of').dispatchEvent(new Event('change'));`);
@@ -37,13 +39,7 @@ await evaluate(`document.querySelector('#case-search').value='';document.querySe
 await until(`document.querySelectorAll('.case-button').length===5`);
 assert(await evaluate(`!document.querySelector('#step') && document.querySelector('#case-detail').textContent.includes('NO GUILT SCORE')`),'Modern entries have no fabricated scores');
 await evaluate(`document.querySelector('#data-tab').click();document.querySelector('#award-search').value='no-such-award-xyz';document.querySelector('#award-search').dispatchEvent(new Event('input'));`);
-await until(`document.querySelector('#quality-summary')?.textContent.includes('rows checked')`);
-assert(await evaluate(`document.querySelector('#quality-summary').getAttribute('role')==='status' && document.querySelector('#quality-download').href.endsWith('/api/quality?download=1')`),'Accessible quality status and download');
-assert(await evaluate(`document.querySelector('#quality-checks').textContent.includes('Duplicate award identifiers')`),'Quality checks are visible');
-await evaluate(`renderQuality({error:'Simulated QA failure'});`);
-assert(await evaluate(`document.querySelector('#quality-download').hidden && document.querySelector('#quality-lineage').textContent===''`),'Failed audits do not retain stale provenance');
-await evaluate(`fetch('/api/quality').then(r=>r.json()).then(renderQuality)`);
-await until(`document.querySelector('#quality-summary').textContent.includes('rows checked')`);
+await checkQuality({evaluate,until,assert});
 assert(await evaluate(`document.querySelector('#award-results').textContent==='0 of '+document.querySelector('#award-count').textContent+' public records'`),'Public data empty state');
 await evaluate(`document.querySelector('#award-search').value='';document.querySelector('#award-search').dispatchEvent(new Event('input'));`);
 assert(await evaluate(`document.querySelectorAll('#awards tr').length===Number(document.querySelector('#award-count').textContent)`),'Public award rows');

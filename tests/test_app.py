@@ -44,6 +44,13 @@ class AppTests(unittest.TestCase):
             self.assertGreater(len(data['awards']), 0)
             self.assertEqual(len(data['awards']), data['provenance']['rows'])
 
+    def test_freshness_separates_source_clocks(self):
+        with self.request('/api/data') as r:
+            report = json.load(r)['freshness']
+            self.assertIn('retrieval', report['awards'])
+            self.assertEqual(report['cases']['adelphia']['publication']['status'], 'unknown')
+            self.assertIn('age_days', report['cases']['madoff']['retrieval'])
+
     def test_replay_and_download(self):
         with self.request('/api/replay?case=madoff&step=1') as r:
             self.assertEqual(json.load(r)['trace']['result'], 'no_rule_trigger')

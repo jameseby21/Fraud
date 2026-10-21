@@ -8,6 +8,7 @@ from urllib.parse import parse_qs, urlsplit
 from fraud import report
 from casebook import load_catalog, mechanism_replay, public_replay
 from quality import public_award_quality
+from freshness import library_freshness
 
 ROOT = Path(__file__).resolve().parent
 
@@ -51,7 +52,8 @@ class Handler(BaseHTTPRequestHandler):
                 provenance = json.loads(provenance_path.read_text(encoding="utf-8")) if provenance_path.exists() else None
                 attempts_path = ROOT / "data" / "intake_log.jsonl"
                 attempts = [json.loads(line) for line in attempts_path.read_text(encoding="utf-8").splitlines()] if attempts_path.exists() else []
-                body = json.dumps(dict(awards=rows, provenance=provenance, intake_attempts=attempts), indent=2).encode()
+                body = json.dumps(dict(awards=rows, provenance=provenance, intake_attempts=attempts,
+                                       freshness=library_freshness(load_catalog(), attempts, provenance)), indent=2).encode()
                 kind = "application/json"
             elif path == "/api/download":
                 files = {"cases": "data/cases.json", "evidence": "data/evidence.jsonl", "simulations": "data/synthetic_replays.jsonl",

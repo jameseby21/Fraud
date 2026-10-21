@@ -7,7 +7,7 @@ These are proposed small checkpoints, not implemented capabilities or claims tha
 | ID | Feature | Smallest useful acceptance test |
 | --- | --- | --- |
 | 001 | Public-award quality audit (implemented) | A duplicate record identifies both source CSV rows without a fraud label |
-| 002 | Source freshness indicators | A fixed clock distinguishes retrieval age from publication age; unknown dates stay unknown |
+| 002 | Source freshness indicators (implemented) | A fixed clock distinguishes retrieval age from publication age; unknown dates stay unknown |
 | 003 | Missing-source coverage view | A blocked download is visible and excluded from archived-source counts |
 | 004 | Snapshot comparison | Two retained responses produce added/removed/changed IDs without overwriting either |
 | 005 | Field-level change lineage | Every changed field links to both source hashes and values |
