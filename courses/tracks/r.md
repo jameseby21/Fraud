@@ -16,4 +16,4 @@ Troubleshooting: `cannot open file` means the working directory is wrong; run `g
 
 Official references: [R introduction](https://stat.ethz.ch/CRAN/doc/manuals/R-intro.html), [histogram definitions](https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/hist.html), [boxplot definitions](https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/boxplot.html).
 
-Validation status: authored for base R; local execution requires Rscript. The project must report execution separately from Python tests; do not assume this script ran because the Python suite passed.
+Validation status: the script executed successfully on Linux in [CI run 39647219305](https://github.com/jameseby21/Fraud/actions/runs/39647219305), including its reconciliation assertions and seven-page chart PDF. Rscript is not installed in the local Windows workspace; local Windows R execution and visual review of the PDF remain separate checks. Passing Python tests alone does not validate R.
