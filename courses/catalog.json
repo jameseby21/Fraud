@@ -7,6 +7,12 @@
       "path": "data/learning/transactions.csv",
       "version": "1.0.0",
       "synthetic": true
+    },
+    {
+      "id": "forensic-v2",
+      "path": "data/forensic/v2/payments.csv",
+      "version": "2.0.0",
+      "synthetic": true
     }
   ],
   "courses": [
@@ -73,6 +79,33 @@
           "minutes": 30
         }
       ]
+    },
+    {
+      "id": "forensic-practicum",
+      "title": "Forensic analyst practicum",
+      "topic": "forensic",
+      "dataset": "forensic-v2",
+      "lessons": [
+        {
+          "id": "evidence-brief",
+          "title": "1. Take the analyst brief and inspect evidence",
+          "chart": "bar",
+          "minutes": 30
+        },
+        {
+          "id": "round-sums",
+          "title": "2. Find hidden round totals without accusing everyone",
+          "chart": "heatmap",
+          "minutes": 30
+        },
+        {
+          "id": "distribution-shift",
+          "title": "3. Challenge fabricated randomness and write the memo",
+          "chart": "histogram",
+          "minutes": 30
+        }
+      ]
     }
-  ]
+  ],
+  "default_course": "forensic-practicum"
 }

@@ -25,3 +25,7 @@ Every trigger has alternatives: incomplete records, lawful redemptions, working 
 Tests cover temporal isolation, future-input invariance, outcome gating, provenance, repeatability, malformed data, decimal monetary conversion, intake failure handling, and HTTP behavior. These establish software properties, not detection power.
 
 Real validation requires historical observations with defensible availability dates, benign comparators, temporal and entity-disjoint holdouts, independent labels, and analysis of selective-label bias. Measure precision at a review budget, false positives, missed participants, detection delay, and coverage. Publish errors and negative results.
+
+## Forensic-v2 descriptive review
+
+See [instance definitions](docs/fraud_instances/README.md) and the [v2 model/data guide](data/forensic/v2/README.md). Background amounts are exact resampled federal obligations with inverse-square-root weights, reassigned to fictional activity. This is a teaching model, not a representative payment simulator. Round-total rules and descriptive empirical-CDF/leading-digit comparisons have no calibrated false-positive rate, significance or guilt probability. Bounded values, repeated draws, selection, cohorts and fixed-price controls complicate distribution assumptions; no automatic Benford null is asserted. Twelve planted round groups are confirmed in tests, but broad round-dollar searches also flag legitimate-looking source values. Legal sources motivate corroboration without reconstructing real-case transactions.

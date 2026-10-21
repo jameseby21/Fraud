@@ -72,3 +72,10 @@ class LearningTests(unittest.TestCase):
                     self.assertIsNone(cell['execution_count'])
                     exec(compile(''.join(cell['source']), str(path), 'exec'), namespace)
         self.assertGreaterEqual(len(list((ROOT / 'courses').rglob('*.ipynb'))), 8)
+
+    def test_historical_guides_match_the_reviewed_catalog(self):
+        from scripts.build_case_guides import artifacts
+        expected=artifacts()
+        self.assertEqual(len(expected),21)
+        for relative,payload in expected.items():
+            self.assertEqual((ROOT/relative).read_bytes(),payload)

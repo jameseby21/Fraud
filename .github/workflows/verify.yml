@@ -45,4 +45,6 @@ jobs:
           sudo apt-get install --no-install-recommends -y r-base-core
       - name: Execute base-R lessons and charts
         if: runner.os == 'Linux'
-        run: Rscript courses/tracks/analysis.R
+        run: |
+          Rscript courses/tracks/analysis.R
+          Rscript courses/tracks/forensic.R

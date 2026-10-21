@@ -10,9 +10,9 @@ A local course catalog with Markdown lessons, clean Python notebooks, a shared R
 - Use the reference charts to compare your visual choices. Use transaction IDs when recording observations.
 - Copy `templates/feedback.md` into ignored `output/` and record what worked, what failed, and what needs clearer teaching. The project owner is the first learner; broader usability remains to be tested.
 
-There are eight introductory lessons: six payment-review lessons and two operational-analysis lessons. The operations course asks allocation and workload questions without a misconduct hypothesis. These are initial course materials, not an accredited curriculum or a claim of learning effectiveness.
+There are eleven lessons: six introductory payment-review, two operational-analysis and three forensic-practicum lessons. The default practicum uses the [relational v2 case](../data/forensic/v2/README.md), with fictional names, exact-value lineage, invoices, bank reconciliation, round totals and distribution review. The operations course asks allocation/workload questions without a misconduct hypothesis. These are initial materials, not an accredited curriculum or a claim of learning effectiveness.
 
-Cross-tool reconciliation: unfiltered input has 6,000 rows and totals **1,355,092,995 cents (USD 13,550,929.95)**. The total includes apparent repeats. Use this as an import/filter check, not a target to force by changing the records.
+Cross-tool reconciliation: introductory v1 has 6,000 rows and **1,355,092,995 cents (USD 13,550,929.95)**. Forensic v2 has 12,000 payments and **30,341,455,858 cents (USD 303,414,558.58)**. Totals include apparent repeats. Check the selected dataset; never force a target by changing records.
 
 ## Choose a tool
 
@@ -45,7 +45,7 @@ This is core coverage, not every possible chart. Maps require meaningful geograp
 
 ## FAQ and debugging
 
-**Where is my progress?** Only self-reported lesson completion is stored in this browser under a versioned key. It is shared by users of this browser profile and is not a private record. Reset clears it. Browser storage denial makes it temporary; exporting feedback is the durable record.
+**Where is my progress?** Completion and course/tool selection stay in this browser under versioned keys and are shared by users of this profile. They are not private records. Reset clears completion; selection remains. Browser storage denial makes state temporary; exported feedback is the durable record.
 
 **The notebook cannot find learning.py.** Open it within the cloned repo, not a detached Downloads folder. The web download is a convenience; it still needs the repo's data and helper module. Check the selected kernel and working directory.
 

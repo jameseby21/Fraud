@@ -11,6 +11,7 @@ from quality import public_award_quality
 from freshness import library_freshness
 import learning
 import record_library
+import forensic_fixture
 
 ROOT = Path(__file__).resolve().parent
 
@@ -39,24 +40,29 @@ class Handler(BaseHTTPRequestHandler):
             elif path == '/api/record':
                 target,body=record_library.record_download(query.get('source',[''])[0])
                 kind,filename='application/octet-stream',target.name
+            elif path == '/api/forensic':
+                body,kind=json.dumps(forensic_fixture.public_case(query.get('as_of',[None])[0])).encode(),'application/json'
             elif path == '/api/learning/catalog':
                 body, kind = json.dumps(learning.load_catalog()).encode(), 'application/json'
             elif path == '/api/learning/lesson':
                 result = learning.lesson_document(query.get('course', [''])[0], query.get('lesson', [''])[0])
                 result['html'] = learning.render_markdown(result['markdown'])
-                result['track_guides'] = {name: learning.render_markdown((ROOT / relative).read_text(encoding='utf-8')) for name, relative in
-                                         {'r': 'courses/tracks/r.md', 'powerbi': 'courses/tracks/powerbi.md'}.items()}
+                guides={'r':'courses/tracks/forensic-r.md','powerbi':'courses/tracks/forensic-powerbi.md'} if result['dataset']=='forensic-v2' else {'r':'courses/tracks/r.md','powerbi':'courses/tracks/powerbi.md'}
+                result['track_guides'] = {name: learning.render_markdown((ROOT / relative).read_text(encoding='utf-8')) for name, relative in guides.items()}
                 body, kind = json.dumps(result).encode(), 'application/json'
             elif path == '/api/learning/chart':
-                body, kind = learning.render_chart(query.get('name', [''])[0]).encode(), 'image/svg+xml'
+                body, kind = learning.render_chart(query.get('name', [''])[0],query.get('dataset',['payments-v1'])[0]).encode(), 'image/svg+xml'
             elif path == '/api/learning/summary':
-                body, kind = json.dumps(learning.analyze()).encode(), 'application/json'
+                body, kind = json.dumps(learning.analyze(query.get('dataset',['payments-v1'])[0])).encode(), 'application/json'
             elif path == '/api/learning/download':
                 selected = query.get('name', [''])[0]
                 files = {'dataset': 'data/learning/transactions.csv', 'answers': 'data/learning/instructor/answers.json',
                          'r': 'courses/tracks/analysis.R', 'powerbi': 'courses/tracks/powerbi.md',
                          'query': 'courses/tracks/transactions.pq', 'measures': 'courses/tracks/measures.dax',
                          'feedback': 'courses/templates/feedback.md', 'memo': 'courses/templates/review.md'}
+                files.update({'forensic-'+name:f'data/forensic/v2/{name}.csv' for name in ('payments','entities','invoices','bank_entries')})
+                files.update({'forensic-answers':'data/forensic/v2/instructor/answers.json','forensic-r':'courses/tracks/forensic.R',
+                              'forensic-powerbi':'courses/tracks/forensic-powerbi.md','forensic-query':'courses/tracks/forensic.pq'})
                 if selected in ('notebook', 'lesson'):
                     lesson = learning.lesson_document(query.get('course', [''])[0], query.get('lesson', [''])[0])
                     target = ROOT / (lesson['tracks']['python'] if selected == 'notebook' else f'courses/{lesson["course_id"]}/{lesson["id"]}.md')

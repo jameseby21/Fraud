@@ -83,7 +83,11 @@ Source panels distinguish publication/update age from successful retrieval age. 
 
 ## Learn data analysis
 
-Run `python app.py` and open http://127.0.0.1:8765/learn for the course catalog. Two introductory courses contain eight Markdown lessons and Python notebooks, with R and Power BI tracks using the same reproducible 6,000-row synthetic dataset. Start with [courses/README.md](courses/README.md) for setup, visualization coverage, debugging, feedback, and extension guidance. Lessons and checkpoint records are now required parts of development, alongside tests.
+Run `python app.py` and open http://127.0.0.1:8765/learn for **three courses and eleven Markdown lessons/Python notebooks**, with R and Power BI paths. The default **Forensic analyst practicum** uses [forensic-v2](data/forensic/v2/README.md): 12,000 payment-like records, 120 persistent fictional businesses/contacts, invoices and bank entries, mostly exact public values reassigned with explicit lineage. The separate 6,000-row introductory fixture remains stable. Start with [courses/README.md](courses/README.md) for setup, visualization, debugging and feedback.
+
+The [exercise-instance library](docs/fraud_instances/README.md) documents hidden round totals, distribution shifts, repeats, bank differences and benign controls. The [twenty real case guides](docs/cases/README.md) link reviewed outcomes to analyst questions and missing-data limits. Real case documents are not replaced with invented ledgers. Power BI has editable sources/instructions; Desktop acceptance remains manual.
+
+Verify/rebuild the richer case with `python forensic_fixture.py verify` / `python forensic_fixture.py build`. Generate reviewed course/case guides with `python scripts/build_courses.py` and `python scripts/build_case_guides.py`; full verification checks their output. Source refreshes require reviewed dataset/lesson version changes. Lessons, debugging/FAQ material and checkpoint records are required alongside tests.
 
 ## Optional local encrypted storage
 

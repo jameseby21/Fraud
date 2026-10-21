@@ -64,3 +64,7 @@ Refreshes append history and create new raw artifacts. Current CSV/provenance fi
 ## Supplemental record library
 
 See [the library guide](docs/library/README.md) for the reviewed registry, per-source reuse basis, request-aware append-only revisions, legal PDF supplements, exact obligation-value pool, source gaps and offline verification. `python record_library.py fetch` performs incremental public intake; `python record_library.py verify` checks retained and derived bytes. These financial values are federal award obligations, not payments or case-specific misconduct.
+
+## Exact-value fictional reassignment
+
+The [forensic-v2 case](data/forensic/v2/README.md) reassigns exact obligation values from the supplemental amount pool to persistent invented identities. Instructor lineage records each source ID, row, raw hash and transformation. Pattern amounts are explicitly fabricated. This is not anonymized original payment data, and the source organizations have no asserted relationship to the fictional case. [Historical guides](docs/cases/README.md) keep actual outcomes and missing-ledger limits separate.

@@ -1,0 +1,8 @@
+{
+  "amount_model": "Exact source obligation values sampled with replacement, weights inverse square root of cents; fictional identities and dates; planted changes separately labeled in instructor lineage",
+  "interpretation": "Real numeric facts are reassigned, not anonymized real transactions. No claim of real case activity or representative invoice distributions.",
+  "seed": 721406,
+  "source_pool_sha256": "0fe4d19876d7004fd21777d4c671ef0148713fd069405554c4d3083183762d72",
+  "synthetic": true,
+  "version": "2.0.0"
+}

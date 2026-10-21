@@ -91,7 +91,7 @@ class AppTests(unittest.TestCase):
         with self.request('/learn') as r:
             self.assertIn(b'Data analysis studio', r.read())
         with self.request('/api/learning/catalog') as r:
-            self.assertEqual(len(json.load(r)['courses']), 2)
+            self.assertEqual(len(json.load(r)['courses']), 3)
         with self.request('/api/learning/lesson?course=payment-lab&lesson=orientation') as r:
             self.assertIn('Question', json.load(r)['markdown'])
         for path in ('/api/learning/chart?name=bar', '/api/learning/download?name=dataset',
@@ -122,3 +122,17 @@ class AppTests(unittest.TestCase):
             self.assertTrue(response.read().startswith(b'%PDF-'))
         with self.assertRaises(urllib.error.HTTPError):
             self.request('/api/record?source=../../vault.py')
+
+    def test_forensic_course_uses_its_own_dataset_and_asof_gate(self):
+        with self.request('/api/learning/lesson?course=forensic-practicum&lesson=round-sums') as response:
+            doc=json.load(response)
+            self.assertEqual(doc['dataset'],'forensic-v2')
+            self.assertIn('forensic',doc['tracks']['r'])
+        with self.request('/api/forensic?as_of=2024-02-01') as response:
+            data=json.load(response)
+            self.assertTrue(all(r['available_on']<='2024-02-01' for r in data['payments']))
+            self.assertNotIn('answers',data)
+        with self.request('/api/learning/summary?dataset=forensic-v2') as response:
+            self.assertEqual(json.load(response)['row_count'],12000)
+        with self.request('/api/learning/download?name=forensic-payments') as response:
+            self.assertIn(b'supplier_id',response.read())

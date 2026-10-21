@@ -20,10 +20,11 @@ def lesson_document(course_id, lesson_id):
         if course['id'] == course_id:
             for lesson in course['lessons']:
                 if lesson['id'] == lesson_id:
-                    return dict(lesson, course_id=course_id,
+                    return dict(lesson, course_id=course_id,dataset=course['dataset'],
                                 markdown=(ROOT / 'courses' / course_id / (lesson_id + '.md')).read_text(encoding='utf-8'),
                                 tracks={'python': f'courses/{course_id}/{lesson_id}.ipynb',
-                                        'r': 'courses/tracks/analysis.R', 'powerbi': 'courses/tracks/powerbi.md'})
+                                        'r': 'courses/tracks/forensic.R' if course['dataset']=='forensic-v2' else 'courses/tracks/analysis.R',
+                                        'powerbi': 'courses/tracks/forensic-powerbi.md' if course['dataset']=='forensic-v2' else 'courses/tracks/powerbi.md'})
     raise KeyError('Unknown course or lesson')
 
 
@@ -94,8 +95,9 @@ def render_markdown(text):
     return '\n'.join(result)
 
 
-def read_transactions():
-    with (ROOT / 'data/learning/transactions.csv').open(encoding='utf-8', newline='') as stream:
+def read_transactions(dataset='payments-v1'):
+    files={'payments-v1':'data/learning/transactions.csv','forensic-v2':'data/forensic/v2/payments.csv'}
+    with (ROOT / files[dataset]).open(encoding='utf-8', newline='') as stream:
         rows = list(csv.DictReader(stream))
     for row in rows:
         row['amount_cents'] = int(row['amount_cents'])
@@ -103,8 +105,8 @@ def read_transactions():
     return rows
 
 
-def analyze():
-    rows = read_transactions()
+def analyze(dataset='payments-v1'):
+    rows = read_transactions(dataset)
     duplicates, supplier_days = defaultdict(list), defaultdict(list)
     monthly, categories, regions, heatmap = Counter(), Counter(), Counter(), Counter()
     category_values = defaultdict(list)
@@ -145,11 +147,11 @@ CHARTS = {
     'pareto': ('Regional concentration', 'Bars sorted by total USD; line is cumulative percentage on the right axis. Four fictional regions.')}
 
 
-def render_chart(name):
+def render_chart(name,dataset='payments-v1'):
     if name not in CHARTS:
         raise KeyError(name)
     title, description = CHARTS[name]
-    data = analyze()
+    data = analyze(dataset)
     parts = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" role="img" aria-labelledby="title desc"><title id="title">{title}</title><desc id="desc">{description}</desc>',
              '<rect width="800" height="430" fill="white"/>', f'<text x="55" y="25" font-size="18">{title}</text>']
 
@@ -175,7 +177,8 @@ def render_chart(name):
                 parts.append(f'<circle cx="{x}" cy="{y}" r="4" fill="#176b57"/>'); previous = (x, y)
             else:
                 parts.append(f'<rect x="{x}" y="{y}" width="{min(70, 480/len(values))}" height="{350-y}" fill="#176b57"/>')
-            text(x, 375 + (i % 2) * 18, label_value, 10)
+            if name!='line' or len(values)<=12 or i%3==0:
+                text(x, 375 + (i % 2) * 18, label_value, 10)
             if name == 'pareto':
                 cumulative += value
                 cy = 350 - 265 * cumulative / (data['total_cents'] / 100)
@@ -186,7 +189,7 @@ def render_chart(name):
         if name == 'pareto':
             text(755, 85, '100%'); text(755, 350, '0%')
     elif name == 'scatter':
-        rows = read_transactions()[:500]
+        rows = read_transactions(dataset)[:500]
         xmax = max(r['amount_cents']/100 for r in rows)
         ymax = max(r['payment_delay_days'] for r in rows)
         for r in rows:

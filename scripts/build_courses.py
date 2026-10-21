@@ -59,6 +59,26 @@ COURSES = [
   'A sum of amount is not a transaction count. A minimum/maximum box differs from R default boxplot whiskers; label your method and compare quartile values separately.',
   'How would seasonality, missing workload, or changes in staffing affect your interpretation?', 'line')])]
 
+COURSES.append(('forensic-practicum','Forensic analyst practicum','forensic',[
+ ('evidence-brief','1. Take the analyst brief and inspect evidence',
+  'What can a polished statement establish without independent corroboration?',
+  'Your fictional client is reviewing supplier payments. Load entities, payments, invoices and bank entries from data/forensic/v2. Define primary/foreign keys and availability dates. In /records open the Peter Madoff plea transcript, printed pages 42-43, and criminal information paragraphs 20-31. Record the speaker/document type and distinguish an allegation, a prosecutor statement and a plea. These sources motivate corroboration; the fictional supplier case is not a recreation of Madoff transactions.',
+  'There are 12,000 payments, 120 fictional suppliers, 11,999 invoice records and 12,000 bank entries. One invoice has two payment rows. Joining ledger and bank on transaction_id reveals one USD 5 discrepancy. As-of views must exclude records unavailable on the review date.',
+  'The legal source concerns Peter Madoff. Do not attribute it to Bernard or treat a charging document as a judgment. Double-check invoice grain before joining: repeated payments can multiply rows. The public award values are obligations reassigned to a fictional payment model.',
+  'What independent evidence could show that a reported review or a transaction actually occurred?', 'bar'),
+ ('round-sums','2. Find hidden round totals without accusing everyone',
+  'Which aggregate pattern is invisible when every line looks irregular?',
+  'Group the v2 payments by supplier_id and payment_date. Require at least three members and test total_cents modulo 1000000 equals zero. Keep individual cents visible. Compare individual round-dollar payments and monthly recurring invoices. Trace the group back to invoices and bank entries, then request contractual context.',
+  'Twelve deliberately planted groups each contain four nonround values totaling USD 10,000. No planted row is marked in learner tables, and transaction IDs/chronology do not put the answers first. The USD 10,000 modulus is fictional, not an asserted legal reporting threshold. Other incidental matches must also be reviewed.',
+  'Do all modular arithmetic in integer cents. Group by the stated grain; supplier/month may erase the designed daily pattern. Whole dollars are common in legitimate contracts; test benign controls before describing a signal as useful.',
+  'How would changing the grouping window or testing many round totals inflate your candidate list?', 'heatmap'),
+ ('distribution-shift','3. Challenge fabricated randomness and write the memo',
+  'Can a change in an amount distribution guide evidence requests without becoming a guilt score?',
+  'Compare each supplier over time. Use histograms and empirical CDFs, preserve amount-range context, and examine leading digits descriptively. The worked example compares VEN-0088 before/after 2025-10-01. Explain business-mix and selection alternatives. Inspect the instructor key only after recording your observations and proposed evidence requests.',
+  'The planted cohort has 180 fabricated near-uniform amounts mixed with ordinary activity. The worked empirical CDF distance exceeds 0.15. This is descriptive, not a calibrated p-value or fraud probability. Bounded awards, resampling, fixed-price services and minimum/maximum selection do not establish Benford assumptions. The recurring-service control repeats legitimate-looking values.',
+  'A first-digit deviation alone cannot establish manipulation. Compare raw amounts, range, category, dates, sample sizes and dependence. Use all records in your selected tool; the browser scatter preview is only 500 rows. Save your memo and feedback in ignored output/.',
+  'Which further document would distinguish a change in procurement mix from fabricated transactions? What would falsify your preferred explanation?', 'histogram')]))
+
 SETUP = '''from pathlib import Path
 import sys
 root = next((p for p in [Path.cwd(), *Path.cwd().parents] if (p / "learning.py").exists()), None)
@@ -72,6 +92,9 @@ assert len(rows) == 6000
 '''
 
 EXERCISES = {
+ 'evidence-brief': 'from forensic_fixture import public_case\ncase = public_case()\nassert len(case["entities"]) == 120\nassert len(case["invoices"]) == 11999\nledger = {r["transaction_id"]: r for r in case["payments"]}\nvariance = [r for r in case["bank_entries"] if -r["signed_amount_cents"] != ledger[r["transaction_id"]]["amount_cents"]]\nassert len(variance) == 1\n',
+ 'round-sums': 'from forensic_fixture import round_groups\ncandidates = round_groups(rows)\nassert len(candidates) >= 12\n# Explain the groups, benign alternatives and why a round total is not a finding.\n',
+ 'distribution-shift': 'from forensic_fixture import distribution_comparison\ncomparison = distribution_comparison(rows)\nassert comparison["ks_distance"] > 0.15\n# Describe cohort sizes, range and selection before interpreting this shift.\n',
  'orientation': 'assert len({r["transaction_id"] for r in rows}) == len(rows)\nassert {r["synthetic"] for r in rows} == {"True"}\n',
  'quality': '''from collections import defaultdict
 groups = defaultdict(list)
@@ -101,9 +124,12 @@ def artifacts():
     for course_id, title, topic, lessons in COURSES:
         entries = []
         for lesson_id, lesson_title, question, activity, check, debug, reflection, chart in lessons:
+            dataset='forensic-v2' if course_id=='forensic-practicum' else 'payments-v1'
+            data_path='data/forensic/v2/payments.csv' if dataset=='forensic-v2' else 'data/learning/transactions.csv'
+            data_version='2.0.0' if dataset=='forensic-v2' else '1.0.0'
             md = f'''# {lesson_title}
 
-Estimated time: 20-40 minutes. Prerequisite: basic tables and arithmetic; complete lessons in order. Dataset: data/learning/transactions.csv, version 1.0.0. Every record is synthetic.
+Estimated time: 20-40 minutes. Prerequisite: basic tables and arithmetic; complete lessons in order. Dataset: {data_path}, version {data_version}. Every record is synthetic.
 
 ## Question
 
@@ -113,7 +139,7 @@ Estimated time: 20-40 minutes. Prerequisite: basic tables and arithmetic; comple
 
 {activity}
 
-Choose Python (the adjacent notebook), R (courses/tracks/analysis.R), or Power BI (courses/tracks/powerbi.md). The shared track guides cover this lesson by ID: `{lesson_id}`. Save your working files in ignored output/, not beside public course assets.
+Choose Python (the adjacent notebook), R (courses/tracks/{'forensic.R' if dataset=='forensic-v2' else 'analysis.R'}), or Power BI (courses/tracks/{'forensic-powerbi.md' if dataset=='forensic-v2' else 'powerbi.md'}). The shared track guides cover this lesson by ID: `{lesson_id}`. Save your working files in ignored output/, not beside public course assets.
 
 ## Check your work
 
@@ -132,16 +158,19 @@ Choose Python (the adjacent notebook), R (courses/tracks/analysis.R), or Power B
 Copy courses/templates/feedback.md into ignored output/ and record lesson ID, track, expected versus observed result, error text with private values removed, and one improvement. Completion is self-reported; passing a supplied assertion is not evidence of independent mastery.
 '''
             outputs[f'courses/{course_id}/{lesson_id}.md'] = md.encode()
+            setup=SETUP if dataset=='payments-v1' else SETUP.replace('rows = read_transactions()', 'rows = read_transactions("forensic-v2")').replace('summary = analyze()', 'summary = analyze("forensic-v2")').replace('len(rows) == 6000', 'len(rows) == 12000')
             cells = [dict(cell_type='markdown', id='guide', metadata={}, source=md.splitlines(keepends=True)),
-                     dict(cell_type='code', id='setup', metadata={}, execution_count=None, outputs=[], source=SETUP.splitlines(keepends=True)),
+                     dict(cell_type='code', id='setup', metadata={}, execution_count=None, outputs=[], source=setup.splitlines(keepends=True)),
                      dict(cell_type='markdown', id='practice', metadata={}, source=['Try the task before running the worked check below. Change the criteria, predict the result, then explain the difference.']),
                      dict(cell_type='code', id='worked-check', metadata={}, execution_count=None, outputs=[], source=EXERCISES[lesson_id].splitlines(keepends=True)),
-                     dict(cell_type='code', id='visual', metadata={}, execution_count=None, outputs=[], source=[f'svg = render_chart("{chart}")\n', '# Optional in Jupyter: from IPython.display import SVG, display; display(SVG(svg))\n', '# To export: (root / "output").mkdir(exist_ok=True); (root / "output" / "lesson.svg").write_text(svg, encoding="utf-8")\n'])]
+                     dict(cell_type='code', id='visual', metadata={}, execution_count=None, outputs=[], source=[f'svg = render_chart("{chart}", "{dataset}")\n', '# Optional in Jupyter: from IPython.display import SVG, display; display(SVG(svg))\n', '# To export: (root / "output").mkdir(exist_ok=True); (root / "output" / "lesson.svg").write_text(svg, encoding="utf-8")\n'])]
             notebook = dict(cells=cells, metadata=dict(kernelspec=dict(display_name='Python 3', language='python', name='python3'), language_info=dict(name='python', version='3.12')), nbformat=4, nbformat_minor=5)
             outputs[f'courses/{course_id}/{lesson_id}.ipynb'] = (json.dumps(notebook, indent=2) + '\n').encode()
             entries.append(dict(id=lesson_id, title=lesson_title, chart=chart, minutes=30))
-        courses.append(dict(id=course_id, title=title, topic=topic, dataset='payments-v1', lessons=entries))
+        courses.append(dict(id=course_id, title=title, topic=topic, dataset='forensic-v2' if course_id=='forensic-practicum' else 'payments-v1', lessons=entries))
     catalog = dict(schema_version=1, title='Data analysis studio', datasets=[dict(id='payments-v1', path='data/learning/transactions.csv', version='1.0.0', synthetic=True)], courses=courses)
+    catalog['datasets'].append(dict(id='forensic-v2',path='data/forensic/v2/payments.csv',version='2.0.0',synthetic=True))
+    catalog['default_course']='forensic-practicum'
     outputs['courses/catalog.json'] = (json.dumps(catalog, indent=2) + '\n').encode()
     return outputs
 
@@ -158,7 +187,7 @@ def main():
         else:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(content)
-    print('PASS: 2 courses, 8 Markdown lessons and 8 clean Python notebooks ' + ('verified.' if args.verify else 'built.'))
+    print('PASS: 3 courses, 11 Markdown lessons and 11 clean Python notebooks ' + ('verified.' if args.verify else 'built.'))
 
 
 if __name__ == '__main__':

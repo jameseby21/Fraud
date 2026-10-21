@@ -1,5 +1,13 @@
 export async function checkLearning({call,evaluate,until,assert,base}) {
   await call('Page.navigate',{url:base+'/learn'});
+  await until(`document.querySelector('#lessons')?.children.length===3 && document.querySelector('#status').textContent.startsWith('Lesson ready')`);
+  assert(await evaluate(`document.querySelector('#dataset-download').href.includes('forensic-payments') && JSON.parse(document.querySelector('#numeric-summary').textContent).row_count===12000`),'Forensic course selects v2 data, not legacy fixture');
+  assert(await evaluate(`document.querySelector('#answer-download').href.includes('forensic-answers')`),'Version-specific instructor key');
+  await evaluate(`document.querySelector('#track').value='r';document.querySelector('#track').dispatchEvent(new Event('change'))`);
+  assert(await evaluate(`document.querySelector('#downloads a').href.includes('forensic-r') && document.querySelector('#tool-guide').textContent.includes('12,000')`),'Forensic R sources selected');
+  await evaluate(`document.querySelector('#track').value='powerbi';document.querySelector('#track').dispatchEvent(new Event('change'))`);
+  assert(await evaluate(`document.querySelector('#downloads a').href.includes('forensic-powerbi')`),'Forensic Power BI source selected');
+  await evaluate(`document.querySelector('#course').value='payment-lab';document.querySelector('#course').dispatchEvent(new Event('change'))`);
   await until(`document.querySelector('#lessons')?.children.length===6 && document.querySelector('#status').textContent.startsWith('Lesson ready')`);
   assert(await evaluate(`document.querySelector('#checks').open===false && document.querySelector('#check-body').textContent.includes('6,000')`),'Worked checks begin collapsed');
   await evaluate(`document.querySelector('#reset').click(); document.querySelector('#complete').click()`);
