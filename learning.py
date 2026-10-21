@@ -15,13 +15,110 @@ def load_catalog():
     return json.loads((ROOT / 'courses/catalog.json').read_text(encoding='utf-8'))
 
 
+def load_glossary():
+    """Return the reviewed, versioned learning-term index."""
+    return json.loads((ROOT / 'data/learning/glossary.json').read_text(encoding='utf-8'))
+
+
+def load_common_errors():
+    """Return reusable learner-error signatures and corrective suggestions."""
+    return json.loads((ROOT / 'data/learning/common_errors.json').read_text(encoding='utf-8'))
+
+
+def load_quizzes():
+    """Build one small check for each standard lesson section from reviewed Markdown."""
+    section_config = {
+        'Question': ('question', 'Which question is this section asking you to investigate?',
+                     ['Does every unusual value prove that a crime occurred?', 'Can provenance and record grain be skipped?']),
+        'Try it': ('try-it', 'Which action is part of this section?',
+                   ['Open the answer key first and copy its conclusion.', 'Remove unusual records before checking their grain.']),
+        'Check your work': ('check', 'Which result matches the worked check?',
+                            ['Every alert in the exercise proves misconduct.', 'The section has no reproducible result to compare.']),
+        'Debugging': ('debugging', 'Which debugging advice applies to this section?',
+                      ['Change source records until the expected answer appears.', 'Ignore units, filters, and row grain.']),
+        'Reflection': ('reflection', 'Which prompt belongs to this section’s reflection?',
+                       ['Which person should be accused from this exercise alone?', 'How can review limits be omitted from the memo?'])
+    }
+    quizzes, by_lesson = [], {}
+    for course in load_catalog()['courses']:
+        for lesson in course['lessons']:
+            markdown = (ROOT / 'courses' / course['id'] / f'{lesson["id"]}.md').read_text(encoding='utf-8')
+            sections = {name: body.strip() for name, body in re.findall(r'^## ([^\n]+)\n\n(.*?)(?=^## |\Z)', markdown, re.M | re.S)}
+            lesson_key = f'{course["id"]}/{lesson["id"]}'
+            by_lesson[lesson_key] = []
+            for section, (slug, prompt, distractors) in section_config.items():
+                quiz_id = f'{course["id"]}-{lesson["id"]}-{slug}'
+                answer = re.split(r'(?<=[.!?])\s+', sections[section], maxsplit=1)[0]
+                item = dict(id=quiz_id, section=section, prompt=prompt, input_type='choice',
+                            answer=answer, choices=[answer, *distractors],
+                            suggestion=f'Reread “{section}” and compare the wording, grain, filters, and units before trying again.',
+                            success='Correct. Explain why that answer fits before continuing.')
+                if quiz_id == 'operations-summaries-try-it':
+                    item.update(prompt='Filter category to Travel. What is the mean transaction amount in USD, rounded to cents?',
+                                input_type='numeric', answer=2203.76, choices=[], tolerance=.01,
+                                suggestion='Check that category equals Travel, use a mean rather than a total or median, divide cents by 100 once, and round only the final result.')
+                quizzes.append(item)
+                by_lesson[lesson_key].append(quiz_id)
+    return dict(schema_version=1, quizzes=quizzes, by_lesson=by_lesson)
+
+
+def glossary_markdown(glossary=None):
+    glossary = glossary or load_glossary()
+    lines = [
+        '# Data analysis and forensic review glossary', '',
+        'This index is generated from `data/learning/glossary.json`, the same reviewed source used by the course interface. Terms explain analytical use and limits; they do not turn a screening signal into a finding of misconduct.', ''
+    ]
+    for term in glossary['terms']:
+        lines.extend([
+            f'## {term["term"]}', '',
+            f'**Definition:** {term["definition"]}', '',
+            f'**More context:** {term["context"]}', '',
+            f'**Implications:** {term["implications"]}', '',
+            '**Also shown as:** ' + ', '.join(term['aliases']) + '.', ''
+        ])
+    return '\n'.join(lines)
+
+
+def evaluate_quiz(quiz_id, answer):
+    """Evaluate a short answer and return a specific, non-punitive next step."""
+    if not isinstance(answer, (str, int, float)) or isinstance(answer, bool):
+        raise ValueError('Answer must be text or a number')
+    quizzes = {quiz['id']: quiz for quiz in load_quizzes()['quizzes']}
+    if quiz_id not in quizzes:
+        raise KeyError(quiz_id)
+    quiz = quizzes[quiz_id]
+    supplied = str(answer).strip()
+    if quiz['input_type'] == 'numeric':
+        try:
+            numeric = float(supplied.replace(',', '').replace('$', ''))
+        except ValueError:
+            numeric = None
+        correct = numeric is not None and abs(numeric - float(quiz['answer'])) <= quiz.get('tolerance', 0)
+    else:
+        correct = supplied.casefold() == str(quiz['answer']).strip().casefold()
+    if correct:
+        return {'correct': True, 'message': quiz.get('success', 'Correct. Continue with your analysis.')}
+    normalized = supplied.replace(',', '').replace('$', '').casefold()
+    for error in load_common_errors()['errors']:
+        if error.get('quiz_id') in (None, quiz_id) and normalized in [str(value).casefold() for value in error.get('matches', [])]:
+            return {'correct': False, 'message': 'Not yet.', 'suggestion_id': error['id'], 'suggestion': error['suggestion']}
+    return {'correct': False, 'message': 'Not yet.', 'suggestion_id': 'review-section', 'suggestion': quiz['suggestion']}
+
+
 def lesson_document(course_id, lesson_id):
+    quiz_bank = load_quizzes()
+    quiz_groups = quiz_bank['by_lesson']
     for course in load_catalog()['courses']:
         if course['id'] == course_id:
             for lesson in course['lessons']:
                 if lesson['id'] == lesson_id:
+                    quizzes = []
+                    for quiz_id in quiz_groups[f'{course_id}/{lesson_id}']:
+                        source = next(q for q in quiz_bank['quizzes'] if q['id'] == quiz_id)
+                        quizzes.append({key: value for key, value in source.items() if key not in ('answer', 'tolerance', 'suggestion', 'success')})
                     return dict(lesson, course_id=course_id,dataset=course['dataset'],
                                 markdown=(ROOT / 'courses' / course_id / (lesson_id + '.md')).read_text(encoding='utf-8'),
+                                quizzes=quizzes,
                                 tracks={'python': f'courses/{course_id}/{lesson_id}.ipynb',
                                         'r': 'courses/tracks/forensic.R' if course['dataset']=='forensic-v2' else 'courses/tracks/analysis.R',
                                         'powerbi': 'courses/tracks/forensic-powerbi.md' if course['dataset']=='forensic-v2' else 'courses/tracks/powerbi.md'})

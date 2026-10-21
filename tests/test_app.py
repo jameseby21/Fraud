@@ -30,6 +30,12 @@ class AppTests(unittest.TestCase):
     def request(self, path):
         return urllib.request.urlopen(self.base+path, timeout=3)
 
+    def post_json(self, path, payload):
+        body = json.dumps(payload).encode()
+        request = urllib.request.Request(self.base+path, data=body, method='POST',
+                                         headers={'Content-Type': 'application/json'})
+        return urllib.request.urlopen(request, timeout=3)
+
     def test_pages_and_assets_serve(self):
         for path in ('/', '/library', '/library.js', '/library.css'):
             with self.subTest(path=path), self.request(path) as r:
@@ -105,6 +111,22 @@ class AppTests(unittest.TestCase):
             with self.assertRaises(urllib.error.HTTPError) as error:
                 self.request(path)
             self.assertEqual(error.exception.code, 404)
+
+    def test_glossary_and_quiz_interactions(self):
+        with self.request('/api/learning/glossary') as response:
+            glossary = json.load(response)
+            self.assertGreaterEqual(len(glossary['terms']), 30)
+            self.assertTrue(any(term['id'] == 'statement' for term in glossary['terms']))
+        with self.post_json('/api/learning/quiz', {'quiz_id': 'operations-summaries-try-it', 'answer': '2258.49'}) as response:
+            result = json.load(response)
+            self.assertFalse(result['correct'])
+            self.assertIn('filter', result['suggestion'].lower())
+        with self.post_json('/api/learning/quiz', {'quiz_id': 'operations-summaries-try-it', 'answer': '2203.76'}) as response:
+            self.assertTrue(json.load(response)['correct'])
+        for payload in ({'quiz_id': '../../vault', 'answer': 'x'}, {'quiz_id': 'operations-summaries-try-it', 'answer': ['x']}):
+            with self.subTest(payload=payload), self.assertRaises(urllib.error.HTTPError) as error:
+                self.post_json('/api/learning/quiz', payload)
+            self.assertIn(error.exception.code, (400, 404))
 
     def test_pasted_course_url_with_trailing_comma_redirects(self):
         for path in ('/learn,', '/learn%2C', '/learn/'):

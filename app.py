@@ -17,6 +17,34 @@ ROOT = Path(__file__).resolve().parent
 
 
 class Handler(BaseHTTPRequestHandler):
+    def do_POST(self):
+        path = urlsplit(self.path).path
+        if path != '/api/learning/quiz':
+            self.send_error(404)
+            return
+        try:
+            length = int(self.headers.get('Content-Length', '0'))
+            if length < 2 or length > 4096 or self.headers.get_content_type() != 'application/json':
+                raise ValueError('Invalid request')
+            payload = json.loads(self.rfile.read(length))
+            if not isinstance(payload, dict) or not isinstance(payload.get('quiz_id'), str):
+                raise ValueError('Invalid request')
+            result = learning.evaluate_quiz(payload['quiz_id'], payload.get('answer'))
+            body = json.dumps(result).encode()
+        except KeyError:
+            self.send_error(404, 'Unknown quiz')
+            return
+        except (ValueError, TypeError, json.JSONDecodeError):
+            self.send_error(400, 'Invalid quiz response')
+            return
+        self.send_response(200)
+        self.send_header('Content-Type', 'application/json')
+        self.send_header('Content-Length', str(len(body)))
+        self.send_header('Cache-Control', 'no-store')
+        self.send_header('X-Content-Type-Options', 'nosniff')
+        self.end_headers()
+        self.wfile.write(body)
+
     def do_GET(self):
         parsed = urlsplit(self.path)
         path, query = parsed.path, parse_qs(parsed.query)
@@ -44,6 +72,8 @@ class Handler(BaseHTTPRequestHandler):
                 body,kind=json.dumps(forensic_fixture.public_case(query.get('as_of',[None])[0])).encode(),'application/json'
             elif path == '/api/learning/catalog':
                 body, kind = json.dumps(learning.load_catalog()).encode(), 'application/json'
+            elif path == '/api/learning/glossary':
+                body, kind = json.dumps(learning.load_glossary()).encode(), 'application/json'
             elif path == '/api/learning/lesson':
                 result = learning.lesson_document(query.get('course', [''])[0], query.get('lesson', [''])[0])
                 result['html'] = learning.render_markdown(result['markdown'])

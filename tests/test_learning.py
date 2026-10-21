@@ -3,12 +3,53 @@ from pathlib import Path
 import subprocess
 import sys
 import unittest
-from learning import load_catalog, lesson_document, render_markdown, analyze, render_chart
+from learning import (load_catalog, lesson_document, render_markdown, analyze,
+                      render_chart, load_glossary, glossary_markdown,
+                      evaluate_quiz, load_common_errors)
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class LearningTests(unittest.TestCase):
+    def test_glossary_is_valid_and_documentation_is_generated_from_it(self):
+        glossary = load_glossary()
+        self.assertGreaterEqual(len(glossary['terms']), 30)
+        ids = [term['id'] for term in glossary['terms']]
+        self.assertEqual(len(ids), len(set(ids)))
+        for term in glossary['terms']:
+            self.assertTrue({'id', 'term', 'aliases', 'definition', 'context', 'implications'} <= set(term))
+            self.assertTrue(all(term[field].strip() for field in ('term', 'definition', 'context', 'implications')))
+        self.assertEqual((ROOT / 'docs' / 'glossary.md').read_text(encoding='utf-8'), glossary_markdown(glossary))
+
+    def test_every_lesson_section_has_a_quiz_without_publishing_answers(self):
+        expected_sections = {'Question', 'Try it', 'Check your work', 'Debugging', 'Reflection'}
+        quiz_ids = []
+        for course in load_catalog()['courses']:
+            for lesson in course['lessons']:
+                doc = lesson_document(course['id'], lesson['id'])
+                self.assertEqual({quiz['section'] for quiz in doc['quizzes']}, expected_sections)
+                self.assertEqual(len(doc['quizzes']), 5)
+                for quiz in doc['quizzes']:
+                    quiz_ids.append(quiz['id'])
+                    self.assertNotIn('answer', quiz)
+                    self.assertNotIn('tolerance', quiz)
+        self.assertEqual(len(quiz_ids), len(set(quiz_ids)))
+
+    def test_quiz_feedback_recognizes_filter_and_unit_errors(self):
+        correct = evaluate_quiz('operations-summaries-try-it', '2203.76')
+        self.assertTrue(correct['correct'])
+        filtered = evaluate_quiz('operations-summaries-try-it', '2258.49')
+        self.assertFalse(filtered['correct'])
+        self.assertEqual(filtered['suggestion_id'], 'overall-instead-of-filtered-average')
+        units = evaluate_quiz('operations-summaries-try-it', '220375.95')
+        self.assertFalse(units['correct'])
+        self.assertEqual(units['suggestion_id'], 'cents-instead-of-dollars')
+        errors = load_common_errors()['errors']
+        self.assertGreaterEqual(len(errors), 6)
+        self.assertEqual(len({item['id'] for item in errors}), len(errors))
+        with self.assertRaises(KeyError):
+            evaluate_quiz('../../vault', 'anything')
+
     def test_catalog_is_modular_and_all_lessons_have_course_material(self):
         catalog = load_catalog()
         self.assertGreaterEqual(len(catalog['courses']), 2)

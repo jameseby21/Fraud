@@ -8,13 +8,13 @@ How is synthetic spending allocated across categories and regions?
 
 ## Try it
 
-Reuse the same transactions with a different analytical purpose. Create category bars and sorted regional bars with cumulative share. Compare total and average amounts; report denominators and filter context.
+Reuse the same transactions with a different analytical purpose. Create category bars and sorted regional bars with cumulative share. Compare total and average amounts; report denominators and filter context. Filter category to Travel and calculate the mean transaction amount in USD, rounding only the final value to cents.
 
 Choose Python (the adjacent notebook), R (courses/tracks/analysis.R), or Power BI (courses/tracks/powerbi.md). The shared track guides cover this lesson by ID: `summaries`. Save your working files in ignored output/, not beside public course assets.
 
 ## Check your work
 
-Four categories and four regions are present. Sorted regional cumulative share ends at 100%. Totals reconcile to the same 6,000-row input. Allocation does not measure efficiency or fairness.
+Four categories and four regions are present. Sorted regional cumulative share ends at 100%. Totals reconcile to the same 6,000-row input. The Travel-filtered mean is USD 2,203.76; the unfiltered mean is USD 2,258.49. Allocation does not measure efficiency or fairness.
 
 ## Debugging
 

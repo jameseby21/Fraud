@@ -21,12 +21,13 @@ Keep durable state here and in the checkpoint note. At handoff, use a compact su
 | CP-009 | Pasted course URL and canonical linked documentation | [Results](docs/checkpoints/CP-009.md) | Pushed and remote verified at 73b6084; CI passed |
 | CP-010 | Incremental real-record library and exact-value pool | [Results](docs/checkpoints/CP-010.md) | Pushed and remote verified through 37ced4e; CI passed |
 | CP-011 | Relational forensic fixture, instances and analyst lessons | [Results](docs/checkpoints/CP-011.md) | Pushed and remote verified at d821e11; Windows/Linux and both Linux R tracks passed |
+| CP-012 | Linked term index, section quizzes and targeted learner suggestions | [Results](docs/checkpoints/CP-012.md) | Local implementation and browser verification complete; push pending |
 
 The repo had no commits when CP-001 began. Its first commit therefore includes the previously built foundation as well as the quality feature. The 24 existing tests predate this checkpoint; the new quality and API tests were written and observed failing before implementation.
 
-## Next checkpoint, after CP-011
+## Next checkpoint, after CP-012
 
-Use the first learner's forensic-practicum feedback to select a small correction. Power BI Desktop and local Windows R remain manual acceptance checks; broader real-case exercises need source-specific original financial files and extraction/availability tests. Keep the root README and linked doctree canonical alongside debugging documentation, hooks, source-byte verification and private storage isolation.
+Add the market-context statement exercises and their proportionate background records, with source/reuse review and explicit public-corroboration limits. Power BI Desktop and local Windows R remain manual acceptance checks. Keep the root README and linked doctree canonical alongside debugging documentation, hooks, source-byte verification and private storage isolation.
 
 Find the local checkpoint commit with:
 

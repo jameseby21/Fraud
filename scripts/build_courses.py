@@ -48,8 +48,8 @@ COURSES = [
  ('operations', 'Operational analysis foundations', 'operations', [
  ('summaries', '1. Compare allocation without a misconduct hypothesis',
   'How is synthetic spending allocated across categories and regions?',
-  'Reuse the same transactions with a different analytical purpose. Create category bars and sorted regional bars with cumulative share. Compare total and average amounts; report denominators and filter context.',
-  'Four categories and four regions are present. Sorted regional cumulative share ends at 100%. Totals reconcile to the same 6,000-row input. Allocation does not measure efficiency or fairness.',
+  'Reuse the same transactions with a different analytical purpose. Create category bars and sorted regional bars with cumulative share. Compare total and average amounts; report denominators and filter context. Filter category to Travel and calculate the mean transaction amount in USD, rounding only the final value to cents.',
+  'Four categories and four regions are present. Sorted regional cumulative share ends at 100%. Totals reconcile to the same 6,000-row input. The Travel-filtered mean is USD 2,203.76; the unfiltered mean is USD 2,258.49. Allocation does not measure efficiency or fairness.',
   'Power BI measures respond to slicers. Reset filters before comparing against Python or R totals. Sorted bars plus cumulative share use two distinct axes.',
   'What additional exposure denominator would make comparisons more meaningful?', 'pareto'),
  ('capacity', '2. Explore workload and timing',

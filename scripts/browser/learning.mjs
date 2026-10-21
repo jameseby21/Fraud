@@ -2,6 +2,13 @@ export async function checkLearning({call,evaluate,until,assert,base}) {
   await call('Page.navigate',{url:base+'/learn'});
   await until(`document.querySelector('#lessons')?.children.length===3 && document.querySelector('#status').textContent.startsWith('Lesson ready')`);
   assert(await evaluate(`document.querySelector('#dataset-download').href.includes('forensic-payments') && JSON.parse(document.querySelector('#numeric-summary').textContent).row_count===12000`),'Forensic course selects v2 data, not legacy fixture');
+  assert(await evaluate(`document.querySelectorAll('.section-quiz').length===5 && document.querySelectorAll('.term-trigger').length>0`),'Every standard section has a quiz and glossary terms are marked');
+  await evaluate(`document.querySelector('.term-trigger').click()`);
+  await until(`document.querySelector('#glossary-dialog').open && document.querySelector('#term-definition').textContent.length>20`);
+  assert(await evaluate(`document.querySelector('#term-context').textContent.length>20 && document.querySelector('#term-implications').textContent.length>20`),'Inline term opens definition, context, and implications');
+  await evaluate(`document.querySelector('#close-glossary').click()`);
+  await evaluate(`const f=document.querySelector('.section-quiz');f.querySelector('input[type=radio]').click();f.requestSubmit()`);
+  await until(`document.querySelector('.section-quiz .quiz-feedback').classList.contains('correct')`);
   assert(await evaluate(`document.querySelector('#answer-download').href.includes('forensic-answers')`),'Version-specific instructor key');
   await evaluate(`document.querySelector('#track').value='r';document.querySelector('#track').dispatchEvent(new Event('change'))`);
   assert(await evaluate(`document.querySelector('#downloads a').href.includes('forensic-r') && document.querySelector('#tool-guide').textContent.includes('12,000')`),'Forensic R sources selected');
@@ -24,6 +31,12 @@ export async function checkLearning({call,evaluate,until,assert,base}) {
   await evaluate(`document.querySelector('#course').value='operations';document.querySelector('#course').dispatchEvent(new Event('change'))`);
   await until(`document.querySelector('#lessons').children.length===2 && document.querySelector('#status').textContent.startsWith('Lesson ready')`);
   assert(await evaluate(`document.querySelector('#progress').textContent.startsWith('0 of 2')`),'Course progress isolated');
+  await evaluate(`const f=document.querySelector('[data-quiz="operations-summaries-try-it"]');f.querySelector('input').value='2258.49';f.requestSubmit()`);
+  await until(`document.querySelector('[data-quiz="operations-summaries-try-it"] .quiz-feedback').textContent.toLowerCase().includes('filter')`);
+  assert(await evaluate(`document.querySelector('[data-quiz="operations-summaries-try-it"] .quiz-feedback').classList.contains('incorrect')`),'Known overall-average error gets a filter suggestion');
+  await evaluate(`document.querySelector('#open-glossary').click();document.querySelector('#glossary-search').value='settlement';document.querySelector('#glossary-search').dispatchEvent(new Event('input'))`);
+  assert(await evaluate(`document.querySelectorAll('#glossary-list li').length>=1 && document.querySelector('#glossary-count').textContent.includes('terms')`),'Term index search works');
+  await evaluate(`document.querySelector('#close-glossary').click()`);
   await evaluate(`document.querySelector('#preview').open=true;document.querySelector('#chart').value='scatter';document.querySelector('#chart').dispatchEvent(new Event('change'))`);
   await until(`document.querySelector('#chart-image').complete && document.querySelector('#chart-image').naturalWidth>0`);
   assert(await evaluate(`document.querySelector('#chart-image').alt.includes('500')`),'Scatter sampling disclosed');
@@ -32,5 +45,5 @@ export async function checkLearning({call,evaluate,until,assert,base}) {
   await evaluate(`document.querySelector('#reset').click()`);
   assert(await evaluate(`document.querySelector('#progress').textContent.startsWith('0 of 2')`),'Reset progress');
   await call('Emulation.setDeviceMetricsOverride',{width:1280,height:1000,deviceScaleFactor:1,mobile:false});
-  console.log('Course checks passed: disclosures, progress persistence/reset, navigation, R/Power BI tracks, chart, mobile layout.');
+  console.log('Course checks passed: glossary, section quizzes, targeted suggestions, disclosures, progress, tracks, chart, and mobile layout.');
 }

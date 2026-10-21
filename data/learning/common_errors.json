@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "errors": [
+    {"id":"overall-instead-of-filtered-average","quiz_id":"operations-summaries-try-it","matches":["2258.49","2258.488325"],"suggestion":"That matches the overall mean. Review the category filter and confirm that only Travel rows are included before averaging."},
+    {"id":"cents-instead-of-dollars","quiz_id":"operations-summaries-try-it","matches":["220375.95","220375.94565937707"],"suggestion":"The magnitude suggests cents were reported as dollars. Divide amount_cents by 100 exactly once, then average and round the final value."},
+    {"id":"median-instead-of-mean","quiz_id":"operations-summaries-try-it","matches":["2136.63"],"suggestion":"That is the Travel median. The prompt asks for the arithmetic mean: sum the filtered values and divide by the filtered row count."},
+    {"id":"percent-as-fraction","matches":["1"],"suggestion":"Check whether the prompt expects a proportion or a percentage and label the unit explicitly."},
+    {"id":"empty-answer","matches":[""],"suggestion":"Enter a result before checking. If the analysis is blocked, record the exact step, filter state, row count, and error message."},
+    {"id":"boolean-as-conclusion","matches":["fraud","guilty","criminal"],"suggestion":"The course asks for a reproducible observation or calculation. Replace a guilt label with the measured result, its scope, and the evidence still needed."}
+  ]
+}

@@ -10,6 +10,8 @@ A local course catalog with Markdown lessons, clean Python notebooks, a shared R
 - Use the reference charts to compare your visual choices. Use transaction IDs when recording observations.
 - Copy `templates/feedback.md` into ignored `output/` and record what worked, what failed, and what needs clearer teaching. The project owner is the first learner; broader usability remains to be tested.
 
+Terms with a dotted underline open an in-page definition with added context and implications. Use **Term index** to browse or search all entries; the identical reviewed content is readable in [the documentation glossary](../docs/glossary.md). Each Question, Try it, Check your work, Debugging, and Reflection section ends with one quick check. A wrong answer keeps you in place and recommends a next step; recognized errors use the appendable `data/learning/common_errors.json` repository. Responses are evaluated in memory and are not persisted or sent to a third party.
+
 There are eleven lessons: six introductory payment-review, two operational-analysis and three forensic-practicum lessons. The default practicum uses the [relational v2 case](../data/forensic/v2/README.md), with fictional names, exact-value lineage, invoices, bank reconciliation, round totals and distribution review. The operations course asks allocation/workload questions without a misconduct hypothesis. These are initial materials, not an accredited curriculum or a claim of learning effectiveness.
 
 Cross-tool reconciliation: introductory v1 has 6,000 rows and **1,355,092,995 cents (USD 13,550,929.95)**. Forensic v2 has 12,000 payments and **30,341,455,858 cents (USD 303,414,558.58)**. Totals include apparent repeats. Check the selected dataset; never force a target by changing records.
@@ -60,5 +62,7 @@ This is core coverage, not every possible chart. Maps require meaningful geograp
 **Can I claim the rule performs well?** You can describe deterministic exercise results and what you learned. There is no representative labeled population or independent holdout, so no generalization or real-world accuracy claim follows.
 
 **How do I report an issue?** Use the feedback template with reproducible steps, sanitized error text, tool version and expected/actual results. Do not paste private research, credentials or confidential data into public issues.
+
+**Why did the quiz tell me to review a filter?** One exercise asks for the Travel-filtered mean. If you enter the known overall mean, the checker recognizes that result and points back to filter context. Similar guidance covers a median substituted for a mean and cents reported as dollars. For an unrecognized answer, the course points to the current section rather than guessing what went wrong.
 
 Format reference: [Jupyter notebook format](https://nbformat.readthedocs.io/en/latest/format_description.html). Accessibility choices guide implementation but do not establish blanket WCAG conformance or replace user testing.
