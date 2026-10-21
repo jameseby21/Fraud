@@ -10,7 +10,7 @@ Keep durable state here and in the checkpoint note. At handoff, use a compact su
 
 | ID | Scope | Validation | Delivery gate |
 | --- | --- | --- | --- |
-| CP-001 | Read-only public-award quality audit with source-row references and accessible report UI | See [checkpoint note](docs/checkpoints/CP-001.md) | Validated locally; push awaits the repository URL |
+| CP-001 | Read-only public-award quality audit with source-row references and accessible report UI | See [checkpoint note](docs/checkpoints/CP-001.md) | Local commit c231208; remote integration prepared for jameseby21/Fraud |
 
 The repo had no commits when CP-001 began. Its first commit therefore includes the previously built foundation as well as the quality feature. The 24 existing tests predate this checkpoint; the new quality and API tests were written and observed failing before implementation.
 
@@ -24,4 +24,4 @@ Find the local checkpoint commit with:
 git log --oneline --grep=CP-001
 ```
 
-After the user supplies the remote, check its existing history before choosing a push strategy. Do not overwrite an existing remote branch or force-push. Record the actual push result before marking CP-001 delivered.
+The supplied remote is https://github.com/jameseby21/Fraud. Its initial commit contains a GPL-3.0 license. Integration preserves both histories and that license, retaining the initial local MIT notice in LICENSE-MIT.txt. Do not force-push. Verify the remote ref before marking CP-001 delivered.

@@ -2,7 +2,7 @@
 
 ## Product principle
 
-Make methods inspectable and evidence traceable. Present what a source records, what analysis suggests, and what remains unknown as separate statements. Avoid unsupported certainty and false balance: well-supported facts can be stated clearly, with scope and attribution. Publish a correction history and explain material disagreements. Apply equal evidence standards to every subject. Code is MIT-licensed; original curated and synthetic data is CC0. Preserve external source terms.
+Make methods inspectable and evidence traceable. Present what a source records, what analysis suggests, and what remains unknown as separate statements. Avoid unsupported certainty and false balance: well-supported facts can be stated clearly, with scope and attribution. Publish a correction history and explain material disagreements. Apply equal evidence standards to every subject. Code follows GPL-3.0 (initial MIT notice retained in LICENSE-MIT.txt); original curated and synthetic data is CC0. Preserve external source terms.
 
 ## 1. Reproducible demonstration (implemented)
 

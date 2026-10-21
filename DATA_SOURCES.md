@@ -43,7 +43,7 @@ These records support ingestion and quality checks. They are unrelated to the ca
 
 ## Reuse
 
-Original code is MIT-licensed. Original curated metadata and synthetic observations are CC0-1.0; see `data/LICENSE.md`. External documents retain their original status. Public access is not a blanket license for third-party photos, logos, exhibits, or site assets.
+The repository uses GPL-3.0 as selected in its GitHub initialization. The original MIT notice remains in LICENSE-MIT.txt. Original curated metadata and synthetic observations are CC0-1.0; see `data/LICENSE.md`. External documents retain their original status. Public access is not a blanket license for third-party photos, logos, exhibits, or site assets.
 
 The [DOJ copyright policy](https://www.justice.gov/legalpolicies) generally permits copying its information with exceptions for third-party materials and protected seals. Raw HTML is an archival response, not a reusable visual asset library. Government source attribution implies no endorsement. The USAspending API software license concerns its code, not every upstream record; the normalized sample preserves public federal spending facts with attribution and provenance.
 

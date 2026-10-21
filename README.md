@@ -6,7 +6,7 @@ An open-source investigation workbench: transparent methods, traceable evidence,
 
 The intended project is open source and presents evidence without claiming final authority. Every material finding should link to its source and distinguish recorded facts, analytical inferences, hypotheses, and unresolved questions. Show counterevidence, coverage gaps, and corrections alongside findings. An anomaly is a reason to investigate, not a finding of guilt. Synthetic examples must remain visibly labeled.
 
-Apply the same evidence standards regardless of wealth, influence, industry, or affiliation. Code is [MIT-licensed](LICENSE); original curated metadata and synthetic observations are [CC0-1.0](data/LICENSE.md). External documents retain their original status. Public code does not imply that private source data or identifying case material should be published.
+Apply the same evidence standards regardless of wealth, influence, industry, or affiliation. Code follows the remote repository's [GPL-3.0 license](LICENSE); the initial MIT notice is retained in [LICENSE-MIT.txt](LICENSE-MIT.txt); original curated metadata and synthetic observations are [CC0-1.0](data/LICENSE.md). External documents retain their original status. Public code does not imply that private source data or identifying case material should be published.
 
 ## Run
 
