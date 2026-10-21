@@ -4,7 +4,7 @@ An open-source investigation workbench: transparent methods, traceable evidence,
 
 This README is the canonical project entry point. The [linked documentation tree and required update map](docs/DOCTREE.md) define which guides, lessons and records must change with each feature. Run `python documentation.py` to check local links and reachability. Test-first work proceeds from focused functions to integration and the complete suite before committing and pushing; checkpoint notes record actual results and limitations.
 
-Current local checkpoint verification: 144 tests pass with zero skips; all thirteen Python notebooks execute; game, course, library, and mobile browser flows pass; the documentation graph covers 95 Markdown pages. [Recorded results](docs/checkpoints/CP-015.md). The pushed CI workflow repeats Windows/Linux checks; Power BI Desktop, physical print fit, and interactive local Windows R remain manual acceptance checks. Mechanical link checks do not prove semantic correctness.
+Current local checkpoint verification: 147 tests pass with zero skips; all thirteen Python notebooks execute; game, course, library, and mobile browser flows pass; the documentation graph covers 96 Markdown pages. [Recorded results](docs/checkpoints/CP-016.md). The pushed CI workflow repeats Windows/Linux checks; Power BI Desktop, physical print fit, and interactive local Windows R remain manual acceptance checks. Mechanical link checks do not prove semantic correctness.
 
 ## Public purpose and evidence standard
 
@@ -98,6 +98,8 @@ Verify/rebuild the cases with `python forensic_fixture.py verify` and `python ma
 Open http://127.0.0.1:8765/game for four compact fictional cases in cooperative or competitive mode. Each case includes an inbox, reference cues, 12–18 ledger rows, scoped candidate findings, a timer, deterministic scoring, print styling, and a course extension. The no-code version uses the generated Markdown case page, one-page CSV ledger, rules, and score sheet in `game/v1`; keep `instructor/answers.json` with the facilitator. See the [game guide](docs/game/README.md) for setup, scoring, accessibility, and inference limits.
 
 Run `python game_fixture.py verify` to confirm that all 17 committed game artifacts reproduce byte-for-byte. Scores reward supported findings, complete target coverage, and time, while subtracting unsupported calls. They measure performance on constructed exercises only and never represent guilt, damages, severity, or real-world model accuracy.
+
+Game v1.0.1 removes candidate scoring weights from player packets, awards speed points only for supported findings, and locks each completed browser round. Local score lists compare matching cases and play modes and recover from malformed storage. The expense-case exposure is corrected to USD 701.10; see [the review checkpoint](docs/checkpoints/CP-016.md).
 
 ## Optional local encrypted storage
 

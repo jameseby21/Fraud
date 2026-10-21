@@ -3,12 +3,12 @@
     {
       "bytes": 1686,
       "path": "game/v1/catalog.json",
-      "sha256": "0ee10ff7846c844fe2208f99574aeb7b96b32deea59eaf1c790a431a85d10c64"
+      "sha256": "43a4f07feeac8e3e755679675325de1e2225a79cc56c7c1574ef78843c47ddd3"
     },
     {
-      "bytes": 1794,
+      "bytes": 2284,
       "path": "game/v1/instructor/answers.json",
-      "sha256": "7d14a5671b201ebdf0bb798c0e7577ea92bb3f47f58345a85154b081d1cc7804"
+      "sha256": "fa1bffa39bafb0f574f23c591d6d124398f0d902a4f4e0d4db3275d6607bb865"
     },
     {
       "bytes": 1551,
@@ -31,24 +31,24 @@
       "sha256": "c656d2e310b04a2cbab10fd967a856924169b9f0a269cb207731f758fde607cf"
     },
     {
-      "bytes": 5186,
+      "bytes": 5106,
       "path": "game/v1/player/authorization.json",
-      "sha256": "25d7e236842c0b0bc35d69de0cb59cd9c77bd3f068904ff603bd3c94801f73c1"
+      "sha256": "6b6598c1b6f3245bceb19fdbdfdf712035fa7a880f5be49ab34b36744dc86c1c"
     },
     {
-      "bytes": 5243,
+      "bytes": 5163,
       "path": "game/v1/player/market-capacity.json",
-      "sha256": "a6f4718e7a462903424ea57223fb7ff9beba7c2224117dd5ee5d21438b433515"
+      "sha256": "64e9f51f5b6076ad2e2136216050f58d7ec0575f6e33005f6817a72f12e2f9fa"
     },
     {
-      "bytes": 4917,
+      "bytes": 4868,
       "path": "game/v1/player/number-pattern.json",
-      "sha256": "d5a344345153325cf79df8ee87b8e6c88aa2659c74e836b23dc30be944c5e2f2"
+      "sha256": "28b6f9d70c4ee98e8d250c9d52936d5b443736f20a06fd6bea337e99353e613f"
     },
     {
-      "bytes": 4817,
+      "bytes": 4737,
       "path": "game/v1/player/round-total.json",
-      "sha256": "2efe6b5ed6201f0a98c832d246ff41fd62a50c35b583ac7b430b1d93e0600f5f"
+      "sha256": "4d369505c7ebd02e3855111a70b28e116bc434ac1668b12ae06013f19779194a"
     },
     {
       "bytes": 2468,
@@ -61,9 +61,9 @@
       "sha256": "9421478edfe8ee2f33d55d2082f26adb94f5c389d5028842724e8f3a03e2b884"
     },
     {
-      "bytes": 2214,
+      "bytes": 2245,
       "path": "game/v1/print/number-pattern.md",
-      "sha256": "12f7ae3cece6964aef096545fc89a9cb9977ed97a08c89acfa991504294e6bf0"
+      "sha256": "6db25da5a4d44b46947710f6e7533a7e1cac698a90b99df251c3f9b110781632"
     },
     {
       "bytes": 2121,
@@ -71,9 +71,9 @@
       "sha256": "01e4193f7e1d5e33a841be9579c93d2a17ede52f4847b2e8cde24f530fea7066"
     },
     {
-      "bytes": 1001,
+      "bytes": 1065,
       "path": "game/v1/rules.md",
-      "sha256": "d5f62d4c1b297c9354a988d84eed24e7b49ec09216407e5907a23887bade40f2"
+      "sha256": "26f8d2aa0c703894729ecbb6669c63057823e8da05a3718cc31da887376ac0e6"
     },
     {
       "bytes": 95,
@@ -82,5 +82,5 @@
     }
   ],
   "fictional": true,
-  "version": "1.0.0"
+  "version": "1.0.1"
 }

@@ -8,6 +8,24 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class GameFixtureTests(unittest.TestCase):
+    def test_player_candidates_do_not_leak_scoring_weights(self):
+        for case_id in build_game()['players']:
+            self.assertTrue(all(set(candidate) == {'id', 'label'}
+                                for candidate in public_case(case_id)['candidates']))
+
+    def test_no_supported_findings_earn_no_time_points(self):
+        for selections in ([], ['C-ROUND-03']):
+            result = score_case('round-total', selections, 0)
+            self.assertEqual(result['speed_bonus'], 0)
+            self.assertEqual(result['points'], 0)
+
+    def test_expense_exposure_matches_cents_in_the_ledger(self):
+        game = build_game()
+        total = sum(row['amount_or_quantity'] for row in game['players']['number-pattern']['ledger']
+                    if row['review_group'] == 'TEAM-WEST')
+        self.assertEqual(total, 70110)
+        self.assertEqual(game['answers']['number-pattern']['exposure'], '701.10 fictional USD')
+
     def test_four_small_fictional_cases_have_printable_player_material(self):
         game = build_game()
         self.assertEqual(len(game['catalog']['cases']), 4)

@@ -3,23 +3,19 @@
   "candidates": [
     {
       "id": "C-MKT-01",
-      "label": "AXL May 14: claims 100,800; complete tape 100,000",
-      "points": 75
+      "label": "AXL May 14: claims 100,800; complete tape 100,000"
     },
     {
       "id": "C-MKT-02",
-      "label": "BEX May 14: claims 48,500; tape 75,000",
-      "points": 30
+      "label": "BEX May 14: claims 48,500; tape 75,000"
     },
     {
       "id": "C-MKT-03",
-      "label": "CRN May 15: claims 33,400; tape 54,000",
-      "points": 30
+      "label": "CRN May 15: claims 33,400; tape 54,000"
     },
     {
       "id": "C-MKT-04",
-      "label": "DOV May 15: claims 36,200; tape 62,000",
-      "points": 30
+      "label": "DOV May 15: claims 36,200; tape 62,000"
     }
   ],
   "course_path": "Forensic practicum lesson 4: statement capacity",

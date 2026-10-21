@@ -6,7 +6,7 @@ Four teams submitted field expenses. Look for a cohort whose numbers may have be
 
 ## Inbox
 
-- Compare like-purpose cohorts, not the entire ledger.
+- Amounts are integer USD cents. Compare like-purpose cohorts, not the entire ledger.
 - Small samples support a review question, not a distributional conviction.
 - Check cents endings, spread, repetition, and source documents together.
 

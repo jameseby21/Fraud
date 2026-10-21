@@ -1,6 +1,10 @@
 export async function checkGame({call,evaluate,until,assert,base}){
   await call('Page.navigate',{url:base+'/game'});
+  await until(`document.querySelector('#clear-scores')`);
+  await evaluate(`localStorage.setItem('fraud-case-game-scores-v1','{}')`);
+  await call('Page.navigate',{url:base+'/game'});
   await until(`document.querySelector('#case-select')?.options.length===4 && document.querySelector('#status').textContent.includes('paper version')`);
+  assert(await evaluate(`document.querySelector('#scores').textContent.includes('No completed')`),'Malformed stored score data recovers');
   assert(await evaluate(`!document.body.innerText.includes('Three Alder records')`),'Facilitator rationale stays out of the player page before scoring');
   await evaluate(`document.querySelector('#start').click()`);
   await until(`document.querySelectorAll('#ledger tr').length===16 && !document.querySelector('#case-file').hidden`);
@@ -8,9 +12,18 @@ export async function checkGame({call,evaluate,until,assert,base}){
   await evaluate(`document.querySelector('#candidates input[value="C-ROUND-01"]').click();document.querySelector('#submission').requestSubmit()`);
   await until(`!document.querySelector('#result').hidden && document.querySelector('#result').textContent.includes('supported')`);
   assert(await evaluate(`document.querySelector('#result .score').textContent.startsWith('100 / 100') && document.querySelectorAll('#scores li').length>=1`),'Perfect scoped answer scores and records locally');
+  const count=await evaluate(`document.querySelectorAll('#scores li').length`);
+  await evaluate(`document.querySelector('#submission').requestSubmit()`);
+  assert(await evaluate(`document.querySelectorAll('#scores li').length===${count} && document.querySelector('#submission button').disabled`),'A scored round stays locked and records once');
+  await evaluate(`document.querySelector('#mode').value='competitive';document.querySelector('#mode').dispatchEvent(new Event('change'))`);
+  assert(await evaluate(`document.querySelectorAll('#scores li').length===0`),'Scores compare matching modes only');
   await evaluate(`document.querySelector('#case-select').value='market-capacity';document.querySelector('#start').click()`);
   await until(`document.querySelector('#case-title').textContent.includes('polished confirmations')`);
   assert(await evaluate(`document.querySelector('#brief').textContent.includes('arithmetic passes') && document.querySelectorAll('#ledger tr').length===16`),'Advanced case renders compact ledger');
+  await evaluate(`window.originalGameFetch=window.fetch;window.fetch=(url,...args)=>String(url).includes('/api/game/score')?Promise.reject(Error('Simulated connection failure')):window.originalGameFetch(url,...args);document.querySelector('#submission').requestSubmit()`);
+  await until(`document.querySelector('#status').textContent.includes('round remains active')`);
+  assert(await evaluate(`!document.querySelector('#submission button').disabled && document.querySelector('#result').hidden`),'Failed scoring unlocks the active round for retry');
+  await evaluate(`window.fetch=window.originalGameFetch`);
   await call('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
   assert(await evaluate(`document.documentElement.scrollWidth<=window.innerWidth+1`),'Game mobile horizontal overflow');
   await call('Emulation.setDeviceMetricsOverride',{width:1280,height:1000,deviceScaleFactor:1,mobile:false});

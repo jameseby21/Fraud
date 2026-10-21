@@ -1,5 +1,11 @@
 {
   "authorization": {
+    "candidate_points": {
+      "C-AUTH-01": 25,
+      "C-AUTH-02": 25,
+      "C-AUTH-03": 65,
+      "C-AUTH-04": 25
+    },
     "completeness_bonus": 20,
     "exposure": "3 sampled records with missing references",
     "false_positive_penalty": 15,
@@ -11,6 +17,12 @@
     ]
   },
   "market-capacity": {
+    "candidate_points": {
+      "C-MKT-01": 75,
+      "C-MKT-02": 30,
+      "C-MKT-03": 30,
+      "C-MKT-04": 30
+    },
     "completeness_bonus": 20,
     "exposure": "100,800 fictional units",
     "false_positive_penalty": 15,
@@ -22,8 +34,14 @@
     ]
   },
   "number-pattern": {
+    "candidate_points": {
+      "C-NUM-01": 25,
+      "C-NUM-02": 25,
+      "C-NUM-03": 25,
+      "C-NUM-04": 65
+    },
     "completeness_bonus": 20,
-    "exposure": "8,011.10 fictional USD",
+    "exposure": "701.10 fictional USD",
     "false_positive_penalty": 15,
     "maximum_speed_bonus": 20,
     "rationale": "The West cohort is designed with evenly spaced dollar components and sequential cents endings. That makes it a document-review target, but four records cannot establish fabrication or justify a formal distribution test.",
@@ -33,6 +51,12 @@
     ]
   },
   "round-total": {
+    "candidate_points": {
+      "C-ROUND-01": 60,
+      "C-ROUND-02": 25,
+      "C-ROUND-03": 25,
+      "C-ROUND-04": 25
+    },
     "completeness_bonus": 20,
     "exposure": "50,000 fictional units",
     "false_positive_penalty": 15,

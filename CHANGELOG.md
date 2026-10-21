@@ -2,6 +2,8 @@
 
 ## 2026-10-21
 
+- Reviewed game additions: removed scoring-weight answer leakage, corrected the expense exposure to USD 701.10, eliminated speed rewards for empty/unsupported submissions, locked completed rounds, and recovered malformed local scores. Scoreboards now compare matching cases and modes with elapsed-time tie breaking.
+
 - Added a shared 34-term course/documentation glossary with accessible inline definitions.
 - Added 55 section-level quiz checks and targeted suggestions for recognized filter, unit, and summary-statistic mistakes.
 - Added two five-section forensic lessons that test internally polished statements against synthetic market volume and exact retained CFTC open-interest aggregates.

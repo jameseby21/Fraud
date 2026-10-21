@@ -3,23 +3,19 @@
   "candidates": [
     {
       "id": "C-AUTH-01",
-      "label": "Branch 101 authorization audit",
-      "points": 25
+      "label": "Branch 101 authorization audit"
     },
     {
       "id": "C-AUTH-02",
-      "label": "Branch 202 authorization audit",
-      "points": 25
+      "label": "Branch 202 authorization audit"
     },
     {
       "id": "C-AUTH-03",
-      "label": "Branch 303 authorization audit",
-      "points": 65
+      "label": "Branch 303 authorization audit"
     },
     {
       "id": "C-AUTH-04",
-      "label": "Branch 404 authorization audit",
-      "points": 25
+      "label": "Branch 404 authorization audit"
     }
   ],
   "course_path": "Resolved-case guide: Wells Fargo unauthorized accounts",

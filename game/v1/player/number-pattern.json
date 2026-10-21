@@ -3,23 +3,19 @@
   "candidates": [
     {
       "id": "C-NUM-01",
-      "label": "North cohort",
-      "points": 25
+      "label": "North cohort"
     },
     {
       "id": "C-NUM-02",
-      "label": "South cohort",
-      "points": 25
+      "label": "South cohort"
     },
     {
       "id": "C-NUM-03",
-      "label": "East cohort",
-      "points": 25
+      "label": "East cohort"
     },
     {
       "id": "C-NUM-04",
-      "label": "West cohort",
-      "points": 65
+      "label": "West cohort"
     }
   ],
   "course_path": "Forensic practicum lesson 3: distribution shift",
@@ -172,7 +168,7 @@
     }
   ],
   "reference": [
-    "Compare like-purpose cohorts, not the entire ledger.",
+    "Amounts are integer USD cents. Compare like-purpose cohorts, not the entire ledger.",
     "Small samples support a review question, not a distributional conviction.",
     "Check cents endings, spread, repetition, and source documents together."
   ],

@@ -91,6 +91,7 @@ The check detects missing local targets and Markdown pages unreachable from READ
 - [docs/checkpoints/CP-013.md](../docs/checkpoints/CP-013.md)
 - [docs/checkpoints/CP-014.md](../docs/checkpoints/CP-014.md)
 - [docs/checkpoints/CP-015.md](../docs/checkpoints/CP-015.md)
+- [docs/checkpoints/CP-016.md](../docs/checkpoints/CP-016.md)
 - [docs/DOCTREE.md](../docs/DOCTREE.md)
 - [docs/fraud_instances/bank-reconciliation.md](../docs/fraud_instances/bank-reconciliation.md)
 - [docs/fraud_instances/benign-recurring.md](../docs/fraud_instances/benign-recurring.md)

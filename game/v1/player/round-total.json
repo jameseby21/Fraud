@@ -3,23 +3,19 @@
   "candidates": [
     {
       "id": "C-ROUND-01",
-      "label": "Alder / March 3 totals exactly 50,000",
-      "points": 60
+      "label": "Alder / March 3 totals exactly 50,000"
     },
     {
       "id": "C-ROUND-02",
-      "label": "Cedar / March 5 has two ordinary values",
-      "points": 25
+      "label": "Cedar / March 5 has two ordinary values"
     },
     {
       "id": "C-ROUND-03",
-      "label": "Ivy activity spans two dates",
-      "points": 25
+      "label": "Ivy activity spans two dates"
     },
     {
       "id": "C-ROUND-04",
-      "label": "Hawthorn has one high-looking amount",
-      "points": 25
+      "label": "Hawthorn has one high-looking amount"
     }
   ],
   "course_path": "Forensic practicum lesson 2: round sums",
