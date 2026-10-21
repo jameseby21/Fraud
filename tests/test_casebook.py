@@ -7,12 +7,37 @@ from casebook import MODELS, get_case, load_catalog, mechanism_replay, public_re
 
 
 class CasebookTests(unittest.TestCase):
-    def test_twenty_distinct_documented_cases_and_five_questions(self):
+    def test_twenty_six_distinct_resolved_cases_and_five_questions(self):
         result = validate_catalog()
-        self.assertEqual(result['historical'], 20)
+        self.assertEqual(result['historical'], 26)
         self.assertEqual(result['modern'], 5)
         cases = load_catalog()['cases']
-        self.assertEqual(len({c['source']['url'] for c in cases}), 25)
+        self.assertEqual(len({c['source']['url'] for c in cases}), 31)
+
+    def test_resolutions_preserve_distinct_legal_outcomes_and_remedies(self):
+        historical = [case for case in load_catalog()['cases'] if case['kind'] == 'historical']
+        self.assertTrue(all(case.get('resolution') for case in historical))
+        types = {case['resolution']['type'] for case in historical}
+        self.assertTrue({'criminal_plea', 'criminal_trial', 'mixed_criminal_outcome',
+                         'corporate_guilty_plea', 'deferred_prosecution',
+                         'administrative_consent_order', 'civil_final_judgment'} <= types)
+        dispositions = {case['resolution']['criminal_disposition'] for case in historical}
+        self.assertTrue({'guilty_plea', 'convicted_at_trial', 'mixed_verdict',
+                         'partial_reversal', 'corporate_guilty_plea', 'deferred',
+                         'acquitted', 'not_applicable'} <= dispositions)
+        self.assertTrue(any(remedy['type'] == 'restitution' for case in historical
+                            for remedy in case['resolution'].get('remedies', [])))
+        self.assertTrue(any(remedy['type'] == 'forfeiture' for case in historical
+                            for remedy in case['resolution'].get('remedies', [])))
+        for case in historical:
+            for remedy in case['resolution'].get('remedies', []):
+                self.assertGreater(remedy['amount_usd'], 0)
+                self.assertIn('scope', remedy)
+
+    def test_acquittal_is_not_rendered_as_a_criminal_finding(self):
+        case = get_case('healthsouth-scrushy')
+        self.assertEqual(case['resolution']['criminal_disposition'], 'acquitted')
+        self.assertEqual(source_events(case)[0]['type'], 'reported_mixed_legal_outcome')
 
     def test_all_historical_replays_are_reproducible_and_point_in_time(self):
         for c in load_catalog()['cases']:

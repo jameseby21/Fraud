@@ -6,6 +6,12 @@ Merrill received a six-year sentence after pleading guilty to wire fraud and con
 
 Outcome date: 2017-03-22. Source: [DOJ: Former TelexFree president sentenced](https://www.justice.gov/usao-ma/pr/former-president-telexfree-sentenced-billion-dollar-pyramid-scheme); publication: 2017-03-22. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `criminal_plea`. Criminal disposition: `guilty_plea`. Forum: federal criminal. Imprisonment imposed: 72 months.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 Participant recruitment versus genuine telecom sales. Teaching mechanism: `recruitment_dependence`.

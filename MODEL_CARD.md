@@ -12,13 +12,15 @@ There is currently one curated source report per case. This sparse chronology is
 
 ## Rules
 
-Eleven families cover balance confirmation, invoice confirmation, customer-asset coverage, claim validation, earnings/cash gaps, related-party approvals, reporting-window gaps, recruitment dependence, payout coverage, lab/road differences, and pre-announcement trading patterns.
+Thirteen families cover balance confirmation, invoice confirmation, customer-asset coverage, claim validation, earnings/cash gaps, related-party approvals, reporting-window gaps, recruitment dependence, payout coverage, lab/road differences, pre-announcement trading patterns, affirmative authorization, and post-escalation intervention.
 
 Each computes `(total - corroborated) / total` using mechanism-specific fields and an illustrative threshold. This shared formula makes arithmetic inspectable; it does not make the mechanisms statistically equivalent. Case-to-rule mappings are educational choices, not proof that a ratio detected the historical offense.
 
 Inputs are invented normalized units, not actual dollars or estimated historical measurements. Baseline steps pass; the last step triggers by construction. Repeated profiles are not independent validation samples. No fitting, calibrated probabilities, or empirical accuracy estimates are claimed.
 
 Every trigger has alternatives: incomplete records, lawful redemptions, working capital, ordinary settlements, or unmatched test conditions. Missing corroboration is not falsity. Modern entries reject numerical replay entirely to avoid attaching fabricated observations to unresolved subjects.
+
+The resolved-case catalog includes criminal convictions and pleas, an acquittal, mixed verdicts, a partial reversal, a civil judgment, an administrative consent order, and deferred prosecution agreements. These labels describe different burdens, procedures, and findings. They are curriculum metadata and never target labels for the mechanism rules. Monetary remedies retain their source label; the app does not convert a penalty, forfeiture, restitution, disgorgement, or coordinated payment into a common damages measure.
 
 ## Validation
 

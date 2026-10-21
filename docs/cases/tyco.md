@@ -6,6 +6,12 @@ A New York court opinion records Kozlowski and Swartz's grand-larceny conviction
 
 Outcome date: 2005-06-17. Source: [New York court: Levin v Kozlowski, 2006 NY Slip Op 52142(U)](https://www.nycourts.gov/Reporter/3dseries/2006/2006_52142.htm); publication: 2006-11-14. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `criminal_trial`. Criminal disposition: `convicted_at_trial`. Forum: state criminal. Imprisonment imposed: none recorded in this structured entry.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 Corporate benefits, approvals, and executive transfers. Teaching mechanism: `related_party_review`.

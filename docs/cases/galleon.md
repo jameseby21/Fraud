@@ -6,6 +6,12 @@ Rajaratnam received an 11-year sentence after conviction on conspiracy and secur
 
 Outcome date: 2011-10-13. Source: [DOJ: Raj Rajaratnam sentenced](https://www.justice.gov/archive/usao/nys/pressreleases/October11/rajaratnamrajsentencingpr.pdf); publication: 2011-10-13. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `criminal_trial`. Criminal disposition: `convicted_at_trial`. Forum: federal criminal. Imprisonment imposed: 132 months.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 Repeated pre-announcement trading patterns. Teaching mechanism: `preannouncement_pattern`.

@@ -6,6 +6,12 @@ Skilling was resentenced to 168 months for fraud and conspiracy. This records th
 
 Outcome date: 2013-06-21. Source: [DOJ: Former Enron CEO Skilling resentenced](https://www.justice.gov/archives/opa/pr/former-enron-ceo-jeffrey-skilling-resentenced-168-months-fraud-conspiracy-charges); publication: 2013-06-21. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `criminal_trial`. Criminal disposition: `convicted_at_trial`. Forum: federal criminal resentencing. Imprisonment imposed: 168 months.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 Reported performance and financial reporting. Teaching mechanism: `earnings_cash_gap`.

@@ -6,6 +6,12 @@ Petters was convicted of fraud-related offenses and sentenced in April 2010 to 5
 
 Outcome date: 2010-04-08. Source: [DOJ: Operation Broken Trust in action](https://www.justice.gov/archives/opa/blog/operation-broken-trust-action); publication: 2010-12-06. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `criminal_trial`. Criminal disposition: `convicted_at_trial`. Forum: federal criminal. Imprisonment imposed: 600 months.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 Purported merchandise purchases and resale documentation. Teaching mechanism: `invoice_confirmation`.

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "amount_note": "Amounts describe only the labeled remedy in the cited source. Penalties, forfeiture, restitution, disgorgement, coordinated payments, alleged loss, and victim loss are not interchangeable.",
+  "outcomes": [
+    {"id":"madoff","type":"criminal_plea","criminal_disposition":"guilty_plea","forum":"federal criminal","imprisonment_months":1800,"remedies":[]},
+    {"id":"stanford","type":"criminal_trial","criminal_disposition":"convicted_at_trial","forum":"federal criminal","imprisonment_months":1320,"remedies":[]},
+    {"id":"petters","type":"criminal_trial","criminal_disposition":"convicted_at_trial","forum":"federal criminal","imprisonment_months":600,"remedies":[]},
+    {"id":"rothstein","type":"criminal_plea","criminal_disposition":"guilty_plea","forum":"federal criminal","imprisonment_months":600,"remedies":[]},
+    {"id":"ftx","type":"criminal_trial","criminal_disposition":"convicted_at_trial","forum":"federal criminal","imprisonment_months":300,"remedies":[]},
+    {"id":"theranos","type":"mixed_criminal_outcome","criminal_disposition":"mixed_verdict","forum":"federal criminal","imprisonment_months":135,"remedies":[]},
+    {"id":"enron","type":"criminal_trial","criminal_disposition":"convicted_at_trial","forum":"federal criminal resentencing","imprisonment_months":168,"remedies":[]},
+    {"id":"worldcom","type":"criminal_trial","criminal_disposition":"convicted_at_trial","forum":"federal criminal","imprisonment_months":null,"remedies":[]},
+    {"id":"tyco","type":"criminal_trial","criminal_disposition":"convicted_at_trial","forum":"state criminal","imprisonment_months":null,"remedies":[]},
+    {"id":"adelphia","type":"mixed_criminal_outcome","criminal_disposition":"partial_reversal","forum":"federal criminal and appeal","imprisonment_months":null,"remedies":[]},
+    {"id":"peregrine","type":"criminal_plea","criminal_disposition":"guilty_plea","forum":"federal criminal","imprisonment_months":600,"remedies":[]},
+    {"id":"refco","type":"criminal_plea","criminal_disposition":"guilty_plea","forum":"federal criminal","imprisonment_months":192,"remedies":[]},
+    {"id":"bayou","type":"criminal_plea","criminal_disposition":"guilty_plea","forum":"federal criminal","imprisonment_months":240,"remedies":[]},
+    {"id":"zeekrewards","type":"criminal_trial","criminal_disposition":"convicted_at_trial","forum":"federal criminal","imprisonment_months":176,"remedies":[]},
+    {"id":"telexfree","type":"criminal_plea","criminal_disposition":"guilty_plea","forum":"federal criminal","imprisonment_months":72,"remedies":[]},
+    {"id":"onecoin","type":"criminal_plea","criminal_disposition":"guilty_plea","forum":"federal criminal","imprisonment_months":240,"remedies":[]},
+    {"id":"bitconnect","type":"criminal_plea","criminal_disposition":"guilty_plea","forum":"federal criminal","imprisonment_months":null,"remedies":[]},
+    {"id":"volkswagen","type":"corporate_guilty_plea","criminal_disposition":"corporate_guilty_plea","forum":"federal criminal","imprisonment_months":null,"remedies":[]},
+    {"id":"shkreli","type":"mixed_criminal_outcome","criminal_disposition":"mixed_verdict","forum":"federal criminal","imprisonment_months":84,"remedies":[]},
+    {"id":"galleon","type":"criminal_trial","criminal_disposition":"convicted_at_trial","forum":"federal criminal","imprisonment_months":132,"remedies":[]},
+    {"id":"wells-fargo-accounts","type":"administrative_consent_order","criminal_disposition":"not_applicable","forum":"CFPB administrative","imprisonment_months":null,"remedies":[{"type":"restitution","amount_usd":2500000,"qualifier":"expected minimum stated by CFPB","scope":"Consumer restitution under the 2016 consent order"},{"type":"civil_penalty","amount_usd":100000000,"qualifier":"ordered","scope":"CFPB Civil Penalty Fund"}]},
+    {"id":"western-union","type":"deferred_prosecution","criminal_disposition":"deferred","forum":"federal criminal agreement","imprisonment_months":null,"remedies":[{"type":"forfeiture","amount_usd":586000000,"qualifier":"agreed","scope":"Forfeiture intended for victim compensation"}]},
+    {"id":"moneygram","type":"deferred_prosecution","criminal_disposition":"deferred","forum":"federal criminal agreement","imprisonment_months":null,"remedies":[{"type":"forfeiture","amount_usd":125000000,"qualifier":"agreed","scope":"2018 DPA extension forfeiture intended for victims"}]},
+    {"id":"goldman-1mdb","type":"corporate_guilty_plea","criminal_disposition":"corporate_guilty_plea","forum":"federal criminal and coordinated resolutions","imprisonment_months":null,"remedies":[{"type":"coordinated_resolution","amount_usd":2900000000,"qualifier":"more than","scope":"Combined criminal and civil authorities across jurisdictions"}]},
+    {"id":"healthsouth-scrushy","type":"criminal_trial","criminal_disposition":"acquitted","forum":"federal criminal","imprisonment_months":null,"remedies":[]},
+    {"id":"healthsouth-sec","type":"civil_final_judgment","criminal_disposition":"not_applicable","forum":"federal civil SEC action","imprisonment_months":null,"remedies":[{"type":"disgorgement_and_civil_penalties","amount_usd":81000000,"qualifier":"ordered total","scope":"SEC civil final judgment"}]}
+  ]
+}

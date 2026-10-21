@@ -42,9 +42,18 @@ class AppTests(unittest.TestCase):
                 self.assertEqual(r.status, 200)
                 self.assertGreater(len(r.read()), 100)
 
+    def test_library_exposes_legal_outcome_filter(self):
+        with self.request('/library') as response:
+            page = response.read()
+        self.assertIn(b'id="resolution-filter"', page)
+        self.assertIn(b'Legal outcome', page)
+
     def test_catalog_and_real_data(self):
         with self.request('/api/catalog') as r:
-            self.assertEqual(len(json.load(r)['cases']), 25)
+            catalog = json.load(r)
+            self.assertEqual(len(catalog['cases']), 31)
+            self.assertEqual(len([case for case in catalog['cases'] if case['kind'] == 'historical']), 26)
+            self.assertTrue(all('resolution' in case for case in catalog['cases'] if case['kind'] == 'historical'))
         with self.request('/api/data') as r:
             data = json.load(r)
             self.assertGreater(len(data['awards']), 0)

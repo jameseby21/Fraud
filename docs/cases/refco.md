@@ -6,6 +6,12 @@ Bennett received a 16-year sentence after pleading guilty in the Refco fraud cas
 
 Outcome date: 2008-07-03. Source: [DOJ: Bennett Refco sentencing](https://www.justice.gov/archive/usao/nys/pressreleases/July08/bennettrefcosentencingpr.pdf); publication: 2008-07-03. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `criminal_plea`. Criminal disposition: `guilty_plea`. Forum: federal criminal. Imprisonment imposed: 192 months.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 Concealed receivables and reporting-window transactions. Teaching mechanism: `period_end_gap`.

@@ -4,9 +4,10 @@ Only public government records, original curated factual metadata, and clearly m
 
 | Artifact | Contents | Interpretation |
 | --- | --- | --- |
-| `data/cases.json` | 20 distinct historical cases and 5 modern research priorities with official sources | Curated factual paraphrases, not original court datasets |
-| `data/evidence.jsonl` | 25 source-backed statements, event dates, and availability dates | Generated from the catalog; `synthetic: false` identifies a statement about a real source, not independently verified underlying transactions |
-| `data/synthetic_replays.jsonl` | 60 fabricated observations across 20 exercises | Explicitly synthetic; numeric values and thresholds are invented |
+| `data/cases.json` | 26 resolved case records and 5 modern research priorities with official sources | Curated factual paraphrases, not original court datasets |
+| `data/case_outcomes.json` | Structured forum, resolution type, criminal disposition, imprisonment, and scoped remedies | Legal categories remain distinct; remedy amounts are not interchangeable damages estimates |
+| `data/evidence.jsonl` | 31 source-backed statements, event dates, and availability dates | Generated from the catalog; `synthetic: false` identifies a statement about a real source, not independently verified underlying transactions |
+| `data/synthetic_replays.jsonl` | 78 fabricated observations across 26 exercises | Explicitly synthetic; numeric values and thresholds are invented |
 | `data/raw/` | Successful source downloads named by SHA-256 | Exact retrieved bytes; not all sources were downloadable |
 | `data/intake_log.jsonl` | Successful and unsuccessful download attempts | Append-only history with timestamps and failure reasons |
 | `data/spending/awards.csv` | 50 actual public federal contract awards | Unlabeled, nonrepresentative sample; no fraud inference |
@@ -15,13 +16,15 @@ Only public government records, original curated factual metadata, and clearly m
 | `data/market/v1/public_reference.csv` | 15 exact CFTC TFF combined open-interest aggregates | Public market constraint; not customer-level trade confirmation |
 | `data/market/v1/*.csv` | 8,000 fabricated confirmations, 4,000 fabricated positions, controls and synthetic tape | Deterministic course evidence; only `public_reference.csv` contains real aggregate facts |
 
-The first full intake archived 15 of 25 case sources; 10 were unavailable. See the log for exact results. Curated statements were researched through publicly accessible official pages, including pages the direct downloader could not retrieve. These are recorded as human-curated paraphrases, never as downloaded originals. Re-running intake may change raw coverage.
+The original full intake archived 15 of the initial 25 case and research sources; 10 were unavailable. Later supplemental attempts are append-only and reported in the library index. See both logs for exact results. Curated statements were researched through publicly accessible official pages, including pages the direct downloader could not retrieve. These are recorded as human-curated paraphrases, never as downloaded originals. Re-running intake may change raw coverage.
 
 ## Historical evidence
 
-The cases are Madoff, Stanford, Petters, Rothstein, FTX/Bankman-Fried, Theranos/Holmes, Enron/Skilling, WorldCom/Ebbers, Tyco/Kozlowski and Swartz, Adelphia/Rigas, Peregrine/Wasendorf, Refco/Bennett, Bayou/Israel, ZeekRewards/Burks, TelexFree/Merrill, OneCoin/Greenwood, BitConnect/Arcaro, Volkswagen emissions, MSMB/Shkreli, and Galleon/Rajaratnam.
+The original criminal-outcome set covers Madoff, Stanford, Petters, Rothstein, FTX/Bankman-Fried, Theranos/Holmes, Enron/Skilling, WorldCom/Ebbers, Tyco/Kozlowski and Swartz, Adelphia/Rigas, Peregrine/Wasendorf, Refco/Bennett, Bayou/Israel, ZeekRewards/Burks, TelexFree/Merrill, OneCoin/Greenwood, BitConnect/Arcaro, Volkswagen emissions, MSMB/Shkreli, and Galleon/Rajaratnam. Six additions cover Wells Fargo unauthorized accounts, Western Union and MoneyGram anti-fraud controls, the Goldman Sachs/1MDB resolution, Richard Scrushy's HealthSouth criminal acquittal, and the separate SEC civil judgment.
 
-Each entry scopes the criminal finding to the identified subject and cited government source. Settlements without admissions are not used as proof for this historical group. Findings do not extend automatically to every associate, every allegation, or current custody status. Material distinctions include Skilling's revised sentence and reversal of one Rigas bank-fraud count. This is not a complete current appellate docket. URLs and dates appear in the catalog and app; unknown publication dates remain unknown.
+Each entry scopes the recorded outcome to the identified subject, forum, disposition, and cited government source. The catalog now includes criminal pleas and trial convictions, mixed verdicts, a partial reversal, an acquittal, corporate resolution, deferred prosecution, an administrative consent order, and civil final judgment. A consent order or deferred prosecution agreement is not labeled a conviction; the HealthSouth criminal acquittal and separate civil judgment remain separate records. Outcomes do not extend automatically to every associate, allegation, or current custody status. This is not a complete current appellate docket. URLs and dates appear in the catalog and app; unknown publication dates remain unknown.
+
+The six added source URLs were reviewed through official CFPB, DOJ, GovInfo, and SEC pages. Automated supplemental intake retained the CFPB consent order, GovInfo court record, and SEC release. The three DOJ pages rejected the machine downloader's evidence checks and remain explicit unavailable attempts; their curated metadata is not presented as locally retained source bytes.
 
 The Madoff catalog link now uses the current DOJ case landing page because the former FBI archive URL returned 403 to the user. The append-only source library preserves its previously retained FBI response and records the blocked DOJ machine-download attempt; the browser-facing official-source link uses DOJ. The DOJ page records the March 2009 guilty plea and June 29, 2009 150-year sentence and links the sentencing transcript.
 

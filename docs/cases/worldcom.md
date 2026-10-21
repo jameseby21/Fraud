@@ -6,6 +6,12 @@ A jury convicted Ebbers in the WorldCom fraud case. The entry records the convic
 
 Outcome date: 2005-03-15. Source: [DOJ: Statement on the Bernard Ebbers conviction](https://www.justice.gov/archive/opa/pr/2005/March/05_ag_122.htm); publication: 2005-03-15. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `criminal_trial`. Criminal disposition: `convicted_at_trial`. Forum: federal criminal. Imprisonment imposed: none recorded in this structured entry.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 Financial reporting and accounting manipulation. Teaching mechanism: `earnings_cash_gap`.

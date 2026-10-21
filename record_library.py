@@ -15,7 +15,8 @@ from urllib.parse import urlencode
 from intake import validate_payload
 
 ROOT = Path(__file__).resolve().parent
-HOSTS = {'www.justice.gov', 'www.govinfo.gov', 'api.usaspending.gov', 'www.fbi.gov', 'archives.fbi.gov', 'www.ftc.gov', 'publicreporting.cftc.gov'}
+HOSTS = {'www.justice.gov', 'www.govinfo.gov', 'api.usaspending.gov', 'www.fbi.gov', 'archives.fbi.gov',
+         'www.ftc.gov', 'publicreporting.cftc.gov', 'files.consumerfinance.gov', 'www.sec.gov'}
 TYPES = {'official_case_report', 'government_pleading', 'court_transcript', 'financial_records', 'market_reference', 'hearing_transcript'}
 
 
@@ -166,11 +167,20 @@ def seed():
         host = urlsplit(case['source']['url']).hostname
         if host not in HOSTS:
             continue
-        agency = 'DOJ' if host == 'www.justice.gov' else 'FBI' if 'fbi.gov' in host else 'FTC'
+        policies = {
+            'www.justice.gov': ('DOJ', 'https://www.justice.gov/legalpolicies'),
+            'www.fbi.gov': ('FBI', 'https://www.fbi.gov/privacy-policy'),
+            'archives.fbi.gov': ('FBI', 'https://www.fbi.gov/privacy-policy'),
+            'www.ftc.gov': ('FTC', 'https://www.ftc.gov/site-information/privacy-policy'),
+            'files.consumerfinance.gov': ('CFPB', 'https://www.consumerfinance.gov/open-government/'),
+            'www.govinfo.gov': ('GovInfo', 'https://www.govinfo.gov/about/policies'),
+            'www.sec.gov': ('SEC', 'https://www.sec.gov/about/privacy-information'),
+        }
+        agency, reuse_url = policies[host]
         sources.append(dict(id=case['id']+'-report', case_id=case['id'], title=case['title'] if 'title' in case else case.get('name',case['id']),
             url=case['source']['url'], publication_date=case['source'].get('published_on'), record_type='official_case_report',
             reuse_basis=f'{agency}-authored official report; government text only, third-party inserts retain original rights',
-            reuse_url={'DOJ':'https://www.justice.gov/legalpolicies','FBI':'https://www.fbi.gov/privacy-policy','FTC':'https://www.ftc.gov/site-information/privacy-policy'}[agency]))
+            reuse_url=reuse_url))
     sources += [dict(id='cftc-tff-2022-09-13',case_id=None,title='CFTC TFF combined open interest, 15 contract markets, September 13, 2022',
         url='https://publicreporting.cftc.gov/resource/yw9f-hn96.json?%24select=id%2Cmarket_and_exchange_names%2Creport_date_as_yyyy_mm_dd%2Ccftc_contract_market_code%2Copen_interest_all%2Ccontract_units&%24where=report_date_as_yyyy_mm_dd%3D%272022-09-13T00%3A00%3A00.000%27&%24order=cftc_contract_market_code&%24limit=15',
         publication_date='2022-09-16',record_type='market_reference',

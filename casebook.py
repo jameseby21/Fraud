@@ -32,11 +32,22 @@ MODELS = {
         [(100, 98), (120, 100), (500, 100)], "Laboratory and road conditions can differ without deliberate test manipulation."),
     "preannouncement_pattern": ("Share of reviewed events with profitable prior positions", "reviewed_events", "events_without_profitable_prior_positions", .70,
         [(10, 8), (20, 12), (30, 3)], "Selection bias, chance, public information, and strategy exposure can explain returns."),
+    "authorization_rate": ("Product share lacking affirmative authorization", "opened_products", "independently_authorized_products", .10,
+        [(100, 99), (180, 176), (300, 210)], "Incomplete consent archives, household authority, and channel migrations can create apparent gaps."),
+    "monitoring_escalation": ("Flagged activity continuing after escalation", "flagged_transfers", "flagged_transfers_stopped", .40,
+        [(100, 95), (180, 165), (300, 80)], "Complaint duplication, delayed investigation, and lawful transfers can affect intervention measures."),
 }
 
 
 def load_catalog():
-    return json.loads((ROOT / "data" / "cases.json").read_text(encoding="utf-8"))
+    catalog = json.loads((ROOT / "data" / "cases.json").read_text(encoding="utf-8"))
+    outcome_data = json.loads((ROOT / "data" / "case_outcomes.json").read_text(encoding="utf-8"))
+    outcomes = {item["id"]: item for item in outcome_data["outcomes"]}
+    for case in catalog["cases"]:
+        if case["kind"] == "historical" and case["id"] in outcomes:
+            case["resolution"] = outcomes[case["id"]]
+    catalog["outcome_amount_note"] = outcome_data["amount_note"]
+    return catalog
 
 
 def get_case(case_id):
@@ -50,9 +61,13 @@ def source_events(case):
     source = case["source"]
     # No invented publication date: unknown dates are gated conservatively at review.
     available = source["published_on"] or load_catalog()["reviewed_on"]
+    disposition = case.get("resolution", {}).get("criminal_disposition")
+    event_type = "public_allegation_or_research" if case["kind"] != "historical" else (
+        "reported_mixed_legal_outcome" if disposition in {"acquitted", "mixed_verdict", "partial_reversal"}
+        else "reported_resolved_legal_outcome")
     return [dict(id=case["id"] + "-source-1", occurred_on=case.get("outcome_on") or available,
                  available_on=available, date_basis="source publication" if source["published_on"] else "publication unknown; first catalog review used conservatively",
-                 type="reported_criminal_finding" if case["kind"] == "historical" else "public_allegation_or_research",
+                 type=event_type,
                  statement=case.get("outcome") or case["summary"], source=source, synthetic=False)]
 
 
@@ -99,7 +114,7 @@ def validate_catalog():
     require(len({c["id"] for c in cases}) == len(cases), "Duplicate case ID")
     historical = sum(c["kind"] == "historical" for c in cases)
     modern = sum(c["kind"] == "modern" for c in cases)
-    require(historical >= 20 and modern == 5, "Expected at least 20 historical and exactly 5 modern cases")
+    require(historical >= 26 and modern == 5, "Expected at least 26 historical and exactly 5 modern cases")
     for c in cases:
         require(c["source"]["url"].startswith("https://"), "Source must use HTTPS")
         if c["source"]["published_on"]:
@@ -107,6 +122,12 @@ def validate_catalog():
         if c["kind"] == "historical":
             require(c["model"] in MODELS and c["outcome"] and c["outcome_on"], "Historical entry needs model and sourced outcome")
             date.fromisoformat(c["outcome_on"])
+            resolution = c.get("resolution")
+            require(resolution and resolution["id"] == c["id"], "Historical entry needs a matching structured resolution")
+            require(resolution["type"] and resolution["criminal_disposition"] and resolution["forum"], "Resolution fields cannot be empty")
+            require(resolution["imprisonment_months"] is None or resolution["imprisonment_months"] > 0, "Invalid imprisonment term")
+            for remedy in resolution.get("remedies", []):
+                require(remedy["amount_usd"] > 0 and remedy["type"] and remedy["scope"], "Invalid remedy")
         else:
             require(c["outcome"] is None and c["outcome_on"] is None, "Modern entries cannot carry proven outcomes")
             require(all(c[k] for k in ("question", "needed_data", "method", "counterevidence", "data_gap")), "Modern entry lacks research context")

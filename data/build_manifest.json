@@ -1,9 +1,9 @@
 {
   "artifacts": {
-    "evidence.jsonl": "640b04ba3df7316d11aaa767d4f30b5217851329eb05a5792170eb89d4321b6f",
-    "synthetic_replays.jsonl": "ff562ffda5df85b0c389c199383ab16e6a8b82fea2fd73281e399c8dbaf86c0a"
+    "evidence.jsonl": "3117dc2590f3aee581cda86aa01ff08c808947a92555b384c1f8fdddf8e387bd",
+    "synthetic_replays.jsonl": "c09f72e8b65d55c2565381bfe573fe0627819476d49f5df2f325cdc3c74bce68"
   },
-  "catalog_sha256": "034562d1dae8f3377e2d99c2985edc262ae1805ad69431d4fe894c6ae19d131e",
+  "catalog_sha256": "212db7f25e411f4d4ed732efd54fe79a40c14d12fad4514e66d22133ac33a754",
   "schema_version": 1,
   "source_scope": "Curated public-source facts; generated synthetic observations kept separate; raw downloads tracked separately"
 }

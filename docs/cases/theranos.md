@@ -6,6 +6,12 @@ Holmes was sentenced to 135 months for defrauding investors. This entry concerns
 
 Outcome date: 2022-11-18. Source: [DOJ: Elizabeth Holmes sentenced for defrauding investors](https://www.justice.gov/usao-ndca/pr/elizabeth-holmes-sentenced-more-11-years-defrauding-theranos-investors-hundreds); publication: 2022-11-18. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `mixed_criminal_outcome`. Criminal disposition: `mixed_verdict`. Forum: federal criminal. Imprisonment imposed: 135 months.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 Investor claims versus independent technical validation. Teaching mechanism: `claim_validation`.

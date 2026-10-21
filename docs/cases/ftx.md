@@ -6,6 +6,12 @@ Bankman-Fried was sentenced to 25 years after conviction for fraud and conspirac
 
 Outcome date: 2024-03-28. Source: [DOJ: Samuel Bankman-Fried sentenced](https://www.justice.gov/usao-sdny/pr/samuel-bankman-fried-sentenced-25-years-prison); publication: 2024-03-28. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `criminal_trial`. Criminal disposition: `convicted_at_trial`. Forum: federal criminal. Imprisonment imposed: 300 months.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 Customer liabilities versus available customer assets. Teaching mechanism: `customer_asset_coverage`.

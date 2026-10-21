@@ -27,8 +27,8 @@ socket.onmessage=event=>{const m=JSON.parse(event.data);if(m.method==='Runtime.e
 await call('Runtime.enable');await call('Page.enable');
 const navigation=await call('Page.navigate',{url:base+'/library'});
 if(navigation.errorText)throw Error('Navigation failed: '+navigation.errorText);
-await until(`document.querySelector('#case-list')?.children.length===20 && document.querySelector('#replay-result')?.textContent.includes('Insufficient data')`);
-assert(await evaluate(`document.querySelector('#history-count').textContent==='20' && Number(document.querySelector('#award-count').textContent)>0`),'Coverage counters');
+await until(`document.querySelector('#case-list')?.children.length===26 && document.querySelector('#replay-result')?.textContent.includes('Insufficient data')`);
+assert(await evaluate(`document.querySelector('#history-count').textContent==='26' && Number(document.querySelector('#award-count').textContent)>0`),'Coverage counters');
 await checkSourceFreshness({evaluate,assert});
 await evaluate(`document.querySelector('#step').value='3';document.querySelector('#step').dispatchEvent(new Event('input'));`);
 await until(`document.querySelector('#replay-result').textContent.includes('Review warranted')`);
@@ -36,6 +36,11 @@ await evaluate(`document.querySelector('#as-of').value='2009-06-28';document.que
 await until(`document.querySelector('#case-detail').textContent.includes('No cataloged source evidence')`);
 await evaluate(`document.querySelector('#case-search').value='Refco';document.querySelector('#case-search').dispatchEvent(new Event('input'));`);
 assert(await evaluate(`document.querySelectorAll('.case-button').length===1`),'Case filter');
+await evaluate(`document.querySelector('#case-search').value='';document.querySelector('#resolution-filter').value='acquitted';document.querySelector('#resolution-filter').dispatchEvent(new Event('change'));`);
+await until(`document.querySelectorAll('.case-button').length===1`);
+await evaluate(`document.querySelector('.case-button').click()`);
+assert(await evaluate(`document.querySelector('#case-detail').textContent.includes('Criminal disposition: acquitted')`),'Acquittal remains explicit in outcome display');
+await evaluate(`document.querySelector('#resolution-filter').value='all';document.querySelector('#resolution-filter').dispatchEvent(new Event('change'));`);
 await evaluate(`document.querySelector('#case-search').value='';document.querySelector('#modern-tab').click();`);
 await until(`document.querySelectorAll('.case-button').length===5`);
 assert(await evaluate(`!document.querySelector('#step') && document.querySelector('#case-detail').textContent.includes('NO GUILT SCORE')`),'Modern entries have no fabricated scores');
@@ -45,7 +50,7 @@ assert(await evaluate(`document.querySelector('#award-results').textContent==='0
 await evaluate(`document.querySelector('#award-search').value='';document.querySelector('#award-search').dispatchEvent(new Event('input'));`);
 assert(await evaluate(`document.querySelectorAll('#awards tr').length===Number(document.querySelector('#award-count').textContent)`),'Public award rows');
 await evaluate(`document.querySelector('#historical-tab').click();`);
-await until(`document.querySelectorAll('.case-button').length===20`);
+await until(`document.querySelectorAll('.case-button').length===26`);
 await call('Emulation.setDeviceMetricsOverride',{width:1280,height:1000,deviceScaleFactor:1,mobile:false});
 await writeFile('output/library-desktop.png',Buffer.from((await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));
 await call('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});

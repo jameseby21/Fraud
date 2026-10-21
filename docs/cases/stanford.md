@@ -6,6 +6,12 @@ Stanford was sentenced to 110 years following a jury conviction involving fraudu
 
 Outcome date: 2012-06-14. Source: [DOJ: Allen Stanford gets 110 years](https://www.justice.gov/archive/usao/txs/1News/Releases/2012%20June/120614%20Stanford.html); publication: 2012-06-14. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `criminal_trial`. Criminal disposition: `convicted_at_trial`. Forum: federal criminal. Imprisonment imposed: 1320 months.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 Deposit backing and independent asset confirmation. Teaching mechanism: `balance_confirmation`.

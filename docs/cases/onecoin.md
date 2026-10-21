@@ -6,6 +6,12 @@ Greenwood received a 20-year sentence for the OneCoin fraud. The finding in this
 
 Outcome date: 2023-09-12. Source: [DOJ: OneCoin co-founder sentenced](https://www.justice.gov/usao-sdny/pr/co-founder-multibillion-dollar-cryptocurrency-scheme-onecoin-sentenced-20-years-prison); publication: 2023-09-12. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `criminal_plea`. Criminal disposition: `guilty_plea`. Forum: federal criminal. Imprisonment imposed: 240 months.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 Cryptocurrency representations versus independently validated functionality. Teaching mechanism: `claim_validation`.

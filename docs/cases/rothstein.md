@@ -6,6 +6,12 @@ Rothstein received a 50-year sentence after guilty pleas involving a Ponzi schem
 
 Outcome date: 2010-06-09. Source: [DOJ: Fort Lauderdale attorney sentenced](https://www.justice.gov/archive/usao/fls/PressReleases/2010/100609-01.html); publication: 2010-06-09. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `criminal_plea`. Criminal disposition: `guilty_plea`. Forum: federal criminal. Imprisonment imposed: 600 months.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 Existence of purported confidential settlements. Teaching mechanism: `invoice_confirmation`.

@@ -72,7 +72,7 @@ class IntakeTests(unittest.TestCase):
         files = intake.derived_files()
         evidence = [json.loads(line) for line in files['evidence.jsonl'].splitlines()]
         simulated = [json.loads(line) for line in files['synthetic_replays.jsonl'].splitlines()]
-        self.assertEqual(len(evidence), 25)
+        self.assertEqual(len(evidence), 31)
         self.assertTrue(all(not row['synthetic'] for row in evidence))
-        self.assertEqual(len(simulated), 60)
+        self.assertEqual(len(simulated), 78)
         self.assertTrue(all(row['synthetic'] for row in simulated))

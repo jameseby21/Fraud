@@ -192,6 +192,66 @@
       "url": "https://www.justice.gov/archive/usao/nys/pressreleases/October11/rajaratnamrajsentencingpr.pdf"
     },
     {
+      "case_id": "wells-fargo-accounts",
+      "id": "wells-fargo-accounts-report",
+      "publication_date": "2016-09-08",
+      "record_type": "official_case_report",
+      "reuse_basis": "CFPB-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.consumerfinance.gov/open-government/",
+      "title": "Wells Fargo unauthorized accounts",
+      "url": "https://files.consumerfinance.gov/f/documents/092016_cfpb_WFBconsentorder.pdf"
+    },
+    {
+      "case_id": "western-union",
+      "id": "western-union-report",
+      "publication_date": "2017-01-19",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Western Union consumer-fraud controls",
+      "url": "https://www.justice.gov/usao-mdpa/pr/western-union-admits-anti-money-laundering-and-consumer-fraud-violations-forfeits-586"
+    },
+    {
+      "case_id": "moneygram",
+      "id": "moneygram-report",
+      "publication_date": "2018-11-08",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "MoneyGram anti-fraud program",
+      "url": "https://www.justice.gov/archives/opa/pr/moneygram-international-inc-agrees-extend-deferred-prosecution-agreement-forfeits-125-million"
+    },
+    {
+      "case_id": "goldman-1mdb",
+      "id": "goldman-1mdb-report",
+      "publication_date": "2020-10-22",
+      "record_type": "official_case_report",
+      "reuse_basis": "DOJ-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.justice.gov/legalpolicies",
+      "title": "Goldman Sachs / 1MDB resolution",
+      "url": "https://www.justice.gov/usao-edny/pr/goldman-sachs-resolves-foreign-bribery-case-and-agrees-pay-over-29-billion"
+    },
+    {
+      "case_id": "healthsouth-scrushy",
+      "id": "healthsouth-scrushy-report",
+      "publication_date": "2009-03-31",
+      "record_type": "official_case_report",
+      "reuse_basis": "GovInfo-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.govinfo.gov/about/policies",
+      "title": "Richard Scrushy / HealthSouth criminal trial",
+      "url": "https://www.govinfo.gov/content/pkg/USCOURTS-alnd-2_03-cv-01500/pdf/USCOURTS-alnd-2_03-cv-01500-3.pdf"
+    },
+    {
+      "case_id": "healthsouth-sec",
+      "id": "healthsouth-sec-report",
+      "publication_date": "2007-04-23",
+      "record_type": "official_case_report",
+      "reuse_basis": "SEC-authored official report; government text only, third-party inserts retain original rights",
+      "reuse_url": "https://www.sec.gov/about/privacy-information",
+      "title": "Richard Scrushy / SEC civil action",
+      "url": "https://www.sec.gov/enforcement-litigation/litigation-releases/lr-20084"
+    },
+    {
       "case_id": "amazon-ads",
       "id": "amazon-ads-report",
       "publication_date": "2026-08-31",

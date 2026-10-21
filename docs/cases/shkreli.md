@@ -6,6 +6,12 @@ Shkreli received a seven-year sentence following convictions on three securities
 
 Outcome date: 2018-03-09. Source: [DOJ: Martin Shkreli sentenced](https://www.justice.gov/usao-edny/pr/martin-shkreli-sentenced-seven-years-imprisonment-multi-million-dollar-fraud-scheme); publication: 2018-03-09. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `mixed_criminal_outcome`. Criminal disposition: `mixed_verdict`. Forum: federal criminal. Imprisonment imposed: 84 months.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 Fund performance representations and investor records. Teaching mechanism: `balance_confirmation`.

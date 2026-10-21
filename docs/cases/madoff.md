@@ -6,6 +6,12 @@ Madoff received a 150-year sentence after pleading guilty to operating a Ponzi s
 
 Outcome date: 2009-06-29. Source: [DOJ: United States v. Bernard L. Madoff and related cases](https://www.justice.gov/usao-sdny/programs/victim-witness-services/united-states-v-bernard-l-madoff-and-related-cases); publication: 2009-06-29. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `criminal_plea`. Criminal disposition: `guilty_plea`. Forum: federal criminal. Imprisonment imposed: 1800 months.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 Investment statements versus independently confirmed assets. Teaching mechanism: `balance_confirmation`.

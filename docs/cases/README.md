@@ -1,6 +1,6 @@
-# Historical case study library
+# Resolved case study library
 
-[Root README](../../README.md). These guides derive from the reviewed case catalog. They distinguish actual outcomes from proposed analytical exercises. No original full ledger is implied. For retained and unavailable artifacts see [the record library](../library/README.md).
+[Root README](../../README.md). These guides derive from the reviewed case catalog. They preserve criminal, civil, administrative, mixed, deferred, and acquittal outcomes without treating them as equivalent. No original full ledger is implied. See the [legal-outcome schema](../case_outcomes.md) and [record library](../library/README.md).
 
 - [Bernard Madoff / BLMIS](madoff.md)
 - [Allen Stanford / Stanford International Bank](stanford.md)
@@ -22,3 +22,9 @@
 - [Volkswagen AG / emissions testing](volkswagen.md)
 - [Martin Shkreli / MSMB securities fraud](shkreli.md)
 - [Raj Rajaratnam / Galleon](galleon.md)
+- [Wells Fargo unauthorized accounts](wells-fargo-accounts.md)
+- [Western Union consumer-fraud controls](western-union.md)
+- [MoneyGram anti-fraud program](moneygram.md)
+- [Goldman Sachs / 1MDB resolution](goldman-1mdb.md)
+- [Richard Scrushy / HealthSouth criminal trial](healthsouth-scrushy.md)
+- [Richard Scrushy / SEC civil action](healthsouth-sec.md)

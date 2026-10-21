@@ -1,6 +1,6 @@
 # Public record library
 
-[Root README](../../README.md) is canonical. Browse http://127.0.0.1:8765/records. `data/library/sources.json` is the reviewed registry; `index.json` is the generated latest-view catalog. The existing 20 historical findings and five modern priorities remain in `data/cases.json`; this supplement preserves their evidence standards.
+[Root README](../../README.md) is canonical. Browse http://127.0.0.1:8765/records. `data/library/sources.json` is the reviewed registry; `index.json` is the generated latest-view catalog. The 26 resolved case records and five modern priorities remain in `data/cases.json`; this supplement preserves their evidence standards.
 
 ## Intake and supplementation
 
@@ -36,6 +36,8 @@ Retained: 15 prior reports, two new legal PDFs and ten financial API pages. Ten 
 The pool contains 1,000 federal contract obligation records (977 distinct amounts) from ten 100-row pages, a 2025 activity filter, and USD 10-250,000 amount bounds. They are total award obligations, not invoices or calendar-year cash spending. Ordering by Award ID is nonrepresentative; upstream changes can shift pagination. Preserve the snapshot rather than claiming a natural payment population. Fictional reassignment of exact values must retain lineage and does not reconstruct an original transaction.
 
 The CFTC source is a fixed 15-row GET query against the public TFF combined dataset for September 13, 2022. Its original JSON is retained by hash and normalized into `data/market/v1/public_reference.csv`. This aggregate open interest is a market-capacity reference, not evidence about a named customer or a particular execution. The query is small, deterministic, unauthenticated, and refreshes append revisions instead of replacing bytes.
+
+The resolved-case expansion registers six official CFPB, DOJ, GovInfo, and SEC records. The library retained the CFPB consent-order PDF, the GovInfo court PDF recording the HealthSouth acquittal, and the SEC civil-release HTML. DOJ returned access-challenge content to the bounded downloader for the Western Union, MoneyGram, and Goldman/1MDB pages; those attempts remain unavailable and no challenge page is stored as evidence. The registry currently has 44 sources and 31 retained revisions.
 
 [DOJ's policy](https://www.justice.gov/legalpolicies) permits copying/distribution by default unless otherwise indicated. No contrary copyright notice was found in the reviewed transcript text. Preserve original notices; court/third-party materials are not relicensed as project CC0. Public accessibility alone does not authorize every future exhibit or reporter product. [GovInfo](https://www.govinfo.gov/about/policies) also warns that government publications may contain copyrighted inserts. New sources require individual review.
 

@@ -6,6 +6,12 @@ Burks received a 176-month sentence following a jury conviction for operating an
 
 Outcome date: 2017-02-13. Source: [DOJ: Former ZeekRewards CEO sentenced](https://www.justice.gov/usao-wdnc/pr/former-zeekrewards-ceo-sentenced-more-14-years-operating-900-million-internet-ponzi); publication: 2017-02-13. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `criminal_trial`. Criminal disposition: `convicted_at_trial`. Forum: federal criminal. Imprisonment imposed: 176 months.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 External customer revenue versus investor rewards. Teaching mechanism: `recruitment_dependence`.

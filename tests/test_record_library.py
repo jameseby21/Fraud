@@ -78,3 +78,12 @@ class RecordLibraryTests(unittest.TestCase):
                       record_type='market_reference', reuse_basis='CFTC public reporting data',
                       reuse_url='https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm')
         check_source(source)
+
+    def test_resolved_case_government_hosts_are_allowlisted(self):
+        for host, url in (
+            ('CFPB', 'https://files.consumerfinance.gov/f/example.pdf'),
+            ('GovInfo', 'https://www.govinfo.gov/content/pkg/example.pdf'),
+            ('SEC', 'https://www.sec.gov/enforcement-litigation/example'),
+        ):
+            with self.subTest(host=host):
+                check_source(dict(self.source(), id=host.lower(), url=url))

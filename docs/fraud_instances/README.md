@@ -12,4 +12,4 @@
 - [Polished statement lines versus a complete synthetic market tape](statement-market-capacity.md)
 - [Fictional statement positions versus public CFTC open interest](public-open-interest.md)
 
-For real findings, use the [20 historical case guides](../cases/README.md) and [original-record library](../library/README.md). The Peter Madoff documents motivate independent corroboration of claims and records; they do not establish that any of the fictional supplier patterns occurred there.
+For real outcomes, use the [26 resolved-case guides](../cases/README.md), [legal-outcome schema](../case_outcomes.md), and [original-record library](../library/README.md). The Peter Madoff documents motivate independent corroboration of claims and records; they do not establish that any of the fictional supplier patterns occurred there.

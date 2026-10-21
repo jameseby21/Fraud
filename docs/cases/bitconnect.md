@@ -6,6 +6,12 @@ The DOJ case record documents Arcaro's guilty plea to conspiracy to commit wire 
 
 Outcome date: 2021-09-01. Source: [DOJ: United States v Glenn Arcaro, case record](https://www.justice.gov/usao-sdfl/us-v-glenn-arcaro); publication: unknown. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `criminal_plea`. Criminal disposition: `guilty_plea`. Forum: federal criminal. Imprisonment imposed: none recorded in this structured entry.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 Claimed trading income versus investor distributions. Teaching mechanism: `payout_coverage`.

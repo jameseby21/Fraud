@@ -6,6 +6,12 @@ The government brief records securities-fraud convictions and sentences. It also
 
 Outcome date: 2005-06-20. Source: [DOJ: Rigas v United States, opposition, No. 07-494](https://www.justice.gov/osg/brief/rigas-v-united-states-opposition-0); publication: unknown. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `mixed_criminal_outcome`. Criminal disposition: `partial_reversal`. Forum: federal criminal and appeal. Imprisonment imposed: none recorded in this structured entry.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 Related entities, co-borrowing, and undisclosed liabilities. Teaching mechanism: `related_party_review`.

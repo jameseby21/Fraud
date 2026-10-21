@@ -6,6 +6,12 @@ The FBI reports Wasendorf's 50-year sentence for a customer-fund fraud involving
 
 Outcome date: 2013-01-31. Source: [FBI: Crooked CEO gets 50 years](https://www.fbi.gov/news/stories/crooked-ceo-gets-50-years); publication: unknown. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `criminal_plea`. Criminal disposition: `guilty_plea`. Forum: federal criminal. Imprisonment imposed: 600 months.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 Customer funds and purported bank balances. Teaching mechanism: `balance_confirmation`.

@@ -22,13 +22,14 @@ Keep durable state here and in the checkpoint note. At handoff, use a compact su
 | CP-010 | Incremental real-record library and exact-value pool | [Results](docs/checkpoints/CP-010.md) | Pushed and remote verified through 37ced4e; CI passed |
 | CP-011 | Relational forensic fixture, instances and analyst lessons | [Results](docs/checkpoints/CP-011.md) | Pushed and remote verified at d821e11; Windows/Linux and both Linux R tracks passed |
 | CP-012 | Linked term index, section quizzes and targeted learner suggestions | [Results](docs/checkpoints/CP-012.md) | Pushed and remote verified at 743eb95 |
-| CP-013 | Market-capacity statement exercises and retained public corroboration | [Results](docs/checkpoints/CP-013.md) | Local implementation and full verification complete; push pending |
+| CP-013 | Market-capacity statement exercises and retained public corroboration | [Results](docs/checkpoints/CP-013.md) | Pushed and remote verified at 7de33ec |
+| CP-014 | Diverse resolved-case outcomes and scoped remedy metadata | [Results](docs/checkpoints/CP-014.md) | Local implementation and full verification complete; push pending |
 
 The repo had no commits when CP-001 began. Its first commit therefore includes the previously built foundation as well as the quality feature. The 24 existing tests predate this checkpoint; the new quality and API tests were written and observed failing before implementation.
 
-## Next checkpoint, after CP-013
+## Next checkpoint, after CP-014
 
-Diversify the real-case catalog across allegation, plea, verdict, acquittal, dismissal, civil, administrative, damages, restitution, forfeiture and sentencing outcomes while keeping each claim tied to public primary evidence. Then add the small printable cooperative/competitive case-file game. Power BI Desktop and local Windows R remain manual acceptance checks.
+Add the small printable cooperative/competitive case-file game with one-page ledgers, case documents, separate facilitator keys, deterministic scoring, no-code play, and a forensic-analyst path into the course fixtures. Power BI Desktop and local Windows R remain manual acceptance checks.
 
 Find the local checkpoint commit with:
 

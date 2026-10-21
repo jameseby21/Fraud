@@ -6,6 +6,12 @@ Israel received a 20-year sentence following guilty pleas; the DOJ describes fal
 
 Outcome date: 2008-04-14. Source: [DOJ: Bayou chief executive sentenced](https://www.justice.gov/archive/usao/nys/pressreleases/April08/israelsamuelsentencepr.pdf); publication: 2008-04-14. This is the catalog's narrowly scoped finding, not a new independent adjudication.
 
+Resolution type: `criminal_plea`. Criminal disposition: `guilty_plea`. Forum: federal criminal. Imprisonment imposed: 240 months.
+
+- No monetary remedy is structured in this entry; consult the source before inferring none existed.
+
+Remedy amounts retain their named scope. Penalty, forfeiture, restitution, disgorgement, coordinated payment, alleged loss, and victim loss must not be substituted for one another.
+
 ## Analyst question
 
 Reported profits and sham independent audit claims. Teaching mechanism: `balance_confirmation`.
