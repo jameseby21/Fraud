@@ -1,0 +1,42 @@
+{
+  "artifact": "data/raw/a2cc4ca574a4b440ef5622ad3ed25002ff0bd565d11031c2d2c40956ef093160.json",
+  "content_type": "application/json",
+  "final_url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+  "interpretation": "Top total award obligations among contracts matching a 2025 activity filter, not spending during 2025. Nonrepresentative unlabeled sample. No fraud inference.",
+  "request": {
+    "fields": [
+      "Award ID",
+      "Recipient Name",
+      "Award Amount",
+      "Awarding Agency",
+      "Start Date",
+      "End Date",
+      "generated_internal_id"
+    ],
+    "filters": {
+      "award_type_codes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "time_period": [
+        {
+          "end_date": "2025-12-31",
+          "start_date": "2025-01-01"
+        }
+      ]
+    },
+    "limit": 50,
+    "order": "desc",
+    "page": 1,
+    "sort": "Award Amount",
+    "subawards": false
+  },
+  "requested_url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+  "retrieved_at": "2026-10-21T04:47:03.123516+00:00",
+  "reuse_basis": "Public federal spending data; see DATA_SOURCES.md for agency policies and third-party caveats.",
+  "rows": 50,
+  "sha256": "a2cc4ca574a4b440ef5622ad3ed25002ff0bd565d11031c2d2c40956ef093160",
+  "status": "downloaded"
+}

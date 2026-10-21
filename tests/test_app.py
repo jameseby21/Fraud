@@ -1,0 +1,75 @@
+import json
+import threading
+import unittest
+import urllib.error
+import urllib.request
+from http.server import ThreadingHTTPServer
+
+from app import Handler
+
+
+class QuietHandler(Handler):
+    def log_message(self, *args):
+        pass
+
+
+class AppTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.server = ThreadingHTTPServer(('127.0.0.1', 0), QuietHandler)
+        cls.thread = threading.Thread(target=cls.server.serve_forever, daemon=True)
+        cls.thread.start()
+        cls.base = 'http://127.0.0.1:' + str(cls.server.server_port)
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.server.shutdown()
+        cls.server.server_close()
+        cls.thread.join(timeout=3)
+
+    def request(self, path):
+        return urllib.request.urlopen(self.base+path, timeout=3)
+
+    def test_pages_and_assets_serve(self):
+        for path in ('/', '/library', '/library.js', '/library.css'):
+            with self.subTest(path=path), self.request(path) as r:
+                self.assertEqual(r.status, 200)
+                self.assertGreater(len(r.read()), 100)
+
+    def test_catalog_and_real_data(self):
+        with self.request('/api/catalog') as r:
+            self.assertEqual(len(json.load(r)['cases']), 25)
+        with self.request('/api/data') as r:
+            data = json.load(r)
+            self.assertGreater(len(data['awards']), 0)
+            self.assertEqual(len(data['awards']), data['provenance']['rows'])
+
+    def test_replay_and_download(self):
+        with self.request('/api/replay?case=madoff&step=1') as r:
+            self.assertEqual(json.load(r)['trace']['result'], 'no_rule_trigger')
+        with self.request('/api/download?name=awards') as r:
+            self.assertIn('attachment', r.headers['Content-Disposition'])
+            self.assertIn(b'total_award_obligation_cents', r.read())
+        with self.request('/api/source?case=madoff') as r:
+            self.assertIn('attachment', r.headers['Content-Disposition'])
+            self.assertGreater(len(r.read()), 1000)
+
+    def test_public_data_quality_has_traceable_json_and_download(self):
+        with self.request('/api/quality') as r:
+            report = json.load(r)
+            self.assertGreater(report['row_count'], 0)
+            self.assertIn('input_sha256', report)
+            self.assertIn('source_sha256', report)
+        with self.request('/api/quality?download=1') as r:
+            self.assertIn('attachment', r.headers['Content-Disposition'])
+            self.assertEqual(json.load(r), report)
+
+    def test_bad_inputs_and_traversal_are_rejected(self):
+        for path, status in (('/api/replay?case=madoff&step=99', 400),
+                             ('/api/replay?case=uber-one&step=3', 400),
+                             ('/api/replay?case=madoff&mode=public&as_of=nope', 400),
+                             ('/api/replay?case=unknown&step=0', 404),
+                             ('/api/download?name=../../app.py', 404), ('/api/source?case=../../app.py', 404), ('/../app.py', 404)):
+            with self.subTest(path=path), self.assertRaises(urllib.error.HTTPError) as error:
+                self.request(path)
+            self.assertEqual(error.exception.code, status)
