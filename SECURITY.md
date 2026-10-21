@@ -46,3 +46,5 @@ This is not a multiuser service, certified cryptographic module, or independentl
 ## Public contribution boundary
 
 Publish only public data and clearly synthetic fixtures. Do not commit private vaults, keys, private records, or personal context. Credentials require dedicated scanning and GitHub-side protection; [GitHub secret scanning](https://docs.github.com/en/code-security/concepts/secret-security/secret-scanning) detects recognized credential types but cannot identify every sensitive statement. Review the actual staged diff before every push.
+
+Enable the tracked local gates with `git config core.hooksPath .githooks`. Run `python scripts/check_publication.py` for staged changes or add `--all` for every tracked index blob. The guard also recognizes renamed vault JSON documents and reports rules/paths without printing matched credential values. It does not decrypt a vault, classify arbitrary personal context, audit all Git history, or replace manual review. Hooks can be disabled or bypassed; they are not an access-control boundary.

@@ -12,13 +12,14 @@ Keep durable state here and in the checkpoint note. At handoff, use a compact su
 | --- | --- | --- | --- |
 | CP-001 | Public-award quality audit and initial foundation | [Results](docs/checkpoints/CP-001.md) | Pushed and remote verified at 7930f76 |
 | CP-002 | Independent publication/retrieval freshness and scoped browser quality checks | [Results](docs/checkpoints/CP-002.md) | Pushed and remote verified at e23ab2d |
-| CP-003 | Optional encrypted storage outside Git and web routes | [Results](docs/checkpoints/CP-003.md) | Validated locally; commit and push before next checkpoint |
+| CP-003 | Optional encrypted storage outside Git and web routes | [Results](docs/checkpoints/CP-003.md) | Pushed and remote verified at 4db2c37 |
+| CP-004 | Public-repository publication guards and local hooks | [Results](docs/checkpoints/CP-004.md) | Validated locally; commit and push before next checkpoint |
 
 The repo had no commits when CP-001 began. Its first commit therefore includes the previously built foundation as well as the quality feature. The 24 existing tests predate this checkpoint; the new quality and API tests were written and observed failing before implementation.
 
-## Next checkpoint, after CP-003 is pushed
+## Next checkpoint, after CP-004 is pushed
 
-CP-004: add encrypted note operations and publication guards. Public code and documentation describe technical behavior only. Read the compact checkpoint handoff, retain only needed verified state, and follow the test/commit/push gates.
+CP-005: add usable encrypted note operations with revision history and explicit local reads. Read only the compact handoff and necessary storage API. Keep the browser server isolated from the vault.
 
 Find the local checkpoint commit with:
 

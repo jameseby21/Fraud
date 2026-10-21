@@ -90,3 +90,12 @@ Statistical checkpoints require suitable public observations and independent lab
 | 060 | Reproducible demonstration bundle | A reviewer can run the included example offline from documented steps |
 
 UX decisions should be tied to a task and checked against W3C guidance on [status messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html), [keyboard focus](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html), [tables](https://www.w3.org/WAI/tutorials/tables/), and [target size](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html). These references guide work; they do not substitute for testing with people or establish blanket compliance.
+
+## Local storage extensions
+
+| ID | Feature | Smallest useful acceptance test |
+| --- | --- | --- |
+| 061 | Encrypted external vault (implemented) | Wrong keys and altered ciphertext fail; a Git-worktree path is rejected |
+| 062 | Publication guard (implemented) | A force-added or renamed vault is blocked without printing private values |
+| 063 | Encrypted note revisions | Corrections preserve earlier revisions inside encryption and remain absent from public routes |
+| 064 | Full optional-dependency CI | Vault tests run rather than being skipped, alongside public-data verification |
