@@ -4,3 +4,4 @@
 # Evidence hashes cover original bytes, including original line endings.
 data/** -text whitespace=cr-at-eol
 data/raw/** -text -diff -merge
+data/library/raw/** -text -diff -merge
