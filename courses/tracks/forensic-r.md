@@ -8,4 +8,4 @@ If CSV files are missing, use `getwd()` and open the repository root. If joins m
 
 Run the task before revealing the worked checks; use the memo and feedback templates. The course is a fictional supplier review inspired by corroboration questions in real legal records, not a real Madoff ledger.
 
-Execution status is recorded in the checkpoint note. Python tests do not establish R execution; CI has a separate R step.
+Execution passed on Linux in [CI run 39657025799](https://github.com/jameseby21/Fraud/actions/runs/39657025799): 12,000 payments, 120 entities, twelve round-total groups, one 500-cent bank difference and CDF distance 0.5492. Chart PDF generation also completed. Local Windows R and manual PDF visual review remain separate checks; Python tests alone do not validate R.

@@ -45,6 +45,8 @@ This is core coverage, not every possible chart. Maps require meaningful geograp
 
 ## FAQ and debugging
 
+**Why does `/learn` return 404 after an update?** Use the URL without a trailing comma (the current server also redirects that form). A Python process retains its imported route definitions while reading newer content files, so a stale process can show new-looking content with old routes. Stop the old app and restart from the root. During CP-011 a duplicate stale listener on Windows continued taking requests; after identifying it as this project's deterministic app, terminating that stale process exposed the current server. Inspect `Get-NetTCPConnection -LocalPort 8765 -State Listen` and the owning process before stopping anything; a different application must not be killed by assumption. Prefer Ctrl+C in the old app terminal. The course route, record library, and forensic API were all verified on the final live listener.
+
 **Where is my progress?** Completion and course/tool selection stay in this browser under versioned keys and are shared by users of this profile. They are not private records. Reset clears completion; selection remains. Browser storage denial makes state temporary; exported feedback is the durable record.
 
 **The notebook cannot find learning.py.** Open it within the cloned repo, not a detached Downloads folder. The web download is a convenience; it still needs the repo's data and helper module. Check the selected kernel and working directory.

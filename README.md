@@ -4,6 +4,8 @@ An open-source investigation workbench: transparent methods, traceable evidence,
 
 This README is the canonical project entry point. The [linked documentation tree and required update map](docs/DOCTREE.md) define which guides, lessons and records must change with each feature. Run `python documentation.py` to check local links and reachability. Test-first work proceeds from focused functions to integration and the complete suite before committing and pushing; checkpoint notes record actual results and limitations.
 
+Current verification: 121 tests pass with zero skips on Windows/Linux CI; all eleven Python notebooks execute; both base-R tracks pass on Linux; local browser flows pass. [Recorded results](docs/checkpoints/CP-011.md). Power BI Desktop and local Windows R remain manual acceptance checks. The documentation graph currently covers 72 Markdown pages; mechanical link checks do not prove semantic correctness.
+
 ## Public purpose and evidence standard
 
 The intended project is open source and presents evidence without claiming final authority. Every material finding should link to its source and distinguish recorded facts, analytical inferences, hypotheses, and unresolved questions. Show counterevidence, coverage gaps, and corrections alongside findings. An anomaly is a reason to investigate, not a finding of guilt. Synthetic examples must remain visibly labeled.
