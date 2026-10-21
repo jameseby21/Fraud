@@ -15,7 +15,7 @@ Keep durable state here and in the checkpoint note. At handoff, use a compact su
 | CP-003 | Optional encrypted storage outside Git and web routes | [Results](docs/checkpoints/CP-003.md) | Pushed and remote verified at 4db2c37 |
 | CP-004 | Public-repository publication guards and local hooks | [Results](docs/checkpoints/CP-004.md) | Pushed and remote verified at cb30fcf |
 | CP-005 | Encrypted local notes and correction history | [Results](docs/checkpoints/CP-005.md) | Pushed and remote verified at 36aa5a8 |
-| CP-006 | Full Windows/Linux verification without skipped tests | [Results](docs/checkpoints/CP-006.md) | Validated locally; remote CI must pass before next checkpoint |
+| CP-006 | Full Windows/Linux verification without skipped tests | [Results](docs/checkpoints/CP-006.md) | Pushed and remote verified at 33d7d28; both CI jobs passed |
 
 The repo had no commits when CP-001 began. Its first commit therefore includes the previously built foundation as well as the quality feature. The 24 existing tests predate this checkpoint; the new quality and API tests were written and observed failing before implementation.
 
