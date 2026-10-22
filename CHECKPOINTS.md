@@ -26,7 +26,7 @@ Keep durable state here and in the checkpoint note. At handoff, use a compact su
 | CP-014 | Diverse resolved-case outcomes and scoped remedy metadata | [Results](docs/checkpoints/CP-014.md) | Pushed and remote verified at 54768cc |
 | CP-015 | Printable cooperative and competitive case-file game | [Results](docs/checkpoints/CP-015.md) | Pushed and remote verified at c124d61 |
 | CP-016 | Game review: scoring integrity and resilient round lifecycle | [Results](docs/checkpoints/CP-016.md) | Pushed and remote verified at 0b12035 |
-| CP-017 | Real baseball course, separate planted practice and reusable incremental intake | [Results](docs/checkpoints/CP-017.md) | 164 tests, browser and both R tracks passed; push pending |
+| CP-017 | Real baseball course, separate planted practice and reusable incremental intake | [Results](docs/checkpoints/CP-017.md) | 164 tests, browser and both R tracks passed; pushed as `3764762` |
 
 The repo had no commits when CP-001 began. Its first commit therefore includes the previously built foundation as well as the quality feature. The 24 existing tests predate this checkpoint; the new quality and API tests were written and observed failing before implementation.
 
