@@ -127,7 +127,7 @@ class AppTests(unittest.TestCase):
         with self.request('/learn') as r:
             self.assertIn(b'Data analysis studio', r.read())
         with self.request('/api/learning/catalog') as r:
-            self.assertEqual(len(json.load(r)['courses']), 3)
+            self.assertEqual(len(json.load(r)['courses']), 5)
         with self.request('/api/learning/lesson?course=payment-lab&lesson=orientation') as r:
             self.assertIn('Question', json.load(r)['markdown'])
         for path in ('/api/learning/chart?name=bar', '/api/learning/download?name=dataset',
@@ -208,3 +208,33 @@ class AppTests(unittest.TestCase):
         self.assertEqual(case['source']['publisher'], 'DOJ')
         self.assertIn('/united-states-v-bernard-l-madoff-and-related-cases', case['source']['url'])
         self.assertNotIn('archives.fbi.gov', case['source']['url'])
+
+    def test_baseball_lesson_downloads_and_filtered_chart(self):
+        with self.request('/api/learning/lesson?course=baseball-lab&lesson=pitch-mix') as response:
+            doc=json.load(response)
+        self.assertEqual(doc['dataset'],'baseball-v1')
+        self.assertIn('excel',doc['track_guides'])
+        self.assertIn('movement',doc['charts'])
+        self.assertEqual(len(doc['filters']['pitcher']),6)
+        with self.request('/api/learning/chart?dataset=baseball-v1&name=scatter&pitcher=Rowan%20Ellis&pitch_type=SL') as response:
+            self.assertIn(b'filtered fictional pitches',response.read())
+        for name in ('baseball-dataset','baseball-r','baseball-excel','baseball-powerbi','baseball-manifest'):
+            with self.request('/api/learning/download?name='+name) as response:
+                self.assertEqual(response.status,200)
+        with self.assertRaises(urllib.error.HTTPError) as error:
+            self.request('/api/learning/chart?dataset=baseball-v1&name=scatter&pitcher=unknown')
+        self.assertEqual(error.exception.code,400)
+
+    def test_primary_baseball_course_serves_original_real_bytes(self):
+        import hashlib
+        import baseball_real
+        with self.request('/api/learning/download?name=baseball-real-dataset') as response:
+            self.assertEqual(hashlib.sha256(response.read()).hexdigest(),baseball_real.SHA)
+        with self.request('/api/learning/lesson?course=baseball-fieldwork&lesson=real-arsenal') as response:
+            doc=json.load(response)
+        self.assertIn('excel',doc['track_guides'])
+        self.assertIn('game_date',doc['filters'])
+        with self.request('/api/learning/summary?dataset=baseball-real-v1&pitcher=1000036206') as response:
+            result=json.load(response)
+        self.assertEqual(result['row_count'],193)
+        self.assertFalse(result['synthetic'])

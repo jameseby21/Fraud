@@ -2,6 +2,66 @@
 
 This index is generated from `data/learning/glossary.json`, the same reviewed source used by the course interface. Terms explain analytical use and limits; they do not turn a screening signal into a finding of misconduct.
 
+## Pitch arsenal
+
+**Definition:** The collection and relative usage of pitch types thrown by a pitcher in a defined sample.
+
+**More context:** The course uses FF for four-seam fastball, SL for slider and CH for changeup. Usage shares need all pitch types in their denominator.
+
+**Implications:** Compare matching periods and player filters, retain sample counts, and distinguish percentage-point change from relative change.
+
+**Also shown as:** pitch arsenal, arsenal, pitch mix.
+
+## Whiff rate
+
+**Definition:** Missed swings divided by all swings in the selected sample.
+
+**More context:** A miss requires a swing. Dividing misses by pitches yields a different quantity, and a group with no swings has an undefined whiff rate.
+
+**Implications:** Show misses and swings beside the rate. Compare pitch type, location, handedness and sample size before interpreting differences.
+
+**Also shown as:** whiff rate, whiffs, whiff.
+
+## Pitch location
+
+**Definition:** The recorded position of a pitch at the chosen plate reference, with horizontal and vertical coordinates.
+
+**More context:** The fictional course uses feet from the catcher perspective and a fixed teaching zone. Real tracking conventions and batter-specific zone heights require review.
+
+**Implications:** Label viewpoint, units and tracking convention; keep equal physical scales on both axes. Location differs from movement.
+
+**Also shown as:** pitch location, pitch locations.
+
+## Pitch movement
+
+**Definition:** A measure of the pitch trajectory's deviation under the source system's movement convention.
+
+**More context:** The course supplies stylized movement in inches from the catcher perspective; it is not the plate location or total flight displacement.
+
+**Implications:** Do not convert already-inch values again or combine movement fields from different tracking systems without checking their definitions.
+
+**Also shown as:** pitch movement.
+
+## Exit velocity
+
+**Definition:** The speed of a batted ball after contact, expressed in mph in this course.
+
+**More context:** The fixture records it only for balls put in play. A blank on a taken pitch or missed swing is structural missingness rather than zero-speed contact.
+
+**Implications:** Average only the eligible tracked-contact observations, show their counts and keep pitch speed separate from batted-ball speed.
+
+**Also shown as:** exit velocity, exit speed, contact speed.
+
+## Launch angle
+
+**Definition:** The vertical angle of a batted ball's initial trajectory, expressed in degrees.
+
+**More context:** It is a contact measurement, not a measure of whether the ball became a hit. The fixture omits hit outcomes.
+
+**Implications:** Use eligible contact rows and sample counts. A shift in the mean alone cannot establish improved hitting or a causal swing change.
+
+**Also shown as:** launch angle.
+
 ## Statement
 
 **Definition:** A periodic record that reports account balances, transactions, positions, or activity for a stated period.

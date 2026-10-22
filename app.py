@@ -13,6 +13,8 @@ import learning
 import record_library
 import forensic_fixture
 import game_fixture
+import baseball
+import baseball_real
 
 ROOT = Path(__file__).resolve().parent
 
@@ -99,12 +101,31 @@ class Handler(BaseHTTPRequestHandler):
                 result = learning.lesson_document(query.get('course', [''])[0], query.get('lesson', [''])[0])
                 result['html'] = learning.render_markdown(result['markdown'])
                 guides={'r':'courses/tracks/forensic-r.md','powerbi':'courses/tracks/forensic-powerbi.md'} if result['dataset']=='forensic-v2' else {'r':'courses/tracks/r.md','powerbi':'courses/tracks/powerbi.md'}
+                if result['dataset']=='baseball-v1':
+                    guides={'r':'courses/tracks/baseball-r.md','powerbi':'courses/tracks/baseball-powerbi.md','excel':'courses/tracks/baseball-excel.md'}
+                    result['charts']=baseball.CHARTS
+                    result['filters']={'pitcher':baseball.PITCHERS,'batter':baseball.BATTERS,'pitch_type':baseball.TYPES}
+                if result['dataset']=='baseball-real-v1':
+                    guides={'r':'courses/tracks/baseball-real-r.md','powerbi':'courses/tracks/baseball-real-powerbi.md','excel':'courses/tracks/baseball-real-excel.md'}
+                    result['charts']=baseball_real.CHARTS
+                    result['filters']=baseball_real.filters()
                 result['track_guides'] = {name: learning.render_markdown((ROOT / relative).read_text(encoding='utf-8')) for name, relative in guides.items()}
                 body, kind = json.dumps(result).encode(), 'application/json'
             elif path == '/api/learning/chart':
-                body, kind = learning.render_chart(query.get('name', [''])[0],query.get('dataset',['payments-v1'])[0]).encode(), 'image/svg+xml'
+                if query.get('dataset')==['baseball-real-v1']:
+                    body=baseball_real.render_chart(query.get('name',[''])[0],**{key:query.get(key,[''])[0] for key in ('pitcher','batter','pitch_type','game_date')}).encode()
+                elif query.get('dataset')==['baseball-v1']:
+                    body=baseball.render_chart(query.get('name',[''])[0],**{key:query.get(key,[''])[0] for key in ('pitcher','batter','pitch_type')}).encode()
+                else:
+                    body=learning.render_chart(query.get('name', [''])[0],query.get('dataset',['payments-v1'])[0]).encode()
+                kind='image/svg+xml'
             elif path == '/api/learning/summary':
-                body, kind = json.dumps(learning.analyze(query.get('dataset',['payments-v1'])[0])).encode(), 'application/json'
+                if query.get('dataset')==['baseball-real-v1']:
+                    summary=baseball_real.summarize(baseball_real.select(baseball_real.read_rows(),**{key:query.get(key,[''])[0] for key in ('pitcher','batter','pitch_type','game_date')}))
+                elif query.get('dataset')==['baseball-v1']:
+                    summary=baseball.summarize(baseball.select(baseball.read_rows(),**{key:query.get(key,[''])[0] for key in ('pitcher','batter','pitch_type')}))
+                else: summary=learning.analyze(query.get('dataset',['payments-v1'])[0])
+                body, kind = json.dumps(summary).encode(), 'application/json'
             elif path == '/api/learning/download':
                 selected = query.get('name', [''])[0]
                 files = {'dataset': 'data/learning/transactions.csv', 'answers': 'data/learning/instructor/answers.json',
@@ -122,6 +143,15 @@ class Handler(BaseHTTPRequestHandler):
                     'market-reference': 'data/market/v1/public_reference.csv',
                 })
                 files.update({'market-answers':'data/market/v1/instructor/answers.json','market-manifest':'data/market/v1/manifest.json'})
+                files.update({'baseball-dataset':'data/baseball/v1/pitches.csv','baseball-answers':'data/baseball/v1/instructor/answers.json',
+                    'baseball-r':'courses/tracks/baseball.R','baseball-powerbi':'courses/tracks/baseball-powerbi.md',
+                    'baseball-excel':'courses/tracks/baseball-excel.md','baseball-manifest':'data/baseball/v1/manifest.json'})
+                files.update({'baseball-real-dataset':'data/library/raw/'+baseball_real.SHA+'.csv',
+                    'baseball-real-answers':'data/baseball/real-v1/instructor/observations.json',
+                    'baseball-real-manifest':'data/baseball/real-v1/manifest.json',
+                    'baseball-real-r':'courses/tracks/baseball-real.R',
+                    'baseball-real-excel':'courses/tracks/baseball-real-excel.md',
+                    'baseball-real-powerbi':'courses/tracks/baseball-real-powerbi.md'})
                 if selected in ('notebook', 'lesson'):
                     lesson = learning.lesson_document(query.get('course', [''])[0], query.get('lesson', [''])[0])
                     target = ROOT / (lesson['tracks']['python'] if selected == 'notebook' else f'courses/{lesson["course_id"]}/{lesson["id"]}.md')

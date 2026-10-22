@@ -1,5 +1,12 @@
 # Changes
 
+## 2026-10-22
+
+- Added primary baseball fieldwork using 3,344 real, unchanged CC BY 4.0 college pitch records, plus a separate 3,600-row synthetic practice lab with planted patterns and background controls.
+- Added eight lessons/notebooks, Excel/spreadsheet guides, both runnable base-R tracks, Power BI recipes, filtered player/type/date previews, forty glossary terms and 105 section checks across five courses.
+- Reviewed both owner-supplied 2016 archives and adapted the pitcher-subset/location-comparison R logic with attribution and a documented repair audit.
+- Extended the configurable source library with CSV schema/hash contracts, a metadata-based incremental adapter, conditional GET validators, unchanged-content reuse, append-only attempts/revisions and source-specific provenance.
+
 ## 2026-10-21
 
 - Reviewed game additions: removed scoring-weight answer leakage, corrected the expense exposure to USD 701.10, eliminated speed rewards for empty/unsupported submissions, locked completed rounds, and recovered malformed local scores. Scoreboards now compare matching cases and modes with elapsed-time tie breaking.

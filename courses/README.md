@@ -1,6 +1,6 @@
 # Data analysis studio
 
-A local course catalog with Markdown lessons, clean Python notebooks, a shared R track, and a Power BI Desktop track. Start the app with `python app.py`, then open http://127.0.0.1:8765/learn. Or read lessons directly on GitHub without running a server.
+A local course catalog with Markdown lessons, clean Python notebooks, R and Power BI paths, and Excel/spreadsheet tracks for baseball. Start the app with `python app.py`, then open http://127.0.0.1:8765/learn. Or read lessons directly on GitHub without running a server.
 
 ## Start your first walkthrough
 
@@ -12,7 +12,9 @@ A local course catalog with Markdown lessons, clean Python notebooks, a shared R
 
 Terms with a dotted underline open an in-page definition with added context and implications. Use **Term index** to browse or search all entries; the identical reviewed content is readable in [the documentation glossary](../docs/glossary.md). Each Question, Try it, Check your work, Debugging, and Reflection section ends with one quick check. A wrong answer keeps you in place and recommends a next step; recognized errors use the appendable `data/learning/common_errors.json` repository. Responses are evaluated in memory and are not persisted or sent to a third party.
 
-There are thirteen lessons: six introductory payment-review, two operational-analysis and five forensic-practicum lessons. The default practicum uses the [relational v2 case](../data/forensic/v2/README.md), with fictional names, exact-value lineage, invoices, bank reconciliation, round totals and distribution review, then the [market-context case](../data/market/v1/README.md), with internally polished statements, a complete synthetic tape, and a retained CFTC aggregate reference. The operations course asks allocation/workload questions without a misconduct hypothesis. These are initial materials, not an accredited curriculum or a claim of learning effectiveness.
+There are twenty-one lessons across five courses: six introductory payment-review, two operational-analysis, five forensic-practicum, three real-baseball fieldwork and five synthetic baseball-practice lessons. The default practicum uses the [relational v2 case](../data/forensic/v2/README.md) and [market-context case](../data/market/v1/README.md). The operations course asks allocation/workload questions. The primary [real baseball course](../data/baseball/real-v1/README.md) uses 3,344 measured college pitches; [synthetic baseball practice](../data/baseball/v1/README.md) has planted patterns and stays separate. These are initial materials, not an accredited curriculum or a claim of learning effectiveness.
+
+For baseball, start with **Baseball analytics: real pitch fieldwork**, choose Excel / spreadsheet, and follow the [real-data spreadsheet guide](tracks/baseball-real-excel.md). Counts, filters, PivotTables, averages, percentages and scatter charts are sufficient. Move to the synthetic practice lab after exploring the actual source; its [spreadsheet guide](tracks/baseball-excel.md) has known results for feedback. See [procedural research](../docs/sports/research.md), [the archive audit](../docs/sports/archive-review.md), [real R](tracks/baseball-real-r.md), [practice R](tracks/baseball-r.md), [real Power BI](tracks/baseball-real-powerbi.md) and [practice Power BI](tracks/baseball-powerbi.md).
 
 For a shorter entry point, the [case-file game](../docs/game/README.md) packages four of these reasoning patterns into one-page fictional ledgers. Its basic mode needs no code; each case links back to a full lesson or resolved-case guide for the analyst extension.
 
@@ -28,9 +30,9 @@ R: see [tracks/r.md](tracks/r.md). The base-R script provides matching exercises
 
 ## Course structure and extension contract
 
-`catalog.json` has a schema version, reusable dataset IDs, course IDs/topics and ordered lessons. A course is a container, a lesson is a question/activity/check/reflection unit, and a track is a tool-specific way to perform it. Dataset versions are independent of UI progress. Add a new dataset rather than hard-coding domain assumptions into navigation. The current analysis/visual adapter in `learning.py` is specific to payments; another domain needs its own adapter and tests, while catalog/navigation/content can be reused.
+`catalog.json` has a schema version, reusable dataset IDs, course IDs/topics and ordered lessons. A course is a container, a lesson is a question/activity/check/reflection unit, and a track is a tool-specific way to perform it. Dataset versions are independent of UI progress. Payments use learning.py; synthetic baseball uses baseball.py; real baseball uses baseball_real.py and the shared source library. Catalog, lesson sections, progress, glossary and quiz contracts are reused. New data sources must follow the [intake contract](../docs/data_intake.md) with tested adapters and explicit incremental behavior.
 
-`scripts/build_courses.py` is the reviewed source of truth for catalog entries, lesson Markdown and notebook cells. Edit it, run `python scripts/build_courses.py`, then review all regenerated diffs. Verify with `python scripts/build_courses.py --verify`. Track guides are separately authored. The app uses a small escaped Markdown subset (headings, paragraphs, lists, tables and fenced code), without raw HTML, remote scripts or a full CommonMark renderer. No notebook code is executed by the web server.
+`scripts/build_courses.py` is the reviewed generator for catalog, Markdown and notebook cells; it consumes the sports curriculum modules scripts/baseball_course.py and scripts/baseball_real_course.py. Edit the appropriate source, run `python scripts/build_courses.py`, then review all regenerated diffs. Verify with `python scripts/build_courses.py --verify`. Track guides are separately authored. The app uses a small escaped Markdown subset (headings, paragraphs, lists, tables and fenced code), without raw HTML, remote scripts or a full CommonMark renderer. No notebook code is executed by the web server.
 
 Each lesson requires a question, prerequisites, provenance and grain, an activity, checkable outcomes, debugging help, reflection, and feedback. Include alternative explanations, false positives, and unit/date/filter pitfalls. Separate spoilers from the learner dataset; public answer keys are not secret. Developer checkpoint notes record red/green test evidence and delivery state. Private vault notes never become course content automatically.
 
@@ -50,6 +52,12 @@ Each lesson requires a question, prerequisites, provenance and grain, an activit
 This is core coverage, not every possible chart. Maps require meaningful geographic coordinates; networks require actual edges; survival, uncertainty bands and model calibration need appropriate outcomes/design. Do not invent those semantics just to add a chart. Additional dataset adapters and lessons should supply them deliberately.
 
 ## FAQ and debugging
+
+**Why do baseball courses have real and synthetic data?** Real fieldwork is the primary baseball walkthrough; original measured values are unchanged and CC BY attribution is retained. The synthetic lab is explicitly separate practice with planted patterns and known answers. No invented row is inserted into the real file.
+
+**Why does Excel disappear in another course?** The spreadsheet guides currently cover baseball. Returning to a financial course resets an unsupported Excel selection to Python; its existing R and Power BI paths remain available.
+
+**Do preview filters change my download?** No. Pitcher, batter, type and real anonymized-date filters affect the plotted sample and numeric summary together. The CSV download retains the full selected dataset. Match those filters explicitly in Excel, R or Power BI.
 
 **Why does `/learn` return 404 after an update?** Use the URL without a trailing comma (the current server also redirects that form). A Python process retains its imported route definitions while reading newer content files, so a stale process can show new-looking content with old routes. Stop the old app and restart from the root. During CP-011 a duplicate stale listener on Windows continued taking requests; after identifying it as this project's deterministic app, terminating that stale process exposed the current server. Inspect `Get-NetTCPConnection -LocalPort 8765 -State Listen` and the owning process before stopping anything; a different application must not be killed by assumption. Prefer Ctrl+C in the old app terminal. The course route, record library, and forensic API were all verified on the final live listener.
 

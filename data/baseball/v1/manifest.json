@@ -1,0 +1,14 @@
+{
+  "grain": "one independent recorded pitch; sample is not a complete game or legal sequence of plate appearances",
+  "observation_units": {
+    "exit_speed": "mph",
+    "location": "feet, catcher perspective",
+    "movement": "inches, catcher perspective",
+    "speed": "mph"
+  },
+  "rows": 3600,
+  "seed": 3152016,
+  "sha256": "f3fda9a2f37545130e1e5ebb8ad714ff8a0367a5ba6a38a7e58023c3acf5834c",
+  "source": "Entirely fabricated; schema and workflow informed by cited baseball research and the owner-supplied 2016 project.",
+  "version": "1.0.0"
+}

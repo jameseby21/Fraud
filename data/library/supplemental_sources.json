@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "id": "baseball-college-trackman-v3",
+      "case_id": null,
+      "title": "Pifer: Optical Tracking Data from College Baseball Scrimmages, V3",
+      "url": "https://data.mendeley.com/public-files/datasets/xfnz6mkdzm/files/0d5fcc5a-1429-4a46-ad9c-33160faca6eb/file_downloaded",
+      "metadata_url": "https://data.mendeley.com/public-api/datasets/xfnz6mkdzm/files?folder_id=root&version=3",
+      "file_id": "0d5fcc5a-1429-4a46-ad9c-33160faca6eb",
+      "adapter": "mendeley-file-list",
+      "doi": "10.17632/xfnz6mkdzm.3",
+      "source_version": 3,
+      "publication_date": "2024-09-16",
+      "record_type": "sports_records",
+      "reuse_basis": "Nathan David Pifer (2024), Optical Tracking Data from College Baseball Scrimmages, Mendeley Data V3, doi:10.17632/xfnz6mkdzm.3. CC BY 4.0. Original CSV retained unchanged; derived summaries identify transformations. No endorsement implied.",
+      "reuse_url": "https://creativecommons.org/licenses/by/4.0/",
+      "expected_sha256": "7b7b8974107be6181dcf1880d609034ef9f7556f9fb13aec021a52d37cd0c190",
+      "csv_schema": {"required_columns": ["PitchNo", "PitcherId", "BatterId", "TaggedPitchType", "PitchCall", "RelSpeed", "PlateLocSide", "PlateLocHeight", "ExitSpeed"], "row_count": 3344}
+    }
+  ]
+}

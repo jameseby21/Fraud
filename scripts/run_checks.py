@@ -28,6 +28,8 @@ def main():
         [sys.executable, 'forensic_fixture.py', 'verify'],
         [sys.executable, 'market_fixture.py', 'verify'],
         [sys.executable, 'game_fixture.py', 'verify'],
+        [sys.executable, 'baseball.py', 'verify'],
+        [sys.executable, 'baseball_real.py', 'verify'],
         [sys.executable, 'scripts/build_courses.py', '--verify'],
         [sys.executable, 'scripts/build_case_guides.py', '--verify'],
         ['node', '--check', 'web/library.js'],

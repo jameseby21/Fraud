@@ -1,0 +1,101 @@
+{
+  "anonymized_date_labels": 20,
+  "anonymous_batters": 50,
+  "anonymous_pitchers": 32,
+  "attribution": "Nathan David Pifer (2024), Optical Tracking Data from College Baseball Scrimmages, Mendeley Data V3, doi:10.17632/xfnz6mkdzm.3. CC BY 4.0.",
+  "by_pitch_type": [
+    {
+      "mean_release_mph": 81.72921284974093,
+      "measured_speeds": 386,
+      "pitch_type": "ChangeUp",
+      "pitches": 386,
+      "share": 0.11543062200956938,
+      "swings": 181,
+      "whiffs": 64
+    },
+    {
+      "mean_release_mph": 73.6275647826087,
+      "measured_speeds": 230,
+      "pitch_type": "Curveball",
+      "pitches": 230,
+      "share": 0.0687799043062201,
+      "swings": 78,
+      "whiffs": 15
+    },
+    {
+      "mean_release_mph": 86.45618425531914,
+      "measured_speeds": 47,
+      "pitch_type": "Cutter",
+      "pitches": 47,
+      "share": 0.014055023923444977,
+      "swings": 17,
+      "whiffs": 7
+    },
+    {
+      "mean_release_mph": 89.48599272101033,
+      "measured_speeds": 1742,
+      "pitch_type": "Fastball",
+      "pitches": 1745,
+      "share": 0.5218301435406698,
+      "swings": 767,
+      "whiffs": 138
+    },
+    {
+      "mean_release_mph": 77.39122,
+      "measured_speeds": 1,
+      "pitch_type": "Knuckleball",
+      "pitches": 1,
+      "share": 0.0002990430622009569,
+      "swings": 1,
+      "whiffs": 1
+    },
+    {
+      "mean_release_mph": 82.43816,
+      "measured_speeds": 1,
+      "pitch_type": "Sinker",
+      "pitches": 1,
+      "share": 0.0002990430622009569,
+      "swings": 0,
+      "whiffs": 0
+    },
+    {
+      "mean_release_mph": 80.91565435016112,
+      "measured_speeds": 931,
+      "pitch_type": "Slider",
+      "pitches": 933,
+      "share": 0.2790071770334928,
+      "swings": 387,
+      "whiffs": 156
+    },
+    {
+      "mean_release_mph": 81.04044,
+      "measured_speeds": 1,
+      "pitch_type": "Splitter",
+      "pitches": 1,
+      "share": 0.0002990430622009569,
+      "swings": 1,
+      "whiffs": 0
+    }
+  ],
+  "in_play": 549,
+  "limits": "Real anonymized college scrimmages, not MLB or representative season data. Date labels are altered; no original calendar dates or game count inferred. Rates are descriptive.",
+  "mean_in_play_exit_mph": 83.38740762376237,
+  "measured_in_play_exit_speeds": 505,
+  "pitch_types": {
+    "ChangeUp": 386,
+    "Curveball": 230,
+    "Cutter": 47,
+    "Fastball": 1745,
+    "Knuckleball": 1,
+    "Sinker": 1,
+    "Slider": 933,
+    "Splitter": 1
+  },
+  "row_count": 3344,
+  "source_id": "baseball-college-trackman-v3",
+  "source_sha256": "7b7b8974107be6181dcf1880d609034ef9f7556f9fb13aec021a52d37cd0c190",
+  "swings": 1432,
+  "synthetic": false,
+  "whiff_rate": 0.26606145251396646,
+  "whiffs": 381
+}

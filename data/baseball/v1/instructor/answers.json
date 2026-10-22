@@ -1,0 +1,740 @@
+{
+  "findings": [
+    "Rowan Ellis FF share falls from 60% (180/300) early to 40% (120/300) late; Theo Bennett stays at 50%.",
+    "Mateo Brooks loses more than 1.5 mph comparing FF innings 1-2 versus 6-7. Other pitchers have no programmed inning trend.",
+    "SL whiffs per swing are higher outside the teaching zone; check denominator and counts before interpreting.",
+    "Casey Morgan has a programmed late-period exit-speed increase; it is descriptive, not proof of a mechanical change."
+  ],
+  "summary": {
+    "contact": [
+      {
+        "batter": "Alex Sutton",
+        "mean_exit_speed_mph": 88.01428571428572,
+        "mean_launch_angle_deg": 11.068571428571428,
+        "period": "early",
+        "tracked_balls_in_play": 35
+      },
+      {
+        "batter": "Alex Sutton",
+        "mean_exit_speed_mph": 87.2483870967742,
+        "mean_launch_angle_deg": 8.196774193548388,
+        "period": "late",
+        "tracked_balls_in_play": 31
+      },
+      {
+        "batter": "Blake Quinn",
+        "mean_exit_speed_mph": 85.16363636363636,
+        "mean_launch_angle_deg": 8.087878787878788,
+        "period": "early",
+        "tracked_balls_in_play": 33
+      },
+      {
+        "batter": "Blake Quinn",
+        "mean_exit_speed_mph": 84.71944444444445,
+        "mean_launch_angle_deg": 15.13888888888889,
+        "period": "late",
+        "tracked_balls_in_play": 36
+      },
+      {
+        "batter": "Cameron Wells",
+        "mean_exit_speed_mph": 88.59117647058824,
+        "mean_launch_angle_deg": 10.08529411764706,
+        "period": "early",
+        "tracked_balls_in_play": 34
+      },
+      {
+        "batter": "Cameron Wells",
+        "mean_exit_speed_mph": 86.26410256410256,
+        "mean_launch_angle_deg": 9.346153846153847,
+        "period": "late",
+        "tracked_balls_in_play": 39
+      },
+      {
+        "batter": "Casey Morgan",
+        "mean_exit_speed_mph": 87.17096774193548,
+        "mean_launch_angle_deg": 14.209677419354838,
+        "period": "early",
+        "tracked_balls_in_play": 31
+      },
+      {
+        "batter": "Casey Morgan",
+        "mean_exit_speed_mph": 93.76060606060607,
+        "mean_launch_angle_deg": 10.963636363636363,
+        "period": "late",
+        "tracked_balls_in_play": 33
+      },
+      {
+        "batter": "Drew Parker",
+        "mean_exit_speed_mph": 88.525,
+        "mean_launch_angle_deg": 15.505,
+        "period": "early",
+        "tracked_balls_in_play": 40
+      },
+      {
+        "batter": "Drew Parker",
+        "mean_exit_speed_mph": 88.91290322580645,
+        "mean_launch_angle_deg": 14.612903225806452,
+        "period": "late",
+        "tracked_balls_in_play": 31
+      },
+      {
+        "batter": "Emery Lane",
+        "mean_exit_speed_mph": 85.44473684210526,
+        "mean_launch_angle_deg": 13.526315789473683,
+        "period": "early",
+        "tracked_balls_in_play": 38
+      },
+      {
+        "batter": "Emery Lane",
+        "mean_exit_speed_mph": 89.34473684210526,
+        "mean_launch_angle_deg": 7.363157894736842,
+        "period": "late",
+        "tracked_balls_in_play": 38
+      },
+      {
+        "batter": "Finley Ross",
+        "mean_exit_speed_mph": 88.17096774193548,
+        "mean_launch_angle_deg": 14.700000000000001,
+        "period": "early",
+        "tracked_balls_in_play": 31
+      },
+      {
+        "batter": "Finley Ross",
+        "mean_exit_speed_mph": 87.46666666666667,
+        "mean_launch_angle_deg": 12.702564102564102,
+        "period": "late",
+        "tracked_balls_in_play": 39
+      },
+      {
+        "batter": "Harper Shaw",
+        "mean_exit_speed_mph": 89.01851851851852,
+        "mean_launch_angle_deg": 15.714814814814815,
+        "period": "early",
+        "tracked_balls_in_play": 27
+      },
+      {
+        "batter": "Harper Shaw",
+        "mean_exit_speed_mph": 87.85555555555555,
+        "mean_launch_angle_deg": 16.038888888888888,
+        "period": "late",
+        "tracked_balls_in_play": 36
+      },
+      {
+        "batter": "Jamie Hart",
+        "mean_exit_speed_mph": 85.85714285714286,
+        "mean_launch_angle_deg": 20.885714285714286,
+        "period": "early",
+        "tracked_balls_in_play": 21
+      },
+      {
+        "batter": "Jamie Hart",
+        "mean_exit_speed_mph": 87.04255319148936,
+        "mean_launch_angle_deg": 10.442553191489361,
+        "period": "late",
+        "tracked_balls_in_play": 47
+      },
+      {
+        "batter": "Kendall Ames",
+        "mean_exit_speed_mph": 86.14166666666667,
+        "mean_launch_angle_deg": 12.925,
+        "period": "early",
+        "tracked_balls_in_play": 48
+      },
+      {
+        "batter": "Kendall Ames",
+        "mean_exit_speed_mph": 87.14285714285714,
+        "mean_launch_angle_deg": 6.95,
+        "period": "late",
+        "tracked_balls_in_play": 28
+      },
+      {
+        "batter": "Logan Finch",
+        "mean_exit_speed_mph": 88.02571428571429,
+        "mean_launch_angle_deg": 12.571428571428571,
+        "period": "early",
+        "tracked_balls_in_play": 35
+      },
+      {
+        "batter": "Logan Finch",
+        "mean_exit_speed_mph": 88.44848484848485,
+        "mean_launch_angle_deg": 13.521212121212121,
+        "period": "late",
+        "tracked_balls_in_play": 33
+      },
+      {
+        "batter": "Reese Taylor",
+        "mean_exit_speed_mph": 89.06666666666666,
+        "mean_launch_angle_deg": 6.61,
+        "period": "early",
+        "tracked_balls_in_play": 30
+      },
+      {
+        "batter": "Reese Taylor",
+        "mean_exit_speed_mph": 85.7,
+        "mean_launch_angle_deg": 9.784615384615385,
+        "period": "late",
+        "tracked_balls_in_play": 26
+      }
+    ],
+    "pitch_mix": [
+      {
+        "count": 60,
+        "period": "early",
+        "pitch_type": "CH",
+        "pitcher": "Adrian Cole",
+        "share": 0.2
+      },
+      {
+        "count": 150,
+        "period": "early",
+        "pitch_type": "FF",
+        "pitcher": "Adrian Cole",
+        "share": 0.5
+      },
+      {
+        "count": 90,
+        "period": "early",
+        "pitch_type": "SL",
+        "pitcher": "Adrian Cole",
+        "share": 0.3
+      },
+      {
+        "count": 60,
+        "period": "late",
+        "pitch_type": "CH",
+        "pitcher": "Adrian Cole",
+        "share": 0.2
+      },
+      {
+        "count": 150,
+        "period": "late",
+        "pitch_type": "FF",
+        "pitcher": "Adrian Cole",
+        "share": 0.5
+      },
+      {
+        "count": 90,
+        "period": "late",
+        "pitch_type": "SL",
+        "pitcher": "Adrian Cole",
+        "share": 0.3
+      },
+      {
+        "count": 60,
+        "period": "early",
+        "pitch_type": "CH",
+        "pitcher": "Avery Reed",
+        "share": 0.2
+      },
+      {
+        "count": 150,
+        "period": "early",
+        "pitch_type": "FF",
+        "pitcher": "Avery Reed",
+        "share": 0.5
+      },
+      {
+        "count": 90,
+        "period": "early",
+        "pitch_type": "SL",
+        "pitcher": "Avery Reed",
+        "share": 0.3
+      },
+      {
+        "count": 60,
+        "period": "late",
+        "pitch_type": "CH",
+        "pitcher": "Avery Reed",
+        "share": 0.2
+      },
+      {
+        "count": 150,
+        "period": "late",
+        "pitch_type": "FF",
+        "pitcher": "Avery Reed",
+        "share": 0.5
+      },
+      {
+        "count": 90,
+        "period": "late",
+        "pitch_type": "SL",
+        "pitcher": "Avery Reed",
+        "share": 0.3
+      },
+      {
+        "count": 60,
+        "period": "early",
+        "pitch_type": "CH",
+        "pitcher": "Jordan Hayes",
+        "share": 0.2
+      },
+      {
+        "count": 150,
+        "period": "early",
+        "pitch_type": "FF",
+        "pitcher": "Jordan Hayes",
+        "share": 0.5
+      },
+      {
+        "count": 90,
+        "period": "early",
+        "pitch_type": "SL",
+        "pitcher": "Jordan Hayes",
+        "share": 0.3
+      },
+      {
+        "count": 60,
+        "period": "late",
+        "pitch_type": "CH",
+        "pitcher": "Jordan Hayes",
+        "share": 0.2
+      },
+      {
+        "count": 150,
+        "period": "late",
+        "pitch_type": "FF",
+        "pitcher": "Jordan Hayes",
+        "share": 0.5
+      },
+      {
+        "count": 90,
+        "period": "late",
+        "pitch_type": "SL",
+        "pitcher": "Jordan Hayes",
+        "share": 0.3
+      },
+      {
+        "count": 60,
+        "period": "early",
+        "pitch_type": "CH",
+        "pitcher": "Mateo Brooks",
+        "share": 0.2
+      },
+      {
+        "count": 150,
+        "period": "early",
+        "pitch_type": "FF",
+        "pitcher": "Mateo Brooks",
+        "share": 0.5
+      },
+      {
+        "count": 90,
+        "period": "early",
+        "pitch_type": "SL",
+        "pitcher": "Mateo Brooks",
+        "share": 0.3
+      },
+      {
+        "count": 60,
+        "period": "late",
+        "pitch_type": "CH",
+        "pitcher": "Mateo Brooks",
+        "share": 0.2
+      },
+      {
+        "count": 150,
+        "period": "late",
+        "pitch_type": "FF",
+        "pitcher": "Mateo Brooks",
+        "share": 0.5
+      },
+      {
+        "count": 90,
+        "period": "late",
+        "pitch_type": "SL",
+        "pitcher": "Mateo Brooks",
+        "share": 0.3
+      },
+      {
+        "count": 30,
+        "period": "early",
+        "pitch_type": "CH",
+        "pitcher": "Rowan Ellis",
+        "share": 0.1
+      },
+      {
+        "count": 180,
+        "period": "early",
+        "pitch_type": "FF",
+        "pitcher": "Rowan Ellis",
+        "share": 0.6
+      },
+      {
+        "count": 90,
+        "period": "early",
+        "pitch_type": "SL",
+        "pitcher": "Rowan Ellis",
+        "share": 0.3
+      },
+      {
+        "count": 90,
+        "period": "late",
+        "pitch_type": "CH",
+        "pitcher": "Rowan Ellis",
+        "share": 0.3
+      },
+      {
+        "count": 120,
+        "period": "late",
+        "pitch_type": "FF",
+        "pitcher": "Rowan Ellis",
+        "share": 0.4
+      },
+      {
+        "count": 90,
+        "period": "late",
+        "pitch_type": "SL",
+        "pitcher": "Rowan Ellis",
+        "share": 0.3
+      },
+      {
+        "count": 60,
+        "period": "early",
+        "pitch_type": "CH",
+        "pitcher": "Theo Bennett",
+        "share": 0.2
+      },
+      {
+        "count": 150,
+        "period": "early",
+        "pitch_type": "FF",
+        "pitcher": "Theo Bennett",
+        "share": 0.5
+      },
+      {
+        "count": 90,
+        "period": "early",
+        "pitch_type": "SL",
+        "pitcher": "Theo Bennett",
+        "share": 0.3
+      },
+      {
+        "count": 60,
+        "period": "late",
+        "pitch_type": "CH",
+        "pitcher": "Theo Bennett",
+        "share": 0.2
+      },
+      {
+        "count": 150,
+        "period": "late",
+        "pitch_type": "FF",
+        "pitcher": "Theo Bennett",
+        "share": 0.5
+      },
+      {
+        "count": 90,
+        "period": "late",
+        "pitch_type": "SL",
+        "pitcher": "Theo Bennett",
+        "share": 0.3
+      }
+    ],
+    "row_count": 3600,
+    "velocity_by_inning": [
+      {
+        "count": 47,
+        "inning": 1,
+        "mean_mph": 94.73404255319149,
+        "pitcher": "Adrian Cole"
+      },
+      {
+        "count": 48,
+        "inning": 2,
+        "mean_mph": 94.76041666666667,
+        "pitcher": "Adrian Cole"
+      },
+      {
+        "count": 40,
+        "inning": 3,
+        "mean_mph": 94.64,
+        "pitcher": "Adrian Cole"
+      },
+      {
+        "count": 48,
+        "inning": 4,
+        "mean_mph": 94.80416666666667,
+        "pitcher": "Adrian Cole"
+      },
+      {
+        "count": 50,
+        "inning": 5,
+        "mean_mph": 94.668,
+        "pitcher": "Adrian Cole"
+      },
+      {
+        "count": 40,
+        "inning": 6,
+        "mean_mph": 94.5675,
+        "pitcher": "Adrian Cole"
+      },
+      {
+        "count": 27,
+        "inning": 7,
+        "mean_mph": 94.88888888888889,
+        "pitcher": "Adrian Cole"
+      },
+      {
+        "count": 41,
+        "inning": 1,
+        "mean_mph": 95.27073170731707,
+        "pitcher": "Avery Reed"
+      },
+      {
+        "count": 55,
+        "inning": 2,
+        "mean_mph": 95.2909090909091,
+        "pitcher": "Avery Reed"
+      },
+      {
+        "count": 41,
+        "inning": 3,
+        "mean_mph": 95.30243902439024,
+        "pitcher": "Avery Reed"
+      },
+      {
+        "count": 36,
+        "inning": 4,
+        "mean_mph": 95.33055555555555,
+        "pitcher": "Avery Reed"
+      },
+      {
+        "count": 52,
+        "inning": 5,
+        "mean_mph": 95.15384615384616,
+        "pitcher": "Avery Reed"
+      },
+      {
+        "count": 50,
+        "inning": 6,
+        "mean_mph": 95.264,
+        "pitcher": "Avery Reed"
+      },
+      {
+        "count": 25,
+        "inning": 7,
+        "mean_mph": 95.232,
+        "pitcher": "Avery Reed"
+      },
+      {
+        "count": 48,
+        "inning": 1,
+        "mean_mph": 95.01666666666667,
+        "pitcher": "Jordan Hayes"
+      },
+      {
+        "count": 45,
+        "inning": 2,
+        "mean_mph": 94.87555555555555,
+        "pitcher": "Jordan Hayes"
+      },
+      {
+        "count": 50,
+        "inning": 3,
+        "mean_mph": 94.964,
+        "pitcher": "Jordan Hayes"
+      },
+      {
+        "count": 37,
+        "inning": 4,
+        "mean_mph": 94.96486486486486,
+        "pitcher": "Jordan Hayes"
+      },
+      {
+        "count": 44,
+        "inning": 5,
+        "mean_mph": 94.94772727272728,
+        "pitcher": "Jordan Hayes"
+      },
+      {
+        "count": 44,
+        "inning": 6,
+        "mean_mph": 94.975,
+        "pitcher": "Jordan Hayes"
+      },
+      {
+        "count": 32,
+        "inning": 7,
+        "mean_mph": 94.8375,
+        "pitcher": "Jordan Hayes"
+      },
+      {
+        "count": 44,
+        "inning": 1,
+        "mean_mph": 94.03636363636363,
+        "pitcher": "Mateo Brooks"
+      },
+      {
+        "count": 47,
+        "inning": 2,
+        "mean_mph": 94.36170212765957,
+        "pitcher": "Mateo Brooks"
+      },
+      {
+        "count": 40,
+        "inning": 3,
+        "mean_mph": 93.705,
+        "pitcher": "Mateo Brooks"
+      },
+      {
+        "count": 49,
+        "inning": 4,
+        "mean_mph": 93.0326530612245,
+        "pitcher": "Mateo Brooks"
+      },
+      {
+        "count": 51,
+        "inning": 5,
+        "mean_mph": 92.43921568627451,
+        "pitcher": "Mateo Brooks"
+      },
+      {
+        "count": 43,
+        "inning": 6,
+        "mean_mph": 92.11627906976744,
+        "pitcher": "Mateo Brooks"
+      },
+      {
+        "count": 26,
+        "inning": 7,
+        "mean_mph": 91.60384615384615,
+        "pitcher": "Mateo Brooks"
+      },
+      {
+        "count": 39,
+        "inning": 1,
+        "mean_mph": 93.93333333333334,
+        "pitcher": "Rowan Ellis"
+      },
+      {
+        "count": 48,
+        "inning": 2,
+        "mean_mph": 94.01875,
+        "pitcher": "Rowan Ellis"
+      },
+      {
+        "count": 53,
+        "inning": 3,
+        "mean_mph": 94.03396226415094,
+        "pitcher": "Rowan Ellis"
+      },
+      {
+        "count": 44,
+        "inning": 4,
+        "mean_mph": 94.02045454545454,
+        "pitcher": "Rowan Ellis"
+      },
+      {
+        "count": 48,
+        "inning": 5,
+        "mean_mph": 93.89166666666667,
+        "pitcher": "Rowan Ellis"
+      },
+      {
+        "count": 36,
+        "inning": 6,
+        "mean_mph": 93.81388888888888,
+        "pitcher": "Rowan Ellis"
+      },
+      {
+        "count": 32,
+        "inning": 7,
+        "mean_mph": 94.059375,
+        "pitcher": "Rowan Ellis"
+      },
+      {
+        "count": 48,
+        "inning": 1,
+        "mean_mph": 94.44375,
+        "pitcher": "Theo Bennett"
+      },
+      {
+        "count": 46,
+        "inning": 2,
+        "mean_mph": 94.63695652173914,
+        "pitcher": "Theo Bennett"
+      },
+      {
+        "count": 46,
+        "inning": 3,
+        "mean_mph": 94.45434782608696,
+        "pitcher": "Theo Bennett"
+      },
+      {
+        "count": 40,
+        "inning": 4,
+        "mean_mph": 94.535,
+        "pitcher": "Theo Bennett"
+      },
+      {
+        "count": 44,
+        "inning": 5,
+        "mean_mph": 94.34772727272727,
+        "pitcher": "Theo Bennett"
+      },
+      {
+        "count": 44,
+        "inning": 6,
+        "mean_mph": 94.48863636363636,
+        "pitcher": "Theo Bennett"
+      },
+      {
+        "count": 32,
+        "inning": 7,
+        "mean_mph": 94.409375,
+        "pitcher": "Theo Bennett"
+      }
+    ],
+    "whiff_by_zone": [
+      {
+        "in_zone": 0,
+        "pitch_type": "CH",
+        "pitches": 645,
+        "swings": 284,
+        "whiff_rate": 0.16549295774647887,
+        "whiffs": 47
+      },
+      {
+        "in_zone": 1,
+        "pitch_type": "CH",
+        "pitches": 75,
+        "swings": 56,
+        "whiff_rate": 0.21428571428571427,
+        "whiffs": 12
+      },
+      {
+        "in_zone": 0,
+        "pitch_type": "FF",
+        "pitches": 1597,
+        "swings": 729,
+        "whiff_rate": 0.18381344307270234,
+        "whiffs": 134
+      },
+      {
+        "in_zone": 1,
+        "pitch_type": "FF",
+        "pitches": 203,
+        "swings": 149,
+        "whiff_rate": 0.2214765100671141,
+        "whiffs": 33
+      },
+      {
+        "in_zone": 0,
+        "pitch_type": "SL",
+        "pitches": 962,
+        "swings": 430,
+        "whiff_rate": 0.4627906976744186,
+        "whiffs": 199
+      },
+      {
+        "in_zone": 1,
+        "pitch_type": "SL",
+        "pitches": 118,
+        "swings": 82,
+        "whiff_rate": 0.17073170731707318,
+        "whiffs": 14
+      }
+    ]
+  },
+  "version": "1.0.0"
+}

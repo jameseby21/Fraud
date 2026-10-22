@@ -1,5 +1,7 @@
 # Mechanism replay model card
 
+The baseball courses use descriptive summaries rather than fraud rules or predictive models. The primary real-data course retains the measured CC BY source unchanged; its whiff denominator includes StrikeSwinging, FoulBall and InPlay, and contact-speed means include only measured InPlay records. Source-specific units, anonymous IDs and altered dates remain explicit. The separate synthetic practice lab has planted arsenal, within-pitch velocity, location/whiff and contact patterns with ordinary background variation. Neither course estimates causal effects, injury risk or out-of-sample performance. See [real baseball provenance](data/baseball/real-v1/README.md), [practice assumptions](data/baseball/v1/README.md) and [research](docs/sports/research.md).
+
 This prototype teaches interpretable screening, temporal isolation, provenance, and evidence communication. It is not a production fraud classifier.
 
 ## Two clocks

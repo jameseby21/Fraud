@@ -24,3 +24,7 @@ node --check web/library.js
 Node is optional for Python/data-only changes. Browser changes should run the optional local check in README.md. New findings need human review. Describe material corrections and affected entries in CHANGELOG.md.
 
 Enable local publication gates with `git config core.hooksPath .githooks`. The hooks inspect staged/tracked Git blobs and reject protected private artifacts and selected credential patterns. Run `python scripts/check_publication.py --all` before publishing. Changes to encrypted storage require the full optional-dependency test environment described in SECURITY.md; skipped vault tests are not sufficient validation.
+
+## New-source development rule
+
+Every new source must use the [shared intake contract](docs/data_intake.md): configurable adapters, tests written before implementation, incremental source-level updates, retained original bytes, provenance through derived artifacts, explicit reuse/attribution and logged failures. Document limits when an upstream API cannot supply deltas; never silently turn a refresh into an untracked replacement or mix synthetic rows into a real dataset.

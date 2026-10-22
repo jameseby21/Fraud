@@ -13,6 +13,18 @@
       "path": "data/forensic/v2/payments.csv",
       "version": "2.0.0",
       "synthetic": true
+    },
+    {
+      "id": "baseball-real-v1",
+      "path": "data/library/raw/7b7b8974107be6181dcf1880d609034ef9f7556f9fb13aec021a52d37cd0c190.csv",
+      "version": "3",
+      "synthetic": false
+    },
+    {
+      "id": "baseball-v1",
+      "path": "data/baseball/v1/pitches.csv",
+      "version": "1.0.0",
+      "synthetic": true
     }
   ],
   "courses": [
@@ -115,6 +127,70 @@
           "title": "5. Check statement positions with public CFTC data",
           "chart": "bar",
           "minutes": 30
+        }
+      ]
+    },
+    {
+      "id": "baseball-fieldwork",
+      "title": "Baseball analytics: real pitch fieldwork",
+      "topic": "sports",
+      "dataset": "baseball-real-v1",
+      "lessons": [
+        {
+          "id": "real-brief",
+          "title": "1. Inspect real college pitch-tracking data",
+          "chart": "bar",
+          "minutes": 25
+        },
+        {
+          "id": "real-arsenal",
+          "title": "2. Explore an actual pitcher arsenal and speed profile",
+          "chart": "line",
+          "minutes": 25
+        },
+        {
+          "id": "real-contact",
+          "title": "3. Calculate real whiff rates and compare tracked contact",
+          "chart": "histogram",
+          "minutes": 25
+        }
+      ]
+    },
+    {
+      "id": "baseball-lab",
+      "title": "Ballpark estimates: synthetic practice",
+      "topic": "sports",
+      "dataset": "baseball-v1",
+      "lessons": [
+        {
+          "id": "pitch-brief",
+          "title": "1. Take the baseball analyst brief and inspect the file",
+          "chart": "bar",
+          "minutes": 25
+        },
+        {
+          "id": "pitch-mix",
+          "title": "2. Compare a pitcher arsenal with a PivotTable",
+          "chart": "movement",
+          "minutes": 25
+        },
+        {
+          "id": "inning-velocity",
+          "title": "3. Separate pitch mix from velocity by inning",
+          "chart": "line",
+          "minutes": 25
+        },
+        {
+          "id": "whiff-zones",
+          "title": "4. Map pitch locations and calculate whiffs per swing",
+          "chart": "scatter",
+          "minutes": 25
+        },
+        {
+          "id": "contact-report",
+          "title": "5. Compare hitter contact and write a scouting note",
+          "chart": "histogram",
+          "minutes": 25
         }
       ]
     }

@@ -1704,6 +1704,58 @@
       "reuse_url": "https://www.usaspending.gov/about",
       "title": "Small federal contract obligation values for exercise resampling (page 10)",
       "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/"
+    },
+    {
+      "adapter": "mendeley-file-list",
+      "case_id": null,
+      "coverage": "retained",
+      "csv_schema": {
+        "required_columns": [
+          "PitchNo",
+          "PitcherId",
+          "BatterId",
+          "TaggedPitchType",
+          "PitchCall",
+          "RelSpeed",
+          "PlateLocSide",
+          "PlateLocHeight",
+          "ExitSpeed"
+        ],
+        "row_count": 3344
+      },
+      "doi": "10.17632/xfnz6mkdzm.3",
+      "expected_sha256": "7b7b8974107be6181dcf1880d609034ef9f7556f9fb13aec021a52d37cd0c190",
+      "file_id": "0d5fcc5a-1429-4a46-ad9c-33160faca6eb",
+      "id": "baseball-college-trackman-v3",
+      "latest": {
+        "artifact": "data/library/raw/7b7b8974107be6181dcf1880d609034ef9f7556f9fb13aec021a52d37cd0c190.csv",
+        "bytes": 2209410,
+        "case_id": null,
+        "content_type": "text/csv",
+        "doi": "10.17632/xfnz6mkdzm.3",
+        "publication_date": "2024-09-16",
+        "record_type": "sports_records",
+        "recorded_at": "2026-10-22T04:40:52.823259+00:00",
+        "request": null,
+        "request_sha256": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed",
+        "requested_url": "https://data.mendeley.com/public-files/datasets/xfnz6mkdzm/files/0d5fcc5a-1429-4a46-ad9c-33160faca6eb/file_downloaded",
+        "retrieved_at": "2026-10-22T04:40:52.823259+00:00",
+        "reuse_basis": "Nathan David Pifer (2024), Optical Tracking Data from College Baseball Scrimmages, Mendeley Data V3, doi:10.17632/xfnz6mkdzm.3. CC BY 4.0. Original CSV retained unchanged; derived summaries identify transformations. No endorsement implied.",
+        "reuse_url": "https://creativecommons.org/licenses/by/4.0/",
+        "revision": 1,
+        "sha256": "7b7b8974107be6181dcf1880d609034ef9f7556f9fb13aec021a52d37cd0c190",
+        "source_id": "baseball-college-trackman-v3",
+        "source_version": 3,
+        "supersedes": null
+      },
+      "metadata_url": "https://data.mendeley.com/public-api/datasets/xfnz6mkdzm/files?folder_id=root&version=3",
+      "publication_date": "2024-09-16",
+      "record_type": "sports_records",
+      "reuse_basis": "Nathan David Pifer (2024), Optical Tracking Data from College Baseball Scrimmages, Mendeley Data V3, doi:10.17632/xfnz6mkdzm.3. CC BY 4.0. Original CSV retained unchanged; derived summaries identify transformations. No endorsement implied.",
+      "reuse_url": "https://creativecommons.org/licenses/by/4.0/",
+      "source_version": 3,
+      "title": "Pifer: Optical Tracking Data from College Baseball Scrimmages, V3",
+      "url": "https://data.mendeley.com/public-files/datasets/xfnz6mkdzm/files/0d5fcc5a-1429-4a46-ad9c-33160faca6eb/file_downloaded"
     }
   ]
 }

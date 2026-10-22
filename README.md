@@ -4,7 +4,7 @@ An open-source investigation workbench: transparent methods, traceable evidence,
 
 This README is the canonical project entry point. The [linked documentation tree and required update map](docs/DOCTREE.md) define which guides, lessons and records must change with each feature. Run `python documentation.py` to check local links and reachability. Test-first work proceeds from focused functions to integration and the complete suite before committing and pushing; checkpoint notes record actual results and limitations.
 
-Current local checkpoint verification: 147 tests pass with zero skips; all thirteen Python notebooks execute; game, course, library, and mobile browser flows pass; the documentation graph covers 96 Markdown pages. [Recorded results](docs/checkpoints/CP-016.md). The pushed CI workflow repeats Windows/Linux checks; Power BI Desktop, physical print fit, and interactive local Windows R remain manual acceptance checks. Mechanical link checks do not prove semantic correctness.
+Current local checkpoint verification: 164 tests pass with zero skips; all twenty-one Python notebooks execute; both baseball base-R scripts run locally; game, course, library, and mobile browser flows pass; the documentation graph covers 116 Markdown pages. [Recorded results](docs/checkpoints/CP-017.md). The pushed CI workflow repeats Windows/Linux checks and Linux R tracks. Power BI Desktop, interactive spreadsheet acceptance and physical print fit remain manual checks. Mechanical link checks do not prove semantic correctness.
 
 ## Public purpose and evidence standard
 
@@ -31,7 +31,7 @@ The dashboard offers a searchable alert queue, supporting transaction records, a
 
 ## Case library and public data
 
-The [incremental record library guide](docs/library/README.md) documents `/records`, automated intake, retained original bytes, request-aware supplemental revisions and offline integrity checks. Its current 44-source registry has 31 retained revisions, including two Peter Madoff legal PDFs, three added resolved-case records, 1,000 exact federal obligation values, and the CFTC reference. Unavailable sources remain explicit; this is not original ledger coverage for every case. Real values can seed fictional exercises without implying wrongdoing by the source organizations.
+The [incremental record library guide](docs/library/README.md) documents `/records`, automated intake, retained original bytes, request-aware supplemental revisions and offline integrity checks. Its current 45-source registry has 32 retained revisions, including two Peter Madoff legal PDFs, three added resolved-case records, 1,000 exact federal obligation values, the CFTC reference, and a licensed real college-baseball CSV. Unavailable sources remain explicit; this is not original ledger coverage for every case. Real values can seed fictional exercises without implying wrongdoing by the source organizations. Every new source follows the [modular intake contract](docs/data_intake.md), with test-first validation, incremental source updates, provenance and explicit reuse terms.
 
 - **26 resolved case records:** sourced criminal, civil, administrative, deferred-prosecution, mixed, and acquittal outcomes; a date-gated source view; and case-inspired mechanism exercises.
 - **Replay controls:** step, back, play/pause, revealed inputs, arithmetic, thresholds, alternatives, model version, and input hashes.
@@ -85,13 +85,27 @@ Source panels distinguish publication/update age from successful retrieval age. 
 
 ## Learn data analysis
 
-Run `python app.py` and open http://127.0.0.1:8765/learn for **three courses and thirteen Markdown lessons/Python notebooks**, with R and Power BI paths. The default **Forensic analyst practicum** uses [forensic-v2](data/forensic/v2/README.md): 12,000 payment-like records, 120 persistent fictional businesses/contacts, invoices and bank entries, mostly exact public values reassigned with explicit lineage. Two added lessons use [market-v1](data/market/v1/README.md): 8,000 fabricated confirmations, 4,000 fabricated statement positions, a complete synthetic tape, and 15 exact retained CFTC open-interest aggregates. The separate 6,000-row introductory fixture remains stable. Start with [courses/README.md](courses/README.md) for setup, visualization, debugging and feedback.
+Run `python app.py` and open http://127.0.0.1:8765/learn for **five courses and twenty-one Markdown lessons/Python notebooks**, with R and Power BI paths plus Excel/spreadsheet tracks for baseball. The default **Forensic analyst practicum** uses [forensic-v2](data/forensic/v2/README.md): 12,000 payment-like records, 120 persistent fictional businesses/contacts, invoices and bank entries, mostly exact public values reassigned with explicit lineage. Two lessons use [market-v1](data/market/v1/README.md): 8,000 fabricated confirmations, 4,000 fabricated statement positions, a complete synthetic tape, and 15 exact retained CFTC aggregates. The introductory 6,000-row fixture remains stable. Start with [courses/README.md](courses/README.md) for setup, visualization, debugging and feedback.
 
-The course marks reviewed terms with a dotted underline; selecting one opens its definition, context, and analytical implications. The same 34-term index is available in [the documentation glossary](docs/glossary.md). Every standard lesson section ends with a one-question check. Answers are evaluated locally by the app, and known mistakes can return a targeted correction from the versioned [common-error repository](data/learning/common_errors.json), including filtered-versus-overall averages and cents-versus-dollars errors. Quiz responses are not stored.
+The course marks reviewed terms with a dotted underline; selecting one opens its definition, context, and analytical implications. The same 40-term index is available in [the documentation glossary](docs/glossary.md), including baseball terms. Every standard lesson section ends with a one-question check. Answers are evaluated locally by the app, and known mistakes can return a targeted correction from the versioned [common-error repository](data/learning/common_errors.json), including filter, unit and percentage errors. Quiz responses are not stored.
 
 The [exercise-instance library](docs/fraud_instances/README.md) documents hidden round totals, distribution shifts, repeats, bank differences, polished statements that exceed market capacity, public open-interest checks, and benign controls. The [26 real resolved-case guides](docs/cases/README.md) and [legal-outcome schema](docs/case_outcomes.md) preserve forum, disposition, imprisonment, and carefully scoped remedies. The broken FBI Madoff URL was replaced with the accessible DOJ case landing page; append-only source history remains intact. Real case documents are not replaced with invented ledgers. Power BI has editable sources/instructions; Desktop acceptance remains manual.
 
 Verify/rebuild the cases with `python forensic_fixture.py verify` and `python market_fixture.py verify` (use `build` deliberately after reviewed generator changes). Generate reviewed course/case guides with `python scripts/build_courses.py` and `python scripts/build_case_guides.py`; full verification checks their output. Source refreshes require reviewed dataset/lesson version changes. Lessons, debugging/FAQ material and checkpoint records are required alongside tests.
+
+## Baseball analytics
+
+Choose **Baseball analytics: real pitch fieldwork** for three beginner lessons using [3,344 real measured college pitches](data/baseball/real-v1/README.md), retained unchanged under CC BY 4.0 with DOI/version, published checksum and full attribution. Use Excel PivotTables, player/type/date filters and simple charts to explore actual arsenals, pitch speeds, locations, whiffs and hitter contact. The [research review](docs/sports/research.md) links procedural examples; the [archive audit](docs/sports/archive-review.md) documents the supplied 2016 Ballpark Estimates project and the recovered R comparison logic.
+
+The separate **Ballpark estimates: synthetic practice** lab has five lessons and [3,600 synthetic pitches](data/baseball/v1/README.md) with known planted patterns and background controls. It never substitutes fabricated observations for the real course. Both courses have clean Python notebooks, runnable base-R scripts, spreadsheet guides, Power BI recipes, inline quizzes, glossary terms, and pitcher/hitter/type filters in the reference preview. Real measurements and synthetic practice use distinct dataset IDs, downloads and results files.
+
+```powershell
+python record_library.py fetch --source baseball-college-trackman-v3 --refresh
+python baseball_real.py verify
+python baseball.py verify
+Rscript courses/tracks/baseball-real.R
+Rscript courses/tracks/baseball.R
+```
 
 ## Case-file game
 

@@ -1,5 +1,7 @@
 """Public source registry, append-only supplemental revisions and exact-value pool."""
 import argparse
+import csv
+import io
 from datetime import datetime, timezone
 from decimal import Decimal, InvalidOperation
 import hashlib
@@ -9,6 +11,7 @@ import os
 from pathlib import Path
 import re
 import urllib.request
+import urllib.error
 from urllib.parse import urlsplit
 from urllib.parse import urlencode
 
@@ -16,8 +19,9 @@ from intake import validate_payload
 
 ROOT = Path(__file__).resolve().parent
 HOSTS = {'www.justice.gov', 'www.govinfo.gov', 'api.usaspending.gov', 'www.fbi.gov', 'archives.fbi.gov',
-         'www.ftc.gov', 'publicreporting.cftc.gov', 'files.consumerfinance.gov', 'www.sec.gov'}
-TYPES = {'official_case_report', 'government_pleading', 'court_transcript', 'financial_records', 'market_reference', 'hearing_transcript'}
+         'www.ftc.gov', 'publicreporting.cftc.gov', 'files.consumerfinance.gov', 'www.sec.gov', 'data.mendeley.com',
+         'prod-dcd-datasets-public-files-eu-west-1.s3.eu-west-1.amazonaws.com'}
+TYPES = {'official_case_report', 'government_pleading', 'court_transcript', 'financial_records', 'market_reference', 'hearing_transcript', 'sports_records'}
 
 
 def encode(value):
@@ -27,7 +31,7 @@ def encode(value):
 def check_url(url):
     p = urlsplit(url)
     if p.scheme != 'https' or p.hostname not in HOSTS or p.username or p.password or p.port not in (None,443):
-        raise ValueError('Source requires an allowlisted public HTTPS government host')
+        raise ValueError('Source requires an allowlisted public HTTPS host')
 
 
 def check_source(source):
@@ -36,6 +40,25 @@ def check_source(source):
     check_url(source['url'])
     if not source.get('reuse_basis') or not source.get('reuse_url') or source['record_type'] not in TYPES:
         raise ValueError('Source type and reviewed reuse basis required')
+    if source.get('metadata_url'): check_url(source['metadata_url'])
+    if source.get('adapter', 'direct') not in ('direct','mendeley-file-list'):
+        raise ValueError('Unknown source adapter')
+
+
+def validate_source_bytes(source, payload, content_type):
+    if source.get('expected_sha256') and hashlib.sha256(payload).hexdigest()!=source['expected_sha256']:
+        raise ValueError('Pinned source hash changed; review a new source version')
+    if content_type=='text/csv':
+        reader=csv.DictReader(io.StringIO(payload.decode('utf-8-sig')))
+        schema=source.get('csv_schema',{})
+        if not reader.fieldnames or not set(schema.get('required_columns',[])) <= set(reader.fieldnames):
+            raise ValueError('CSV schema mismatch')
+        rows=list(reader)
+        if not rows or any(None in row or any(value is None for value in row.values()) for row in rows):
+            raise ValueError('Empty or malformed CSV rows')
+        if schema.get('row_count') is not None and len(rows)!=schema['row_count']:
+            raise ValueError('CSV row count changed')
+    else: validate_payload(payload,content_type)
 
 
 def _lines(path):
@@ -51,9 +74,13 @@ def _append(path, record):
 
 def ingest(source, payload, content_type, root=ROOT):
     check_source(source)
-    suffix = {'text/html':'.html', 'application/pdf':'.pdf', 'application/json':'.json'}.get(content_type)
+    suffix = {'text/html':'.html', 'application/pdf':'.pdf', 'application/json':'.json','text/csv':'.csv'}.get(content_type)
     if not suffix or not payload or len(payload) > 20*1024*1024:
         raise ValueError('Unsupported or oversized artifact')
+    # Existing legacy ingests retain their historical validation contract;
+    # schema-aware sources validate even when imported from local retained bytes.
+    if content_type=='text/csv' or source.get('expected_sha256'):
+        validate_source_bytes(source,payload,content_type)
     base = root / 'data/library'
     base.mkdir(parents=True, exist_ok=True)
     lock = base / '.intake.lock'
@@ -84,6 +111,8 @@ def ingest(source, payload, content_type, root=ROOT):
                       requested_url=source['url'], publication_date=source.get('publication_date'),
                       request=source.get('request'), request_sha256=request_hash,
                       reuse_basis=source['reuse_basis'], reuse_url=source['reuse_url'],
+                      source_version=source.get('source_version'),doi=source.get('doi'),
+                      http_validators=source.get('_response_validators',{}),
                       retrieved_at=source.get('original_retrieved_at',datetime.now(timezone.utc).isoformat()),
                       recorded_at=datetime.now(timezone.utc).isoformat())
         _append(base / 'revisions.jsonl', record)
@@ -102,24 +131,77 @@ def fetch(source):
     check_source(source)
     payload = encode(source['request']) if source.get('request') else None
     request = urllib.request.Request(source['url'], data=payload,
-        headers={'User-Agent':'FraudLearningLibrary/1.0 (public educational records)', 'Content-Type':'application/json'})
+        headers={'User-Agent':'FraudLearningLibrary/1.0 (public educational records)', 'Content-Type':'application/json',**source.get('_conditional_headers',{})})
     with urllib.request.build_opener(Redirect()).open(request, timeout=35) as response:
         check_url(response.geturl())
         content = response.read(20*1024*1024+1)
         if len(content) > 20*1024*1024:
             raise ValueError('Response exceeds 20 MiB')
         kind = response.headers.get_content_type()
-        validate_payload(content, kind)
+        validate_source_bytes(source, content, kind)
+        source['_response_validators']={key:value for key,value in
+            [('etag',response.headers.get('ETag')),('last_modified',response.headers.get('Last-Modified'))] if value}
         return content, kind
+
+
+def fetch_metadata(source):
+    check_source(source)
+    request=urllib.request.Request(source['metadata_url'],headers={'User-Agent':'FraudLearningLibrary/1.0 (public educational records)','Accept':'application/json'})
+    with urllib.request.build_opener(Redirect()).open(request,timeout=35) as response:
+        check_url(response.geturl()); payload=response.read(2*1024*1024+1)
+        if len(payload)>2*1024*1024:raise ValueError('Metadata exceeds 2 MiB')
+        result=json.loads(payload)
+        if not isinstance(result,list):raise ValueError('Expected a public file list')
+        return result
 
 
 def refresh(source, root=ROOT):
     check_source(source)
+    source=dict(source)
+    source.pop('_response_validators',None)
     attempt = dict(source_id=source['id'], requested_url=source['url'], attempted_at=datetime.now(timezone.utc).isoformat())
+    latest=next((r for r in reversed(_lines(root/'data/library/revisions.jsonl')) if r['source_id']==source['id']),None)
+    def verify_cached():
+        if not latest:raise ValueError('No retained response for unchanged source')
+        path=(root/latest['artifact']).resolve()
+        if not path.is_relative_to((root/'data/library/raw').resolve()):raise ValueError('Unsafe artifact path')
+        payload=path.read_bytes()
+        if hashlib.sha256(payload).hexdigest()!=latest['sha256'] or len(payload)!=latest['bytes']:raise ValueError('Cached source corrupted')
+        if latest['content_type']=='text/csv' or source.get('expected_sha256'):validate_source_bytes(source,payload,latest['content_type'])
+        attempt.update(status='unchanged',sha256=latest['sha256'],revision=latest['revision'])
     try:
-        content, kind = fetch(source)
+        if source.get('adapter')=='mendeley-file-list':
+            metadata=fetch_metadata(source)
+            item=next((item for item in metadata if item.get('id')==source['file_id']),None)
+            if not item:raise ValueError('Registered source file missing from metadata')
+            remote_hash=item.get('content_details',{}).get('sha256_hash')
+            if not isinstance(remote_hash,str) or not re.fullmatch('[a-f0-9]{64}',remote_hash):raise ValueError('Invalid remote digest')
+            if source.get('expected_sha256') and remote_hash!=source['expected_sha256']:raise ValueError('Pinned metadata hash changed; review a new source version')
+            if latest and latest['sha256']==remote_hash and latest['requested_url']==source['url']:
+                verify_cached()
+                _append(root/'data/library/attempts.jsonl',attempt)
+                return True
+        if latest and not source.get('request') and latest['requested_url']==source['url']:
+            validators=latest.get('http_validators',{})
+            learned=next((item for item in reversed(_lines(root/'data/library/attempts.jsonl'))
+                if item.get('source_id')==source['id'] and item.get('requested_url')==source['url']
+                and item.get('status')=='downloaded' and item.get('sha256')==latest['sha256']
+                and item.get('http_validators')),None)
+            if learned:validators=learned['http_validators']
+            source['_conditional_headers']={header:validators[key] for key,header in
+                [('etag','If-None-Match'),('last_modified','If-Modified-Since')] if validators.get(key)}
+        try:
+            content, kind = fetch(source)
+        except urllib.error.HTTPError as error:
+            if error.code!=304 or not source.get('_conditional_headers'):raise
+            verify_cached()
+            _append(root/'data/library/attempts.jsonl',attempt)
+            return True
+        if source.get('adapter')=='mendeley-file-list' and hashlib.sha256(content).hexdigest()!=remote_hash:
+            raise ValueError('Download does not match remote metadata digest')
         record = ingest(source, content, kind, root)
         attempt.update(status='downloaded', sha256=record['sha256'], revision=record['revision'])
+        if source.get('_response_validators'):attempt['http_validators']=source['_response_validators']
         success = True
     except (OSError, ValueError) as error:
         attempt.update(status='unavailable', error=str(error)); success = False
@@ -207,6 +289,8 @@ def seed():
         copy['request']['page'] = page
         copy['title'] += f' (page {page})'
         sources.append(copy)
+    supplemental=ROOT/'data/library/supplemental_sources.json'
+    if supplemental.exists(): sources.extend(json.loads(supplemental.read_text(encoding='utf-8'))['sources'])
     path = ROOT/'data/library/sources.json'; path.parent.mkdir(parents=True,exist_ok=True)
     path.write_bytes(encode(dict(schema_version=1,sources=sources)))
 
@@ -306,7 +390,7 @@ def main():
         elif args.command=='fetch':
             retained={r['source_id'] for r in _lines(ROOT/'data/library/revisions.jsonl')}
             for s in sources:
-                if s['id'] in retained and not args.refresh: continue
+                if s['id'] in retained and not args.refresh and s.get('adapter','direct')=='direct': continue
                 ok=refresh(s); failures+=not ok
                 print(s['id']+(': retained' if ok else ': unavailable'))
         rebuild()

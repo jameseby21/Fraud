@@ -48,3 +48,5 @@ jobs:
         run: |
           Rscript courses/tracks/analysis.R
           Rscript courses/tracks/forensic.R
+          Rscript courses/tracks/baseball.R
+          Rscript courses/tracks/baseball-real.R

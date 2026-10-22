@@ -25,13 +25,14 @@ Keep durable state here and in the checkpoint note. At handoff, use a compact su
 | CP-013 | Market-capacity statement exercises and retained public corroboration | [Results](docs/checkpoints/CP-013.md) | Pushed and remote verified at 7de33ec |
 | CP-014 | Diverse resolved-case outcomes and scoped remedy metadata | [Results](docs/checkpoints/CP-014.md) | Pushed and remote verified at 54768cc |
 | CP-015 | Printable cooperative and competitive case-file game | [Results](docs/checkpoints/CP-015.md) | Pushed and remote verified at c124d61 |
-| CP-016 | Game review: scoring integrity and resilient round lifecycle | [Results](docs/checkpoints/CP-016.md) | 147 tests and browser regressions passed; delivery recorded by CP-016 commit |
+| CP-016 | Game review: scoring integrity and resilient round lifecycle | [Results](docs/checkpoints/CP-016.md) | Pushed and remote verified at 0b12035 |
+| CP-017 | Real baseball course, separate planted practice and reusable incremental intake | [Results](docs/checkpoints/CP-017.md) | 164 tests, browser and both R tracks passed; push pending |
 
 The repo had no commits when CP-001 began. Its first commit therefore includes the previously built foundation as well as the quality feature. The 24 existing tests predate this checkpoint; the new quality and API tests were written and observed failing before implementation.
 
-## Next checkpoint, after CP-015
+## Next checkpoint, after CP-017
 
-Use owner playtesting feedback to refine wording, pacing, print fit, scoring weights, and the transition from the basic game into Python, R, and Power BI. Power BI Desktop and local Windows R remain manual acceptance checks.
+Use owner feedback on the real-baseball spreadsheet walkthrough, filtered charts and original-project R adaptation. Power BI Desktop and interactive spreadsheet acceptance remain manual. New sources must follow the modular intake contract and record their actual incremental granularity.
 
 Find the local checkpoint commit with:
 

@@ -61,7 +61,7 @@ class LearningTests(unittest.TestCase):
                 doc = lesson_document(course['id'], lesson['id'])
                 for heading in ('## Question', '## Try it', '## Check your work', '## Debugging', '## Reflection'):
                     self.assertIn(heading, doc['markdown'])
-                self.assertEqual(set(doc['tracks']), {'python', 'r', 'powerbi'})
+                self.assertEqual(set(doc['tracks']), {'python', 'r', 'powerbi', 'excel'} if course['topic']=='sports' else {'python', 'r', 'powerbi'})
         self.assertEqual(len(ids), len(set(ids)))
 
     def test_routes_are_allowlisted(self):

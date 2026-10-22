@@ -1,6 +1,6 @@
 # Public data and provenance
 
-Only public government records, original curated factual metadata, and clearly marked synthetic exercises are included. No paid feeds, credentials, private account records, or confidential investigation material are required.
+Only public government records, explicitly licensed public research data, original curated factual metadata, and clearly marked synthetic exercises are included. No paid feeds, credentials, private account records, or confidential investigation material are required.
 
 | Artifact | Contents | Interpretation |
 | --- | --- | --- |
@@ -13,6 +13,9 @@ Only public government records, original curated factual metadata, and clearly m
 | `data/spending/awards.csv` | 50 actual public federal contract awards | Unlabeled, nonrepresentative sample; no fraud inference |
 | `data/spending/provenance.json` | API request, retrieval time, response hash, interpretation | Future responses may change as agencies revise data |
 | `data/build_manifest.json` | Catalog and derived-artifact hashes | Detects changes; does not establish source truth |
+| Real baseball raw CSV in `data/library/raw/` | 3,344 measured college pitches, retained unchanged | Pifer, Mendeley Data V3, DOI 10.17632/xfnz6mkdzm.3; CC BY 4.0; anonymous IDs and altered dates |
+| `data/baseball/real-v1/` | Manifest and observed descriptive summaries | Explicit transformations and original-source hash; no planted outcomes |
+| `data/baseball/v1/` | 3,600 fictional practice pitches and instructor key | Separate deterministic known-answer exercise; not MLB data |
 | `data/market/v1/public_reference.csv` | 15 exact CFTC TFF combined open-interest aggregates | Public market constraint; not customer-level trade confirmation |
 | `data/market/v1/*.csv` | 8,000 fabricated confirmations, 4,000 fabricated positions, controls and synthetic tape | Deterministic course evidence; only `public_reference.csv` contains real aggregate facts |
 
@@ -70,6 +73,8 @@ python record_library.py fetch --source cftc-tff-2022-09-13 --refresh
 Refreshes append history and create new raw artifacts. Current CSV/provenance files reference the latest successful spending response. Offline verification reconstructs the CSV from retained bytes and verifies hashes. Publication dates and legal findings require manual review; fetching a document does not silently change a label.
 
 ## Supplemental record library
+
+New sources follow the [reusable intake contract](docs/data_intake.md). The baseball file-list adapter reuses verified unchanged bytes using published checksums. Direct GET refreshes can use recorded ETag/Last-Modified validators; servers without change metadata still need a bounded download. The dataset-specific analysis layer is independent of network retrieval.
 
 See [the library guide](docs/library/README.md) for the reviewed registry, per-source reuse basis, request-aware append-only revisions, legal PDF supplements, exact obligation-value pool, source gaps and offline verification. `python record_library.py fetch` performs incremental public intake; `python record_library.py verify` checks retained and derived bytes. These financial values are federal award obligations, not payments or case-specific misconduct.
 

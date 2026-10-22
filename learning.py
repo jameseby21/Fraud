@@ -57,6 +57,12 @@ def load_quizzes():
                     item.update(prompt='Filter category to Travel. What is the mean transaction amount in USD, rounded to cents?',
                                 input_type='numeric', answer=2203.76, choices=[], tolerance=.01,
                                 suggestion='Check that category equals Travel, use a mean rather than a total or median, divide cents by 100 once, and round only the final result.')
+                if course['topic'] == 'sports':
+                    item['choices'] = [answer, 'The aggregate proves a causal improvement without context.', 'Ignore sample sizes, filters and units.']
+                if quiz_id == 'baseball-lab-whiff-zones-try-it':
+                    item.update(prompt='Warm-up: 12 misses in 24 swings. What is the whiff rate as a percentage?',
+                                input_type='numeric',answer=50,choices=[],tolerance=.01,unit='percent',
+                                suggestion='Divide misses by swings, then multiply by 100. A fraction of 0.5 is 50%, and pitches are not the swings denominator.')
                 quizzes.append(item)
                 by_lesson[lesson_key].append(quiz_id)
     return dict(schema_version=1, quizzes=quizzes, by_lesson=by_lesson)
@@ -120,8 +126,9 @@ def lesson_document(course_id, lesson_id):
                                 markdown=(ROOT / 'courses' / course_id / (lesson_id + '.md')).read_text(encoding='utf-8'),
                                 quizzes=quizzes,
                                 tracks={'python': f'courses/{course_id}/{lesson_id}.ipynb',
-                                        'r': 'courses/tracks/forensic.R' if course['dataset']=='forensic-v2' else 'courses/tracks/analysis.R',
-                                        'powerbi': 'courses/tracks/forensic-powerbi.md' if course['dataset']=='forensic-v2' else 'courses/tracks/powerbi.md'})
+                                        'r': 'courses/tracks/baseball-real.R' if course['dataset']=='baseball-real-v1' else 'courses/tracks/baseball.R' if course['dataset']=='baseball-v1' else 'courses/tracks/forensic.R' if course['dataset']=='forensic-v2' else 'courses/tracks/analysis.R',
+                                        'powerbi': 'courses/tracks/baseball-real-powerbi.md' if course['dataset']=='baseball-real-v1' else 'courses/tracks/baseball-powerbi.md' if course['dataset']=='baseball-v1' else 'courses/tracks/forensic-powerbi.md' if course['dataset']=='forensic-v2' else 'courses/tracks/powerbi.md',
+                                        **({'excel':'courses/tracks/baseball-real-excel.md' if course['dataset']=='baseball-real-v1' else 'courses/tracks/baseball-excel.md'} if course['topic']=='sports' else {})})
     raise KeyError('Unknown course or lesson')
 
 
@@ -203,6 +210,12 @@ def read_transactions(dataset='payments-v1'):
 
 
 def analyze(dataset='payments-v1'):
+    if dataset == 'baseball-real-v1':
+        import baseball_real
+        return baseball_real.summarize(baseball_real.read_rows())
+    if dataset == 'baseball-v1':
+        import baseball
+        return baseball.summarize(baseball.read_rows())
     rows = read_transactions(dataset)
     duplicates, supplier_days = defaultdict(list), defaultdict(list)
     monthly, categories, regions, heatmap = Counter(), Counter(), Counter(), Counter()
@@ -245,6 +258,12 @@ CHARTS = {
 
 
 def render_chart(name,dataset='payments-v1'):
+    if dataset == 'baseball-real-v1':
+        import baseball_real
+        return baseball_real.render_chart(name)
+    if dataset == 'baseball-v1':
+        import baseball
+        return baseball.render_chart(name)
     if name not in CHARTS:
         raise KeyError(name)
     title, description = CHARTS[name]

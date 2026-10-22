@@ -5,6 +5,8 @@ from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 # id, title, question, activity, check, debugging, reflection, chart
 COURSES = [
@@ -184,6 +186,16 @@ Copy courses/templates/feedback.md into ignored output/ and record lesson ID, tr
         courses.append(dict(id=course_id, title=title, topic=topic, dataset='forensic-v2' if course_id=='forensic-practicum' else 'payments-v1', lessons=entries))
     catalog = dict(schema_version=1, title='Data analysis studio', datasets=[dict(id='payments-v1', path='data/learning/transactions.csv', version='1.0.0', synthetic=True)], courses=courses)
     catalog['datasets'].append(dict(id='forensic-v2',path='data/forensic/v2/payments.csv',version='2.0.0',synthetic=True))
+    from scripts.baseball_course import artifacts as baseball_artifacts
+    baseball_files, baseball_course = baseball_artifacts()
+    outputs.update(baseball_files)
+    from scripts.baseball_real_course import artifacts as real_baseball_artifacts
+    real_files, real_course=real_baseball_artifacts()
+    outputs.update(real_files)
+    catalog['courses'].append(real_course)
+    catalog['courses'].append(baseball_course)
+    catalog['datasets'].append(dict(id='baseball-real-v1',path='data/library/raw/7b7b8974107be6181dcf1880d609034ef9f7556f9fb13aec021a52d37cd0c190.csv',version='3',synthetic=False))
+    catalog['datasets'].append(dict(id='baseball-v1',path='data/baseball/v1/pitches.csv',version='1.0.0',synthetic=True))
     catalog['default_course']='forensic-practicum'
     outputs['courses/catalog.json'] = (json.dumps(catalog, indent=2) + '\n').encode()
     return outputs
@@ -201,7 +213,7 @@ def main():
         else:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(content)
-    print('PASS: 3 courses, 13 Markdown lessons and 13 clean Python notebooks ' + ('verified.' if args.verify else 'built.'))
+    print('PASS: 5 courses, 21 Markdown lessons and 21 clean Python notebooks ' + ('verified.' if args.verify else 'built.'))
 
 
 if __name__ == '__main__':
